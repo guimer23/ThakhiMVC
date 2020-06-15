@@ -34,7 +34,8 @@
                             <ellipse class="svg-primary"
                                 transform="matrix(2.381651e-02 -0.9997 0.9997 2.381651e-02 -48.5107 798.282)" cx="384.5"
                                 cy="424" rx="24" ry="24" />
-                            <path          d="M463.8,132.2c-0.7-2.4-2.8-4-5.2-4.2L132.9,96.5c-2.8-0.3-6.2-2.1-7.5-4.7c-3.8-7.1-6.2-11.1-12.2-18.6
+                            <path
+                                d="M463.8,132.2c-0.7-2.4-2.8-4-5.2-4.2L132.9,96.5c-2.8-0.3-6.2-2.1-7.5-4.7c-3.8-7.1-6.2-11.1-12.2-18.6
                                       c-7.7-9.4-22.2-9.1-48.8-9.3c-9-0.1-16.3,5.2-16.3,14.1c0,8.7,6.9,14.1,15.6,14.1c8.7,0,21.3,0.5,26,1.9c4.7,1.4,8.5,9.1,9.9,15.8
                                       c0,0.1,0,0.2,0.1,0.3c0.2,1.2,2,10.2,2,10.3l40,211.6c2.4,14.5,7.3,26.5,14.5,35.7c8.4,10.8,19.5,16.2,32.9,16.2h236.6
                                       c7.6,0,14.1-5.8,14.4-13.4c0.4-8-6-14.6-14-14.6H189h-0.1c-2,0-4.9,0-8.3-2.8c-3.5-3-8.3-9.9-11.5-26l-4.3-23.7
@@ -85,9 +86,9 @@
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsEntrega/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsCalificar/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>
@@ -106,7 +107,7 @@
                                 href="#"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
-                                    class="mdi mdi-account-multiple"></i>Clientesasa</a></li>
+                                    class="mdi mdi-account-multiple"></i>Clientes</a></li>
                         <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
@@ -145,71 +146,46 @@
             <!-- ========================================================================================== -->
 
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title mt-0">Empleados</h4>
+           
+<h2 class="page-header">Clientes</h2>
 
-                            <h2 class="page-header">
-                                <a href="?c=home&a=crud" class="pull-right btn btn-primary">
-                                    Nuevo empleado
-                                </a>
-                                Empleados
-                            </h2>
+<form method="post" action="?c=cliente&a=guardar"> 
 
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th style="width:100px;">Nacimiento</th>
-                                        <th style="width:100px;">Profesión</th>
-                                        <th style="width:140px;">Sueldo inicial</th>
-                                        <th style="width:140px;">Sueldo final</th>
-                                        <th style="width:100px;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
+<div class="form-group">
+    <label>Dni</label>
+    <input type="text" class="form-control" name="CLIdni" require="" value="<?php echo $nuevo ? '' : $model->CLIdni; ?>" />
+</div>
 
-                                    <tr>
-                                        <td>
-                                            <a href="?c=home&a=crud&id=<?php echo $m->id; ?>">
-                                                <?php echo $m->nombre; ?> <?php echo $m->apellido; ?>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $m->fecha_nacimiento; ?></td>
-                                        <td><?php echo $m->profesion; ?></td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_inicial, 2); ?>
-                                        </td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_final, 2); ?>
-                                        </td>
-                                        <td>
-                                            <a href="?c=home&a=eliminar&id=<?php echo $m->id; ?>"
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Eliminar
-                                            </a>
-                                        </td>
-                                    </tr>
+<div class="form-group">
+    
+    <label>Nombre</label>
+    <input type="text" name="CLInombre" class="form-control" require=""  value="<?php echo $nuevo ? '' : $model->CLInombre; ?>" />
+</div>
 
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
+<div class="form-group">
+    <label>Apellido</label>
+    <input type="text" name="CLIapellido" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIapellido; ?>" />
+</div>
 
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
+<div class="form-group">
+    <label>Celular</label>
+    <input type="text" name="CLIcelular" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>" />
+</div>
 
-                </div>
-                <!--end col-->
+<div class="form-group">
+    <label>Email</label>
+    <input type="text" name="CLIcelular" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>" />
+</div>
 
+<div class="form-group">
+    <label>Profesion</label>
+   
+</div>
 
-            </div>
-            <!--end row-->
-
+<button type="submit" class="btn btn-primary">
+    Guardar
+</button>
+</form>
 
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
@@ -224,3 +200,7 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
+
+
+
+

@@ -19,7 +19,7 @@ class Profesion {
 
             $result = $stm->fetchAll();
         } catch(Exception $e) {
-
+            
         }
 
         return $result;

@@ -34,7 +34,8 @@
                             <ellipse class="svg-primary"
                                 transform="matrix(2.381651e-02 -0.9997 0.9997 2.381651e-02 -48.5107 798.282)" cx="384.5"
                                 cy="424" rx="24" ry="24" />
-                            <path          d="M463.8,132.2c-0.7-2.4-2.8-4-5.2-4.2L132.9,96.5c-2.8-0.3-6.2-2.1-7.5-4.7c-3.8-7.1-6.2-11.1-12.2-18.6
+                            <path
+                                d="M463.8,132.2c-0.7-2.4-2.8-4-5.2-4.2L132.9,96.5c-2.8-0.3-6.2-2.1-7.5-4.7c-3.8-7.1-6.2-11.1-12.2-18.6
                                       c-7.7-9.4-22.2-9.1-48.8-9.3c-9-0.1-16.3,5.2-16.3,14.1c0,8.7,6.9,14.1,15.6,14.1c8.7,0,21.3,0.5,26,1.9c4.7,1.4,8.5,9.1,9.9,15.8
                                       c0,0.1,0,0.2,0.1,0.3c0.2,1.2,2,10.2,2,10.3l40,211.6c2.4,14.5,7.3,26.5,14.5,35.7c8.4,10.8,19.5,16.2,32.9,16.2h236.6
                                       c7.6,0,14.1-5.8,14.4-13.4c0.4-8-6-14.6-14-14.6H189h-0.1c-2,0-4.9,0-8.3-2.8c-3.5-3-8.3-9.9-11.5-26l-4.3-23.7
@@ -85,9 +86,9 @@
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsEntrega/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsCalificar/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>
@@ -98,16 +99,16 @@
                         <h6 class="menu-title">Mantenimiento</h6>
                     </div>
                     <ul class="nav in mm-show">
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculo"><i
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
                                 href="#"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
-                                    class="mdi mdi-account-multiple"></i>Clientesasa</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                                    class="mdi mdi-account-multiple"></i>Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -145,71 +146,92 @@
             <!-- ========================================================================================== -->
 
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title mt-0">Empleados</h4>
+           
+   <!-- end page title end breadcrumb -->
+   <div class="row">
+   <div class="col-md-12 col-lg-12">
+                            <div class="card">
+                                <form   method="post" action="?c=usuario&a=guardar"  id="frmregistrousuario" enctype="multipart/form-data" class="form-parsley" novalidate>
+                                  <div class="row">
+                                      <div class="col-md-12 col-lg-9">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Datos del Usuarios</h4>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-4">
+                                                   
+                                                      <div class="form-group">
+                                                          <label>Nombres </label>
+                                                          <input type="text" id="code" name="code"   class="form-control"  hidden="" />
+                                                          <input type="text" id="USUnombre" name="USUnombre" value="<?php echo $nuevo ? '' : $model->USUnombre; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required />
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Apellidos</label>
+                                                          <input type="text" id="USUapellidos" name="USUapellidos" value="<?php echo $nuevo ? '' : $model->USUapellidos; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required >
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row clearfix">
+                                                  <div class="col-md-8">
+                                                      <div class="form-group">
+                                                          <label>Email <span class="text-danger"></span></label>
+                                                          <input type="email" id="USUemail" name="USUemail" value="<?php echo $nuevo ? '' : $model->USUemail; ?>" class="form-control" required >
+                                                      </div>
+                                                  </div>
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                          <label>Nombre Usuario <span class="text-danger"></span></label>
+                                                          <input type="text" id="USUusuario" name="USUusuario" value="<?php echo $nuevo ? '' : $model->USUusuario; ?>" class="form-control" required pattern = "[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}">
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="row clearfix">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label>Password</label>
+                                                            <input type="password"  id="USUpassword" name="USUpassword"  value="<?php echo $nuevo ? '' : $model->USUpassword; ?>" class="form-control" required >
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label>Estado</label>
+                                                        <div class="form-group">
+                                                            <select   id="USUestado" name="USUestado"  class="form-control" Required>
+                                                                <option value="">- Seleccionar -</option>
+                                                                <option value="Activo">Activo</option>
+                                                                <option value="Inactivo">Inactivo</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                            <h2 class="page-header">
-                                <a href="?c=home&a=crud" class="pull-right btn btn-primary">
-                                    Nuevo empleado
-                                </a>
-                                Empleados
-                            </h2>
-
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th style="width:100px;">Nacimiento</th>
-                                        <th style="width:100px;">Profesión</th>
-                                        <th style="width:140px;">Sueldo inicial</th>
-                                        <th style="width:140px;">Sueldo final</th>
-                                        <th style="width:100px;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
-
-                                    <tr>
-                                        <td>
-                                            <a href="?c=home&a=crud&id=<?php echo $m->id; ?>">
-                                                <?php echo $m->nombre; ?> <?php echo $m->apellido; ?>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $m->fecha_nacimiento; ?></td>
-                                        <td><?php echo $m->profesion; ?></td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_inicial, 2); ?>
-                                        </td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_final, 2); ?>
-                                        </td>
-                                        <td>
-                                            <a href="?c=home&a=eliminar&id=<?php echo $m->id; ?>"
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Eliminar
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
-
-                </div>
-                <!--end col-->
-
-
-            </div>
-            <!--end row-->
-
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-3">
+                                          <div class="card-body">
+                                            <h4 class="mt-0 header-title">Subir Foto</h4>
+                                            <p class="text-muted mb-3">Arrastra una imagen</p>
+                                            <input type="file" id="imagen" name="imagen" class="dropify" />
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                      <div class="col-md-12 col-lg-12">
+                                          <div class="card-body">
+                                            <div class="row clearfix text-right  ">
+                                              <div class="form-group mb-0">
+                                                  <button type="submit" id="registrousuario" name="registrousuario" class="btn btn-primary waves-effect waves-light">
+                                                      Guardar
+                                                  </button>
+                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                      Cancelar
+                                                  </button>
+                                              </div><!--end form-group-->
+                                            </div>
+                                          </div><!--end card-body-->
+                                      </div><!--end col-->
+                                  </div><!--end row-->
+                                </form><!--end form-->
+                            </div><!--end row-->
+                        </div><!-- container -->
 
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
@@ -224,3 +246,7 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
+
+
+
+

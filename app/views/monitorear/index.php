@@ -83,7 +83,7 @@
                         <h6 class="menu-title">Entregas</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
+                        <li class="nav-item"><a class="nav-link" href="Views/admClsMonitorear/admFrmListar.php"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="Views/admClsEntrega/admFrmListar.php"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
@@ -145,50 +145,43 @@
             <!-- ========================================================================================== -->
 
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="header-title mt-0">Empleados</h4>
-
-                            <h2 class="page-header">
-                                <a href="?c=home&a=crud" class="pull-right btn btn-primary">
-                                    Nuevo empleado
-                                </a>
-                                Empleados
-                            </h2>
-
-                            <table class="table table-striped">
+            <div id="mapa" class="gmaps" ></div>
+            <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Nombre</th>
-                                        <th style="width:100px;">Nacimiento</th>
-                                        <th style="width:100px;">Profesión</th>
-                                        <th style="width:140px;">Sueldo inicial</th>
-                                        <th style="width:140px;">Sueldo final</th>
-                                        <th style="width:100px;"></th>
+                                    <th scope='col'>DNI</th>
+                                <th scope='col'>Nombres y Apellidos</th>
+                                <th scope='col'>Celular</th>
+                                <th scope='col'>Placa Vehículo</th>
+                                <th scope='col'>Cliente</th>
+                                <th class='text-center' scope='col'>Estado</th> 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(count($model) > 0): ?>
+                                    <?php foreach($movimientos as $movi): ?>
+                                    <?php endforeach; ?>
+                                <?php if(count($model) > 0): ?>
                                     <?php foreach($model as $m): ?>
 
                                     <tr>
-                                        <td>
-                                            <a href="?c=home&a=crud&id=<?php echo $m->id; ?>">
-                                                <?php echo $m->nombre; ?> <?php echo $m->apellido; ?>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $m->fecha_nacimiento; ?></td>
-                                        <td><?php echo $m->profesion; ?></td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_inicial, 2); ?>
-                                        </td>
-                                        <td class="text-right">USD <?php echo number_format($m->sueldo_final, 2); ?>
+                                        <td>                                           
+                                           <?php echo $m->CONdni; ?> 
+                                           
                                         </td>
                                         <td>
-                                            <a href="?c=home&a=eliminar&id=<?php echo $m->id; ?>"
+                                        <?php echo $m->CONnombre; ?><?php echo $m->CONapellido; ?>
+                                        </td>   
+                                        <td>
+                                        <?php echo $m->CONcelular; ?>
+                                        </td>
+                                        <td>
+                                        <?php echo $m->VEHplaca; ?>
+                                        </td>
+                                                                           
+                                        <td>
+                                            <a href="#"
                                                 class="btn btn-xs btn-danger btn-block">
-                                                Eliminar
+                                                Editar
                                             </a>
                                         </td>
                                     </tr>
@@ -198,19 +191,8 @@
                                 </tbody>
                             </table>
 
-                        </div>
-                        <!--end card-body-->
-                    </div>
-                    <!--end card-->
 
-                </div>
-                <!--end col-->
-
-
-            </div>
             <!--end row-->
-
-
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
@@ -224,3 +206,118 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap" ></script>
+
+    
+<!-- Gmaps file -->
+<script src="../public/plugins/gmaps/gmaps.min.js"></script>
+<!-- demo codes -->
+<script src="../public/pages/jquery.gmaps.init.js"></script>
+
+
+<script type="text/javascript">
+        function initMap() {
+
+          /*
+          var map;
+          var bounds = new google.maps.LatLngBounds();
+          var mapOptions = {
+              mapTypeId: 'roadmap'
+          };
+        var latitud 
+          map = new google.maps.Map(document.getElementById('mapa'), {
+              mapOptions
+          });
+
+          map.setTilt(50);
+     
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              this.setZoom(14);
+              google.maps.event.removeListener(boundsListener);
+          });
+              $.ajax({
+                
+                url: '?c=Monitorear&a=monitorea',            
+                type: "post",
+                cache: false,
+                success: function (retorno) {
+    
+    
+                var markers = new Array();
+    
+                $.each(retorno.DireccionesRelacionadasConLaSede, function (index, itm) {
+                            var _markers = [itm.VEClatitud, itm.VEClongitud];
+                            markers.push(_markers);
+                            console.log(_markers);
+                });
+                });
+                  $.ajax({
+
+                        url: '?c=Monitorear&a=monitorea',            
+                        type: "get",
+                        cache: false,
+                        success:function(retorno){
+                            var markers = new Array();
+                            console.log(retorno);
+
+                        }
+            })
+
+          */
+         
+          var map;
+          var bounds = new google.maps.LatLngBounds();
+          var mapOptions = {
+              mapTypeId: 'roadmap'
+          };
+      
+          map = new google.maps.Map(document.getElementById('mapa'), {
+              mapOptions
+          });
+         
+  
+          var posiciones =' <?php echo $movi->VEClatitud .','.$movi->VEClongitud; ?>';
+  
+         var ar=posiciones.split(",");
+      //  var array[]=
+            console.log(ar);
+            //console.log(longi);
+            var mostrarMarcadores = new google.maps.InfoWindow(),
+              ar, i;
+
+              for (i = 0; i < ar.length; i++) {
+              var position = new google.maps.LatLng(ar[0], ar[1]);
+              //console.log("Posicnes"+position);
+              bounds.extend(position);
+              marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  title: ar[i][0]
+              });
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+        
+           
+                  }
+              })
+              (marker, i));
+              // Centramos el Mapa de Google para que todos los marcadores se puedan ver
+            map.fitBounds(bounds);
+             }
+
+
+        // var posicion = {lat: parseFloat(lati)  , lng:parseFloat(longi) };  
+         //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
+         // var marker = new google.maps.Marker({position: posicion, map: map});
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              this.setZoom(14);
+              google.maps.event.removeListener(boundsListener);
+          });
+
+      }
+      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
+      google.maps.event.addDomListener(window, 'load', initMap);
+    //  setTimeout(initMap,10000);
+
+    </script>
+

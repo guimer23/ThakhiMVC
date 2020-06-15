@@ -17,15 +17,24 @@ require_once 'vendor/autoload.php';
 define('_VIEW_PATH_', 'app/views/');
 
 // Router
-$c = sprintf(
-    'App\Controllers\%sController',
-    $_GET['c'] ?? 'Home'
-);
 
+// <a href="?c=home&a=crud" class="pull-right btn btn-primary">
+$c = sprintf( 'App\Controllers\%sController', $_GET['c'] ?? 'Login' );
 $a = $_GET['a'] ?? 'index';
 
+//http://localhost/THAKHIMVC/?c=home&a=crud
+//$e = sprintf( 'App\Controllers\%sController', $_GET['e'] ?? 'Cliente' );
+//$e = $_GET['e'] ?? 'App\Controllers\Cliente\agregar';
+//$e = $_GET['e'] ?? 'clientes/agregar';
+
+//<a href="?c=home&a=crud" class="pull-right btn btn-primary">
+//http://localhost/THAKHIMVC/?c=home&a=crud
 $c = trim(ucfirst($c));
 $a = trim(strtolower($a));
 
+
+//$router->controller('/Cliente', 'App\\Controllers\\UsuarioController');
+
 $controller = new $c;
 $controller->$a();
+

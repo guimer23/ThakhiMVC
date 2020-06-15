@@ -9,7 +9,7 @@ class Database {
     public static function getConnection(){
         if(empty(self::$db)) {
             $pdo = new PDO(
-                'mysql:host=localhost;dbname=curso_php7;charset=utf8',
+                'mysql:host=localhost;dbname=administracionthakhi;charset=utf8',
                 'root',
                 ''
             );
