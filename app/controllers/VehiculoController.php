@@ -39,12 +39,16 @@ class   VehiculoController{
 
         move_uploaded_file($rutaAlmacenamiento, $rutaFinal);
         $model = new \App\Models\Vehiculo;
+
+        $model->VEHid = $_POST['VEHid'];
         $model->VEHplaca = $_POST['VEHplaca'];
         $model->VEHmarca = $_POST['VEHmarca'];
         $model->VEHmodelo = $_POST['VEHmodelo'];
         $model->VEHcolor = $_POST['VEHcolor'];
-        $model->VEHanio_fabricacion = $_POST['VEHanio_fabricacion'];
+        $model->VEHanio_fabricacion = $_POST['VEHanio_fabricacion'];       
+        $model->VEHsoat = $_POST['VEHsoat'];
         $model->VEHestado = $_POST['VEHestado']; 
+
         $model->ruta_foto = $rutaFinal;          
 
         $result = $this->vehiculo->guardar($model);

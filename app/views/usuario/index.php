@@ -192,7 +192,7 @@
                                         <?php echo $m->USUestado; ?>
                                         </td>                           
                                         <td>
-                                            <a href="#"
+                                            <a  href="?c=usuario&a=agregar&id=<?php echo $m->USUid; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>

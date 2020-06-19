@@ -161,7 +161,7 @@
                                                    
                                                       <div class="form-group">
                                                           <label>Nombres </label>
-                                                          <input type="text" id="code" name="code"   class="form-control"  hidden="" />
+                                                          <input type="text" id="USUid" name="USUid"   class="form-control"  hidden=""  value="<?php echo $nuevo ? '' : $model->USUid; ?>" />
                                                           <input type="text" id="USUnombre" name="USUnombre" value="<?php echo $nuevo ? '' : $model->USUnombre; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required />
                                                       </div>
                                                   </div>

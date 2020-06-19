@@ -57,6 +57,70 @@ class   Usuario{
 
         try {
 
+            if(empty($model->USUid)){
+
+
+      
+
+                $sql = '
+                insert into admusutusuario(             
+                    USUnombre,
+                    USUapellidos,
+                    USUemail,                 
+                    USUusuario,
+                    USUpassword,
+                    USUestado,
+                    ruta_foto
+                ) values (?,?, ?, ?, ?,?,?)';
+    
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([
+                $model->USUnombre,
+                $model->USUapellidos,
+                $model->USUemail,
+                $model->USUusuario,
+                $model->USUpassword,
+                $model->USUestado,
+                $model->ruta_foto
+            ]);  
+//VEHsoat
+            } else {
+                $sql = '
+                    update admusutusuario
+                    set 
+                    USUnombre = ?,
+                    USUapellidos = ?,
+                    USUemail = ?,
+                    USUusuario = ?,
+                    USUpassword = ?,
+                    USUestado = ?
+                    where USUid = ?
+                ';
+
+                $stm = $this->pdo->prepare($sql);
+                $stm->execute([
+                    $model->USUnombre,
+                    $model->USUapellidos,
+                    $model->USUemail,
+                    $model->USUusuario,
+                    $model->USUpassword,
+                    $model->USUestado,                  
+                    $model->USUid
+                ]);
+            }
+
+            $result = true;
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+        return $result;
+    }
+    public function guardar2(Usuario $model) : bool{
+        $result = false;
+
+        try {
+
             $sql = '
             insert into admusutusuario(             
                 USUnombre,

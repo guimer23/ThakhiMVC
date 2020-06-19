@@ -143,7 +143,7 @@
 
             <!-- ========================================================================================== -->
             <!-- INICIA SECCION CONTENIDO -->
-            <!-- ========================================================================================== -->
+            <!-- ==========================================================================================  VEHplaca -->
 
             <div class="row">
                         <div class="col-md-12 col-lg-12">
@@ -158,20 +158,20 @@
                                                   <div class="col-md-3">
                                                       <div class="form-group">
                                                           <label>Placa </label>
-                                                          <input type="text" name="es" id="es" hidden=""  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"  >
-                                                          <input type="text" id="VEHplaca" name="VEHplaca" class="form-control" required >
+                                                          <input type="text" name="VEHid" id="VEHid" hidden=""   value="<?php echo $nuevo ? '' : $model->VEHid; ?>"  >
+                                                          <input type="text" id="VEHplaca" name="VEHplaca" class="form-control" value="<?php echo $nuevo ? '' : $model->VEHplaca; ?>"required  >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Marca</label>
-                                                          <input type="text" id="VEHmarca" name="VEHmarca" class="form-control" required  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>" >
+                                                          <input type="text" id="VEHmarca" name="VEHmarca" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHmarca; ?>" >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-5">
                                                       <div class="form-group">
                                                           <label>Modelo</label>
-                                                          <input type="text" id="VEHmodelo" name="VEHmodelo" class="form-control" required  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>">
+                                                          <input type="text" id="VEHmodelo" name="VEHmodelo" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHmodelo; ?>">
                                                       </div>
                                                   </div>
                                               </div>
@@ -179,13 +179,13 @@
                                                   <div class="col-md-5">
                                                       <div class="form-group">
                                                           <label>Color </label>
-                                                          <input type="text" id="VEHcolor" name="VEHcolor" class="form-control" required value="<?php echo $nuevo ? '' : $model->CLIdni; ?>">
+                                                          <input type="text" id="VEHcolor" name="VEHcolor" class="form-control" required value="<?php echo $nuevo ? '' : $model->VEHcolor; ?>">
                                                       </div>
                                                   </div>
                                                   <div class="col-md-7">
                                                       <div class="form-group">
                                                           <label>Año Fabricación</label>
-                                                          <input type="date" id="VEHanio_fabricacion" name="VEHanio_fabricacion" class="form-control" required  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>">
+                                                          <input type="date" id="VEHanio_fabricacion" name="VEHanio_fabricacion" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHanio_fabricacion; ?>">
                                                       </div>
                                                   </div>
 
@@ -194,16 +194,17 @@
                                                 <div class="col-md-7">
                                                     <div class="form-group">
                                                         <label>Vigencia SOAT</label>
-                                                          <input type="date" id="soat" name="soat" class="form-control" required >
+                                                          <input type="date" id="VEHsoat" name="VEHsoat" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHsoat; ?>" >
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <label>Estado</label>
                                                     <div class="form-group">
-                                                        <select id="VEHestado" name="VEHestado" class="form-control" Required>
+                                                        <select id="VEHestado" name="VEHestado" class="form-control" Required  > 
                                                             <option value="">- Seleccionar -</option>
                                                             <option value="Activo">Activo</option>
                                                             <option value="Inactivo">Inactivo</option>
+                                                            
                                                         </select>
                                                     </div>
                                                 </div>
