@@ -159,22 +159,22 @@
                                               <div class="row clearfix">
                                                   <div class="col-md-3">
                                                       <div class="form-group">
-
                                                        
                                                           <label>DNI </label>
+                                                          <input type="text" id="VCONdni"  name="VCONdni" hidden="" value="<?php echo $nuevo ? '' : $model->CONdni; ?>" />
                                                           <input type="text" id="CONdni"  name="CONdni" value="<?php echo $nuevo ? '' : $model->CONdni; ?>" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombres</label>
-                                                          <input type="text" class="form-control input-sm" name="CONnombre" id="CONnombre" onkeypress="return soloLetras(event)" onpaste="return false" required  value="<?php echo $nuevo ? '' : $model->CONnombre; ?>">
+                                                          <input type="text" class="form-control input-sm" name="CONnombre" id="CONnombre"  value="<?php echo $nuevo ? '' : $model->CONnombre; ?>" onkeypress="return soloLetras(event)" onpaste="return false" required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-5">
                                                       <div class="form-group">
                                                           <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" id="CONapellido" name="CONapellido"class="form-control input-sm" onkeypress="return soloLetras(event)" onpaste="return false" required value="<?php echo $nuevo ? '' : $model->CONapellido; ?>">
+                                                          <input type="text" id="CONapellido" name="CONapellido" value="<?php echo $nuevo ? '' : $model->CONapellido; ?>" class="form-control input-sm" onkeypress="return soloLetras(event)" onpaste="return false" required >
                                                       </div>
                                                   </div>
                                               </div>
@@ -209,7 +209,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Clave </label>
-                                                          <input type="password" id="CONclave" name="CONclave" class="form-control input-sm" value="<?php echo $nuevo ? '' : $model->CONclave; ?>"  >
+                                                          <input type="password" id="CONclave" name="CONclave" class="form-control input-sm"   >
                                                       </div>
                                                   </div>
                                                 </div>                                                

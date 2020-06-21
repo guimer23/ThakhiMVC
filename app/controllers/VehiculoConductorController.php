@@ -26,11 +26,11 @@ class   VehiculoConductorController{
       $conductores=$this->conductor->listar();
      //   $model2 = new \App\Models\Vehiculo;
         $vehiculos = $this->vehiculo->listar();
-      //  if(!empty($_GET['id'])) {
-        //    $model = $this->vehiculo->obtener($_GET['id']);
-       // }
+        if(!empty($_GET['id'])) {
+            $model = $this->vehiculo_conductor->obtener($_GET['id']);
+        }
 
-      //  $nuevo = empty($model->VEHid);
+        $nuevo = empty($model->VECid);
 
        require_once _VIEW_PATH_ . 'header.php';
         require_once _VIEW_PATH_ .'vehiculo_conductor/agregar.php';
@@ -51,6 +51,7 @@ class   VehiculoConductorController{
         }  
   
         $model = new \App\Models\VehiculoConductor;
+        $model->VECid=$_POST['VECid'];
         $model->CONdni  = $_POST['CONdni'];
         $model->VEHid  = $_POST['VEHid'];
         $model->VECestado = $var;      

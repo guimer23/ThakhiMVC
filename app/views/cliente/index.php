@@ -186,7 +186,7 @@
                                         </td>
                                                                            
                                         <td>
-                                            <a href="#"
+                                            <a href="?c=cliente&a=agregar&id=<?php echo $m->CLIdni; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>

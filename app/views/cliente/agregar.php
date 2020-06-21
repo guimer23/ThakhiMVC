@@ -153,6 +153,7 @@
 
 <div class="form-group">
     <label>Dni</label>
+    <input type="text" name="VCLIdni" id="VCLIdni"   value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"  >
     <input type="text" class="form-control" name="CLIdni" require="" value="<?php echo $nuevo ? '' : $model->CLIdni; ?>" />
 </div>
 
@@ -174,7 +175,7 @@
 
 <div class="form-group">
     <label>Email</label>
-    <input type="text" name="CLIcelular" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>" />
+    <input type="text" name="CLIemail" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIemail; ?>" />
 </div>
 
 <div class="form-group">

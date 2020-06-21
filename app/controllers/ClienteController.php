@@ -33,12 +33,14 @@ class   ClienteController{
         require_once _VIEW_PATH_ . 'footer.php';
     }
     public function guardar() {
+        
         $model = new \App\Models\Cliente;
+        $model->VCLIdni=$_POST['VCLIdni'];
         $model->CLIdni = $_POST['CLIdni'];
         $model->CLInombre = $_POST['CLInombre'];
         $model->CLIapellido = $_POST['CLIapellido'];
         $model->CLIcelular = $_POST['CLIcelular'];
-        
+        $model->CLIemail = $_POST['CLIemail'];        
 
         $result = $this->cliente->guardar($model);
 

@@ -191,7 +191,7 @@
                                         <?php echo $m->CONemail; ?>
                                         </td>                          
                                         <td>
-                                            <a href="#"
+                                            <a href="?c=conductor&a=agregar&id=<?php echo $m->CONdni; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>

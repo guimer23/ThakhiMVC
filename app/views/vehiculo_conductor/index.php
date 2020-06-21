@@ -198,7 +198,7 @@
                                         </td>
                                       
                                         <td>
-                                            <a href="#"
+                                            <a  href="?c=vehiculoconductor&a=agregar&id=<?php echo $m->VECid; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>

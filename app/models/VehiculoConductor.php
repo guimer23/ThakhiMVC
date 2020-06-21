@@ -30,8 +30,49 @@ class VehiculoConductor {
 
         return $result;
     }
+//        $model->VECid=$_POST['VECid'];
+public function guardar(VehiculoConductor $model) : bool{
+    $result = false;
 
-    public function guardar(VehiculoConductor $model) : bool{
+    try {
+
+        if(empty($model->VECid)){
+            $sql = '
+            INSERT INTO admvectvehiculo_conductor (condni,VEHid,VECestado) values (?, ?, ?)';
+
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([
+                $model->CONdni,
+                $model->VEHid ,
+                $model->VECestado  ]);   
+//VEHsoat
+        } else {
+            $sql = '
+                update admvectvehiculo_conductor
+                set 
+                condni = ?,
+                VEHid = ?,
+                VECestado = ?
+                where VECid = ?
+            ';
+
+            $stm = $this->pdo->prepare($sql);
+            $stm->execute([
+                $model->CONdni,
+                $model->VEHid,
+                $model->VECestado,
+                $model->VECid
+            ]);
+        }
+
+        $result = true;
+    } catch(Exception $e) {
+        throw new Exception($e->getMessage());
+    }
+
+    return $result;
+}
+    public function guardar2(VehiculoConductor $model) : bool{
         $result = false;
 
         try {            
@@ -58,16 +99,23 @@ class VehiculoConductor {
         $result = new VehiculoConductor;
 
         try {
-            $stm = $this->pdo->prepare('select * from empleado where id = ?');
+            $stm = $this->pdo->prepare('select * from admvectvehiculo_conductor where VECid = ?');
             $stm->execute([$id]);
 
             $fetch = $stm->fetch();
 
-            $result->id = $fetch->id;
-            $result->nombre = $fetch->nombre;
-            $result->apellido = $fetch->apellido;
-            $result->fecha_nacimiento = $fetch->fecha_nacimiento;
-            $result->profesion_id = $fetch->profesion_id;
+            $result->VECid = $fetch->VECid;
+            $result->CONdni = $fetch->CONdni;
+            $result->VEHid = $fetch->VEHid;
+            $result->VECestado = $fetch->VECestado;
+            
+
+
+        //    $result->id = $fetch->id;
+          //  $result->nombre = $fetch->nombre;
+           // $result->apellido = $fetch->apellido;
+          //  $result->fecha_nacimiento = $fetch->fecha_nacimiento;
+           // $result->profesion_id = $fetch->profesion_id;
         } catch(Exception $e) {
 
         }

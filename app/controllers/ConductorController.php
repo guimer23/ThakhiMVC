@@ -26,7 +26,7 @@ class   ConductorController{
             $model = $this->conductor->obtener($_GET['id']);
         }
 
-        $nuevo = empty($model->CLIdni);
+        $nuevo = empty($model->CONdni);
 
        require_once _VIEW_PATH_ . 'header.php';
         require_once _VIEW_PATH_ .'conductor/agregar.php';
@@ -40,7 +40,9 @@ class   ConductorController{
         $rutaFinal=$carpeta.$nombreImg;
 
         move_uploaded_file($rutaAlmacenamiento, $rutaFinal);
+        
         $model = new \App\Models\Conductor;
+        $model->VCONdni = $_POST['VCONdni'];
         $model->CONdni = $_POST['CONdni'];
         $model->CONnombre = $_POST['CONnombre'];
         $model->CONapellido = $_POST['CONapellido'];

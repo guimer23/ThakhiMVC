@@ -38,6 +38,9 @@ class   Cliente{
             $result->CLInombre = $fetch->CLInombre;
             $result->CLIapellido = $fetch->CLIapellido;
             $result->CLIcelular = $fetch->CLIcelular;
+            $result->CLIemail = $fetch->CLIemail;
+
+            
            
         } catch(Exception $e) {
 
@@ -45,9 +48,61 @@ class   Cliente{
 
         return $result;
     }
-
-    
     public function guardar(Cliente $model) : bool{
+        $result = false;
+
+        try {
+
+            if(empty($model->VCLIdni)){
+                        $sql = '
+                        insert into admclitcliente(
+                            CLIdni,
+                            CLInombre,
+                            CLIapellido,
+                            CLIcelular,
+                            CLIemail
+                        ) values (?, ?, ?, ?,?)';
+            
+                    $stm = $this->pdo->prepare($sql);
+                    $stm->execute([
+                        $model->CLIdni,
+                        $model->CLInombre,
+                        $model->CLIapellido,
+                        $model->CLIcelular,
+                        $model->CLIemail
+                    ]);
+        
+            } else {
+                $sql = '
+                    update admclitcliente
+                    set 
+                    CLInombre = ?,
+                    CLIapellido = ?,
+                    CLIcelular = ?,
+                    CLIemail = ?
+                    where CLIdni = ?
+                ';
+
+                $stm = $this->pdo->prepare($sql);
+                $stm->execute([
+                    $model->CLInombre,
+                    $model->CLIapellido,
+                    $model->CLIcelular,
+                    $model->CLIemail,
+                    $model->VCLIdni
+                ]);
+            }
+
+            $result = true;
+        } catch(Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+        return $result;
+    }
+
+    //  $model->VCLIdni=$_POST['VCLIdni'];
+    public function guardar2(Cliente $model) : bool{
         $result = false;
 
         try {
