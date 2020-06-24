@@ -104,7 +104,7 @@
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
-                                href="#"><i
+                        href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
@@ -153,7 +153,7 @@
                                 <a href="?c=usuario&a=agregar"  class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Usuario</a>
                                 <h4 class="header-title mt-0">Detalles de Usuario</h4>
                                 <div class="table-responsive dash-social">
-                                    <table id="TablaUsuario" class="table">
+                                    <table id="tableId" class="table">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>#</th>
@@ -169,33 +169,46 @@
                                         <tbody>
                                 <?php if(count($model) > 0): ?>
                                     <?php foreach($model as $m): ?>
-
                                     <tr>
                                         <td>                                           
                                            <?php echo $m->USUid; ?> 
                                            
                                         </td>
                                         <td>
-                                        <?php echo $m->USUnombre; ?><?php echo $m->USUapellidos; ?>
+                                        <?php echo $m->USUnombre; ?>
                                         </td>   
+
+                                        <td>
+                                        <?php echo $m->USUapellidos; ?>
+                                        </td>
                                         <td>
                                         <?php echo $m->USUemail; ?>
                                         </td>
                                         <td>
                                         <?php echo $m->USUusuario; ?>
                                         </td>
-
-                                                  <td>
-                                        <?php echo $m->USUpassword; ?>
-                                        </td>
+                                   
                                         <td>
-                                        <?php echo $m->USUestado; ?>
+                                       
+
+                                        <?php  
+                                        if($m->USUestado=="A"){
+                                            echo "Activo";
+
+                                        }  else{
+                                            echo "Inactivo";
+                                        }
+                                            ?>
                                         </td>                           
                                         <td>
                                             <a  href="?c=usuario&a=agregar&id=<?php echo $m->USUid; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>
+
+                                            <a href="#"  onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
+                                       
+                                       
                                         </td>
                                     </tr>
 
@@ -214,6 +227,64 @@
                 <!--end row-->
 
 
+
+ <!-- modal -->
+
+ <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+												<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+																<div class="modal-header">
+																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																</div>
+																<div class="modal-body">
+																	<div class="row">
+																			<div class="col-md-3">
+																					<img  alt="" id="idfotosv2" class="img-fluid">
+																			</div>
+																			<div class="col-lg-9 align-self-center">
+																						<div class="single-pro-detail">
+																								<p class="mb-1">Cliente</p>
+																								<div class="custom-border mb-3"></div>
+																								<table class="table">
+		                                                <thead class="thead-light">
+		                                                </thead>
+		                                                <tbody>
+		                                               
+		                                                  <tr>
+		                                                      <th>NOMBRE</th>
+                                                           
+		                                                      <td id="nombrecv"> </td>
+		                                                  </tr>
+		                                                  <tr>
+		                                                      <th>APELLIDOS</th>
+		                                                      <td id="apellidocv"> </td>
+		                                                  </tr>
+																
+                                                      	   <tr>
+		                                                      <th>CORREO</th>
+		                                                      <td id="correov"> </td>
+		                                                  </tr>
+														  <tr>
+		                                                      <th>USUARIO</th>
+		                                                      <td id="usuariov"> </td>
+		                                                  </tr>
+                                                          <tr>
+		                                                      <th>ESTADO</th>
+		                                                      <td id="estadov"> </td>
+		                                                  </tr>
+		                                                </tbody>
+		                                            </table>																								
+																						</div>
+																				</div><!--end col-->
+																	</div>
+																</div>
+														</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+							</div>
+                            <!-- /.modal -->    
+
+
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
@@ -227,3 +298,50 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
+
+<script>
+    function addRowHandlers( rutaFoto) {
+        var table = document.getElementById("tableId");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler = 
+                function(row) 
+                {
+                return function() { 
+                                        var cel1 = row.getElementsByTagName("td")[1];
+                                        var cel2 = row.getElementsByTagName("td")[2];
+                                        var cel3 = row.getElementsByTagName("td")[3];
+                                        var cel4 = row.getElementsByTagName("td")[4];
+                                        var cel5 = row.getElementsByTagName("td")[5];
+                                        var nombres   = cel1.innerHTML;
+                                        var apellidos = cel2.innerHTML;
+                                        var correo =    cel3.innerHTML;
+                                        var usuario  =  cel4.innerHTML;
+                                        var estado  =   cel5.innerHTML;
+                                    
+                                        $('#nombrecv').text(nombres);                                        
+                                        $('#apellidocv').text(apellidos);
+                                        $('#correov').text(correo);
+                                        $('#usuariov').text(usuario);
+                                        $('#estadov').text(estado);
+                                        if(rutaFoto==null){
+                                            $('#idfotosv2').attr("src","public/images/user.png");
+                                        }
+                                        else if(rutaFoto==""){
+                                            $('#idfotosv2').attr("src","public/images/user.png");
+                                        }
+                                        else{
+                                            $('#idfotosv2').attr("src",rutaFoto);
+                                        }
+                                    
+                                 };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+    }
+    window.onload = addRowHandlers();
+
+
+</script>

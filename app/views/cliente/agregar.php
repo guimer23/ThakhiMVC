@@ -99,16 +99,16 @@
                         <h6 class="menu-title">Mantenimiento</h6>
                     </div>
                     <ul class="nav in mm-show">
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculo"><i
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
-                                href="#"><i
+                        href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -153,7 +153,7 @@
 
 <div class="form-group">
     <label>Dni</label>
-    <input type="text" name="VCLIdni" id="VCLIdni"   value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"  >
+    <input type="text" name="VCLIdni" id="VCLIdni"  hidden=""  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"  >
     <input type="text" class="form-control" name="CLIdni" require="" value="<?php echo $nuevo ? '' : $model->CLIdni; ?>" />
 </div>
 

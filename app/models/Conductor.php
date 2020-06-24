@@ -42,6 +42,7 @@ class   Conductor{
             $result->CONcelular = $fetch->CONcelular;
             $result->CONemail = $fetch->CONemail;
             $result->CONdireccion = $fetch->CONdireccion;
+            $result->CONestado = $fetch->CONestado;   
             
            
         } catch(Exception $e) {
@@ -67,8 +68,9 @@ class   Conductor{
                     CONemail,
                     CONclave,
                     CONdireccion,
+                    CONestado,
                     ruta_foto
-                ) values (?, ?, ?, ?,?,?,?,?,?,?)';
+                ) values (?, ?, ?, ?,?,?,?,?,?,?,?)';
     
             $stm = $this->pdo->prepare($sql);
             $stm->execute([
@@ -80,8 +82,8 @@ class   Conductor{
                 $model->CONcelular,
                 $model->CONemail,
                 $model->CONclave,
-                $model->CONdireccion,
-                $model->ruta_foto
+                $model->CONdireccion,             
+                $model->CONestado
             ]); 
 
             } else {
@@ -94,7 +96,8 @@ class   Conductor{
                     CONvigencialicencia = ?,
                     CONcelular = ?,
                     CONemail = ?,
-                    CONdireccion = ?
+                    CONdireccion = ?,
+                    CONestado = ?
                     where CONdni = ?
                 ';
 
@@ -107,6 +110,7 @@ class   Conductor{
                     $model->CONcelular,
                     $model->CONemail,
                     $model->CONdireccion,
+                    $model->CONestado,
                     $model->VCONdni
                 ]);
             }

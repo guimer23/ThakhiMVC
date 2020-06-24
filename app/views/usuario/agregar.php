@@ -104,7 +104,7 @@
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
-                                href="#"><i
+                        href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
@@ -197,9 +197,15 @@
                                                         <label>Estado</label>
                                                         <div class="form-group">
                                                             <select   id="USUestado" name="USUestado"  class="form-control" Required>
-                                                                <option value="">- Seleccionar -</option>
-                                                                <option value="Activo">Activo</option>
-                                                                <option value="Inactivo">Inactivo</option>
+                                                            <?php foreach($estados as $e): ?>                                            
+                                                                <?php  $Estado=null;
+                                                                if(!$nuevo){
+                                                                    $Estado=$model->USUestado;
+                                                                    }  
+                                                                    ?>
+                                                                    <option <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?> value="<?php echo $e->id_estado; ?> "><?php echo $e->nombre_estado; ?></option>
+                                                                
+                                                                    <?php endforeach; ?>
                                                             </select>
                                                         </div>
                                                     </div>

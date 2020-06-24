@@ -71,10 +71,12 @@
                         <h6 class="menu-title">Dashboard</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="index.php"><i
-                                    class="dripicons-meter"></i>Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php"><i
-                                    class="dripicons-document"></i>Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
+                                    class="mdi mdi-google-maps"></i>Monitorear</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
+                                    class="mdi mdi-package-variant"></i>Entregas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i
+                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Dashboard -->
@@ -152,7 +154,7 @@
                                 <a href="?c=entregas&a=agregar" id="ir5" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nueva Entrega</a>
                                 <h4 class="header-title mt-0">Detalles de Entregas</h4>
                                 <div class="table-responsive dash-social">
-                                    <table id="TablaEntrega" class="table">
+                                    <table id="tableId" class="table">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>#</th>
@@ -206,14 +208,15 @@
                                             }
                                             ?>
                                             
-                                        </td>
-
-                                                                  
+                                        </td>                                                                  
                                         <td>
                                             <a href="#"
                                                 class="btn btn-xs btn-danger btn-block">
                                                 Editar
                                             </a>
+                                            <a href="#"  onclick="addRowHandlers('<?php  echo $m->ENTfoto ?>')"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
+                                        
+                                        
                                         </td>
                                     </tr>
 
@@ -232,6 +235,64 @@
             <!--end row-->
 
 
+
+ <!-- modal -->
+
+ <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+												<div class="modal-dialog modal-lg">
+														<div class="modal-content">
+																<div class="modal-header">
+																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+																</div>
+																<div class="modal-body">
+																	<div class="row">
+																			<div class="col-md-3">
+																					<img  alt="" id="idfotosv2" class="img-fluid">
+																			</div>
+																			<div class="col-lg-9 align-self-center">
+																						<div class="single-pro-detail">
+														 <p class="mb-1">Cliente</p>
+														 <div class="custom-border mb-3"></div>
+														 <table class="table">
+		                                                <thead class="thead-light">
+		                                                </thead>
+		                                                <tbody>
+		                                               
+		                                                  <tr>
+		                                                      <th>DESCRIPCION</th>
+                                                           
+		                                                      <td id="descripcionv"> </td>
+		                                                  </tr>
+		                                                  <tr>
+		                                                      <th>TIPO</th>
+		                                                      <td id="tipov"> </td>
+		                                                  </tr>
+																
+                                                      	   <tr>
+		                                                      <th>CONDUCTOR</th>
+		                                                      <td id="conductorv"> </td>
+		                                                  </tr>
+														  <tr>
+		                                                      <th>CLIENTE</th>
+		                                                      <td id="clientev"> </td>
+		                                                  </tr>
+                                                          <tr>
+		                                                      <th>ESTADO</th>
+		                                                      <td id="estadov"> </td>
+		                                                  </tr>
+		                                                </tbody>
+		                                            </table>																								
+																	</div>
+																	</div><!--end col-->
+																	</div>
+																</div>
+														</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+							</div>
+                            <!-- /.modal -->    
+
+
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
@@ -245,3 +306,51 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
+
+
+<script>
+    function addRowHandlers( rutaFoto) {
+        var table = document.getElementById("tableId");
+        var rows = table.getElementsByTagName("tr");
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = table.rows[i];
+            var createClickHandler = 
+                function(row) 
+                {
+                return function() { 
+                                        var cel1 = row.getElementsByTagName("td")[1];
+                                        var cel2 = row.getElementsByTagName("td")[2];
+                                        var cel3 = row.getElementsByTagName("td")[3];
+                                        var cel4 = row.getElementsByTagName("td")[5];
+                                        var cel5 = row.getElementsByTagName("td")[7];
+                                        var descripcion = cel1.innerHTML;
+                                        var tipo        = cel2.innerHTML;
+                                        var conductor   = cel3.innerHTML;
+                                        var cliente     = cel4.innerHTML;
+                                        var estado      = cel5.innerHTML;
+                                    
+                                        $('#descripcionv').text(descripcion);                                        
+                                        $('#tipov').text(tipo);
+                                        $('#conductorv').text(conductor);
+                                        $('#clientev').text(cliente);
+                                        $('#estadov').text(estado);
+                                        if(rutaFoto==null){
+                                            $('#idfotosv2').attr("src","public/images/paquete.jpg");
+                                        }
+                                        else if(rutaFoto==""){
+                                            $('#idfotosv2').attr("src","public/images/paquete.jpg");
+                                        }
+                                        else{
+                                            $('#idfotosv2').attr("src",rutaFoto);
+                                        }
+                                    
+                                 };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+    }
+    window.onload = addRowHandlers();
+
+
+</script>

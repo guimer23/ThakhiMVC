@@ -86,9 +86,9 @@
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsEntrega/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsCalificar/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>

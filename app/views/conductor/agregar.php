@@ -86,9 +86,9 @@
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsCalificar/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>
@@ -223,10 +223,18 @@
                                                   <div class="col-md-4">
                                                       <label>Estado</label>
                                                       <div class="form-group">
-                                                          <select  class="form-control" id="estado" name="estado" >
-                                                              <option value="">- Seleccionar -</option>
-                                                              <option value="Activo">Activo</option>
-                                                              <option value="Inactivo">Inactivo</option>
+                                                          <select  class="form-control" id="CONestado" name="CONestado" >
+                                                          <?php foreach($estados as $e): ?>                                            
+                                                        <?php  $Estado=null;
+                                                           if(!$nuevo){
+                                                            $Estado=$model->CONestado;
+                                                            }  
+                                                            ?>
+                                                            <option <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?> value="<?php echo $e->id_estado; ?> "><?php echo $e->nombre_estado; ?></option>
+                                                        
+                                                            <?php endforeach; ?>
+                                                          
+                                                       
                                                           </select>
                                                       </div>
                                                   </div>

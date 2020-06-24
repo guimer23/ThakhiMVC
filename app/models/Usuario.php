@@ -57,10 +57,7 @@ class   Usuario{
 
         try {
 
-            if(empty($model->USUid)){
-
-
-      
+            if(empty($model->USUid)){     
 
                 $sql = '
                 insert into admusutusuario(             
