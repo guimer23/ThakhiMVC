@@ -8,13 +8,26 @@
     <meta content="Mannatthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="Assets/images/favicon-thakhi.png">
+    <link rel="shortcut icon" href="public/images/favicon-thakhi.png">
+    <link href="public/plugins/dropify/css/dropify.min.css" rel="stylesheet">
 
     <!-- App css -->
     <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="public/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="public/css/metisMenu.min.css" rel="stylesheet" type="text/css" />
     <link href="public/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- DataTables -->
+    <link href="public/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="public/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!--Sweetalert2 para alertas-->
+    <script src="public/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="public/sweetalert2/dist/sweetalert2.min.js"></script>
+    <link href="public/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
 
 </head>
 <body>
