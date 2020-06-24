@@ -4,10 +4,12 @@ namespace App\Controllers;
 class   UsuarioController{
 
     private $usuario;
+    private $estado;
 
 
     public function __construct(){
         $this->usuario = new \App\Models\Usuario;
+        $this->estado=new \App\Models\Estados;
       
     }
     
@@ -21,6 +23,7 @@ class   UsuarioController{
 
     public function agregar() {
    
+        $estados = $this->estado->listar();
         if(!empty($_GET['id'])) {
             $model = $this->usuario->obtener($_GET['id']);
         }

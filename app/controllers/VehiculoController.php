@@ -3,11 +3,12 @@ namespace App\Controllers;
 
 class   VehiculoController{
 
-    private $vehiculo;
-    
+    private $vehiculo;    
+    private $estado;
+
     public function __construct(){
         $this->vehiculo = new \App\Models\Vehiculo;
-      
+        $this->estado=new \App\Models\Estados;
     }
     
     public function index() {
@@ -20,6 +21,8 @@ class   VehiculoController{
 
     public function agregar() {  
   
+        $estados = $this->estado->listar();
+
         if(!empty($_GET['id'])) {
             $model = $this->vehiculo->obtener($_GET['id']);
         }
@@ -40,6 +43,7 @@ class   VehiculoController{
         move_uploaded_file($rutaAlmacenamiento, $rutaFinal);
         $model = new \App\Models\Vehiculo;
 
+      
         $model->VEHid = $_POST['VEHid'];
         $model->VEHplaca = $_POST['VEHplaca'];
         $model->VEHmarca = $_POST['VEHmarca'];

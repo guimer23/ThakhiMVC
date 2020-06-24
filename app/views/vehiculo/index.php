@@ -84,7 +84,7 @@
                         <h6 class="menu-title">Entregas</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="#"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
@@ -104,7 +104,7 @@
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
-                                href="#"><i
+                        href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
@@ -216,7 +216,8 @@
                                                 Editar
                                             </a>
                                             <a href="#"  onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
-                                        </td>
+                                        
+                                            </td>
                                     </tr>
 
                                     <?php endforeach; ?>

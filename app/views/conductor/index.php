@@ -86,9 +86,9 @@
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsEntrega/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Views/admClsCalificar/admFrmListar.php"><i
+                        <li class="nav-item"><a class="nav-link" href="#"><i
                                     class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
                     </ul>
                 </div>
@@ -189,7 +189,18 @@
                                         </td>
                                           <td>
                                         <?php echo $m->CONemail; ?>
-                                        </td>                          
+                                        </td>   
+                                        <td>
+                                        
+                                        <?php  
+                                        if($m->CONestado=="A"){
+                                            echo "Activo";
+
+                                        }  else{
+                                            echo "Inactivo";
+                                        }
+                                            ?>
+                                        </td>                        
                                         <td>
                                             <a href="?c=conductor&a=agregar&id=<?php echo $m->CONdni; ?>" 
                                                 class="btn btn-xs btn-danger btn-block">

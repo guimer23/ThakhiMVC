@@ -14,7 +14,7 @@ class   Entregas{
     public function listar() : array{
         $result = [];
         try {
-            $sql = "SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,a.ENTfechahora,cli.CLInombre,a.ENTprecio,a.ENTestado from admenttentrega as a
+            $sql = "SELECT a.ENTid,a.ENTdescripcion,a.ENTtipo,c.CONnombre ,a.ENTfechahora,cli.CLInombre,a.ENTprecio,a.ENTestado,a.ENTfoto from admenttentrega as a
             inner join admclitcliente as cli
             on a.CLIdni=cli.CLIdni
             inner join admvectvehiculo_conductor as co

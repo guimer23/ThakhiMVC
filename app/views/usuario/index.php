@@ -104,7 +104,7 @@
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
                         <li class="nav-item"><a class="nav-link"
-                                href="#"><i
+                        href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
@@ -189,7 +189,16 @@
                                         </td>
                                    
                                         <td>
-                                        <?php echo $m->USUestado; ?>
+                                       
+
+                                        <?php  
+                                        if($m->USUestado=="A"){
+                                            echo "Activo";
+
+                                        }  else{
+                                            echo "Inactivo";
+                                        }
+                                            ?>
                                         </td>                           
                                         <td>
                                             <a  href="?c=usuario&a=agregar&id=<?php echo $m->USUid; ?>" 
@@ -198,6 +207,8 @@
                                             </a>
 
                                             <a href="#"  onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
+                                       
+                                       
                                         </td>
                                     </tr>
 
