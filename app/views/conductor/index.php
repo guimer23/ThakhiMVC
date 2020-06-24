@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -147,52 +146,54 @@
 
 
             <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <a  href="?c=conductor&a=agregar" class="btn btn-primary px-4 float-right mt-0 mb-3"><i class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
-                    <h4 class="header-title mt-0">Detalles de Conductores</h4>
-                    <div class="table-responsive dash-social">
-                        <table id="tableId" class="table">
-                            <thead class="thead-light">
-                            <tr>
-                              <th>DNI</th>
-                              <th>Nombres y Apellidos</th>
-                              <th>Licencia</th>
-                              <th>Vigencia de Lic.</th>
-                              <th>Correo</th>
-	  							<th>Celular</th>
-								<th>Estado</th>
-                              <th>Acción</th>
-                            </tr><!--end tr-->
-                            </thead>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="?c=conductor&a=agregar" class="btn btn-primary px-4 float-right mt-0 mb-3"><i
+                                    class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Conductor</a>
+                            <h4 class="header-title mt-0">Detalles de Conductores</h4>
+                            <div class="table-responsive dash-social">
+                                <table id="TablaUsuario" class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>DNI</th>
+                                            <th>Nombres y Apellidos</th>
+                                            <th>Licencia</th>
+                                            <th>Vigencia de Lic.</th>
+                                            <th>Correo</th>
+                                            <th>Celular</th>
+                                            <th>Estado</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                        <!--end tr-->
+                                    </thead>
 
-                            <tbody>
-                                <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
+                                    <tbody>
+                                        <?php if(count($model) > 0): ?>
+                                        <?php foreach($model as $m): ?>
 
-                                    <tr>
-                                        <td>                                           
-                                           <?php echo $m->CONdni; ?>                                            
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CONnombre; ?><?php echo $m->CONapellido; ?>
-                                        </td>   
-                                        <td>
-                                        <?php echo $m->CONlicencia; ?>
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CONvigencialicencia; ?>
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CONcelular; ?>
-                                        </td>
-                                          <td>
-                                        <?php echo $m->CONemail; ?>
-                                        </td>   
-                                        <td>
-                                        
-                                        <?php  
+                                        <tr>
+                                            <td>
+                                                <?php echo $m->CONdni; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONnombre; ?><?php echo $m->CONapellido; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONlicencia; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONvigencialicencia; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONcelular; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONemail; ?>
+                                            </td>
+                                            <td>
+
+                                                <?php  
                                         if($m->CONestado=="A"){
                                             echo "Activo";
 
@@ -200,86 +201,94 @@
                                             echo "Inactivo";
                                         }
                                             ?>
-                                        </td>                        
-                                        <td>
-                                            <a href="?c=conductor&a=agregar&id=<?php echo $m->CONdni; ?>" 
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Editar
-                                            </a>
+                                            </td>
+                                            <td>
+                                                <a href="?c=conductor&a=agregar&id=<?php echo $m->CONdni; ?>">
+                                                    <i class="fas fa-edit text-info font-16"></i>
+                                                </a>
 
-                                            <a href="#"  onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
-                                        </td>
-                                    </tr>
+                                                <a href="#" onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"> <i
+                                                        class="fas fa-eye text-dark font-16" data-toggle="modal"
+                                                        data-animation="bounce" data-target=".bs-example-modal-lg"></i>
+                                                    ver </a>
+                                            </td>
+                                        </tr>
 
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                        </table>
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--end card-body-->
                     </div>
-                </div><!--end card-body-->
-            </div><!--end card-->
-        </div> <!--end col-->
-    </div><!--end row-->
+                    <!--end card-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
             <!--end row-->
 
 
 
 
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-												<div class="modal-dialog modal-lg">
-														<div class="modal-content">
-																<div class="modal-header">
-																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
-																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-																</div>
-																<div class="modal-body">
-																	<div class="row">
-																			<div class="col-md-3">
-																					<img  alt="" id="idfotosv2" class="img-fluid">
-																			</div>
-																			<div class="col-lg-9 align-self-center">
-																						<div class="single-pro-detail">
-																								<p class="mb-1">Conductor</p>
-																								<div class="custom-border mb-3"></div>
-																								<table class="table">
-		                                                <thead class="thead-light">
-		                                                </thead>
-		                                                <tbody>
-		                                                  <tr>
-		                                                      <th  width=30%>DNI</th>
-		                                                      <td  width=70% id="dnicv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>NOMBRE</th>
-                                                           
-		                                                      <td id="nombrecv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>LICENCIA</th>
-		                                                      <td id="licenciav"> </td>
-		                                                  </tr>
-																											<tr>
-		                                                      <th>VIGENCIA SOAT</th>
-		                                                      <td id="soatv"> </td>
-		                                                  </tr>
-														<tr>
-		                                                      <th>CELULARA</th>
-		                                                      <td id="celularv"> </td>
-		                                                  </tr>
-                                                          <tr>
-		                                                      <th>CORREO</th>
-		                                                      <td id="correocv"> </td>
-		                                                  </tr>
-		                                                </tbody>
-		                                            </table>																								
-																						</div>
-																				</div><!--end col-->
-																	</div>
-																</div>
-														</div><!-- /.modal-content -->
-												</div><!-- /.modal-dialog -->
-							</div>
-                            <!-- /.modal -->   
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img alt="" id="idfotosv2" class="img-fluid">
+                                </div>
+                                <div class="col-lg-9 align-self-center">
+                                    <div class="single-pro-detail">
+                                        <p class="mb-1">Conductor</p>
+                                        <div class="custom-border mb-3"></div>
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th width=30%>DNI</th>
+                                                    <td width=70% id="dnicv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NOMBRE</th>
+
+                                                    <td id="nombrecv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>LICENCIA</th>
+                                                    <td id="licenciav"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>VIGENCIA SOAT</th>
+                                                    <td id="soatv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CELULARA</th>
+                                                    <td id="celularv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CORREO</th>
+                                                    <td id="correocv"> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
 
 
             <!-- ========================================================================================== -->
@@ -297,54 +306,48 @@
 <!-- end page-wrapper -->
 
 <script>
-    function addRowHandlers( rutaFoto) {
-        console.log("ruta foto",rutaFoto);
-        var table = document.getElementById("tableId");
-        var rows = table.getElementsByTagName("tr");
-        for (i = 0; i < rows.length; i++) {
-            var currentRow = table.rows[i];
-            var createClickHandler = 
-                function(row) 
-                {
-                return function() { 
-                                        var cel1 = row.getElementsByTagName("td")[0];
-                                        var cel2 = row.getElementsByTagName("td")[1];
-                                        var cel3 = row.getElementsByTagName("td")[2];
-                                        var cel4 = row.getElementsByTagName("td")[3];
-                                        var cel5 = row.getElementsByTagName("td")[4];
-                                        var cel6 = row.getElementsByTagName("td")[5];
+function addRowHandlers(rutaFoto) {
+    console.log("ruta foto", rutaFoto);
+    var table = document.getElementById("TablaUsuario");
+    var rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        var currentRow = table.rows[i];
+        var createClickHandler =
+            function(row) {
+                return function() {
+                    var cel1 = row.getElementsByTagName("td")[0];
+                    var cel2 = row.getElementsByTagName("td")[1];
+                    var cel3 = row.getElementsByTagName("td")[2];
+                    var cel4 = row.getElementsByTagName("td")[3];
+                    var cel5 = row.getElementsByTagName("td")[4];
+                    var cel6 = row.getElementsByTagName("td")[5];
 
-                                        var dni     =  cel1.innerHTML;
-                                        var nombres =  cel2.innerHTML;
-                                        var licencia = cel3.innerHTML;
-                                        var vigencia = cel4.innerHTML;
-                                        var celular =  cel5.innerHTML;
-                                        var correo  =  cel6.innerHTML;
-                                        $('#dnicv').text(dni);
-                                        $('#nombrecv').text(nombres);                                        
-                                        $('#licenciav').text(licencia);
-                                        $('#corresoatvocv').text(vigencia);
-                                        $('#celularv').text(celular);
-                                        $('#correocv').text(correo);
+                    var dni = cel1.innerHTML;
+                    var nombres = cel2.innerHTML;
+                    var licencia = cel3.innerHTML;
+                    var vigencia = cel4.innerHTML;
+                    var celular = cel5.innerHTML;
+                    var correo = cel6.innerHTML;
+                    $('#dnicv').text(dni);
+                    $('#nombrecv').text(nombres);
+                    $('#licenciav').text(licencia);
+                    $('#corresoatvocv').text(vigencia);
+                    $('#celularv').text(celular);
+                    $('#correocv').text(correo);
 
-                                        if(rutaFoto==null){
-                                            $('#idfotosv2').attr("src","public/images/user.png");
-                                        }
-                                         else if(rutaFoto==""){
-                                            $('#idfotosv2').attr("src","public/images/user.png");
-                                        }
+                    if (rutaFoto == null) {
+                        $('#idfotosv2').attr("src", "public/images/user.png");
+                    } else if (rutaFoto == "") {
+                        $('#idfotosv2').attr("src", "public/images/user.png");
+                    } else {
+                        $('#idfotosv2').attr("src", rutaFoto);
+                    }
 
-                                        else{
-                                            $('#idfotosv2').attr("src",rutaFoto);
-                                        }
-                                    
-                                 };
+                };
             };
 
         currentRow.onclick = createClickHandler(currentRow);
     }
-    }
-    window.onload = addRowHandlers();
-
-
+}
+window.onload = addRowHandlers();
 </script>

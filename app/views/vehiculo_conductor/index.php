@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -147,45 +146,46 @@
 
 
             <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <a href="?c=vehiculoconductor&a=agregar" id="ir2" class="btn btn-primary px-4 float-right mt-0 mb-3"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a
-                                    Conductor</a>
-                                <h4 class="header-title mt-0">Detalles de Vehículo - Conductor</h4>
-                                <div class="table-responsive dash-social">
-                                    <table id="TablaVehiculoConductor" class="table">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Conductor</th>
-                                                <th>Vehículo</th>
-                                                <th>Estado</th>
-                                                <th>Acción</th>
-                                            </tr>
-                                            <!--end tr-->
-                                        </thead>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="?c=vehiculoconductor&a=agregar" id="ir2"
+                                class="btn btn-primary px-4 float-right mt-0 mb-3"><i
+                                    class="mdi mdi-plus-circle-outline mr-2"></i>Asignar Nuevo Vehículo a
+                                Conductor</a>
+                            <h4 class="header-title mt-0">Detalles de Vehículo - Conductor</h4>
+                            <div class="table-responsive dash-social">
+                                <table id="TablaUsuario" class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Conductor</th>
+                                            <th>Vehículo</th>
+                                            <th>Estado</th>
+                                            <th>Acción</th>
+                                        </tr>
+                                        <!--end tr-->
+                                    </thead>
 
-                                        <tbody>
-                                <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
+                                    <tbody>
+                                        <?php if(count($model) > 0): ?>
+                                        <?php foreach($model as $m): ?>
 
-                                    <tr>
-                                    <td>                                           
-                                           <?php echo $m->VECid ; ?> 
-                                           
-                                        </td>
-                                        <td>                                           
-                                           <?php echo $m->CONnombre; ?>   <?php echo $m->CONapellido; ?>
-                                           
-                                        </td>
-                                         
-                                        <td>
-                                        <?php echo $m->VEHplaca; ?>
-                                        </td>
-                                        <td>
-                                        <?php 
+                                        <tr>
+                                            <td>
+                                                <?php echo $m->VECid ; ?>
+
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONnombre; ?> <?php echo $m->CONapellido; ?>
+
+                                            </td>
+
+                                            <td>
+                                                <?php echo $m->VEHplaca; ?>
+                                            </td>
+                                            <td>
+                                                <?php 
 
                                         if($m->VECestado=="A"){
                                             echo "Activo";
@@ -195,28 +195,27 @@
                                         } 
                                         ?>
 
-                                        </td>
-                                      
-                                        <td>
-                                            <a  href="?c=vehiculoconductor&a=agregar&id=<?php echo $m->VECid; ?>" 
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Editar
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            </td>
 
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                                    </table>
-                                </div>
+                                            <td>
+                                                <a href="?c=vehiculoconductor&a=agregar&id=<?php echo $m->VECid; ?>">
+                                                    <i class="fas fa-edit text-info font-16"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
                             </div>
-                            <!--end card-body-->
                         </div>
-                        <!--end card-->
+                        <!--end card-body-->
                     </div>
-                    <!--end col-->
+                    <!--end card-->
                 </div>
+                <!--end col-->
+            </div>
             <!--end row-->
 
 
