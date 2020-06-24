@@ -217,7 +217,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify"  />
+                                            <input type="file" id="imagen" name="imagen" class="dropify" value="<?php echo $nuevo ? '' : $model->ruta_foto; ?>" src="$model->ruta_foto;"  />
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">

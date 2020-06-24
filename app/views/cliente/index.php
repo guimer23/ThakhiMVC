@@ -144,6 +144,12 @@
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
 
+            <?php if(isset($_GET['es'])) 
+	            $txtdnic =strtoupper($_GET['es']);
+	                     else $txtdnic=""; ?>
+
+
+     
 
             <div class="row">
                 <div class="col-lg-12">
@@ -321,4 +327,13 @@ function addRowHandlers(rutaFoto) {
     }
 }
 window.onload = addRowHandlers();
+
+        var code="<?php echo $txtdnic; ?>"
+        if(code=="YES"){
+
+            alert("agregado");
+        }
+
+
+
 </script>

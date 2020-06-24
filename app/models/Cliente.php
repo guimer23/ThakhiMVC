@@ -39,6 +39,7 @@ class   Cliente{
             $result->CLIapellido = $fetch->CLIapellido;
             $result->CLIcelular = $fetch->CLIcelular;
             $result->CLIemail = $fetch->CLIemail;
+            $result->CLIclave = $fetch->CLIclave;
 
             
            
@@ -60,8 +61,9 @@ class   Cliente{
                             CLInombre,
                             CLIapellido,
                             CLIcelular,
-                            CLIemail
-                        ) values (?, ?, ?, ?,?)';
+                            CLIemail,
+                            CLIclave
+                        ) values (?, ?, ?, ?,?,?)';
             
                     $stm = $this->pdo->prepare($sql);
                     $stm->execute([
@@ -69,7 +71,8 @@ class   Cliente{
                         $model->CLInombre,
                         $model->CLIapellido,
                         $model->CLIcelular,
-                        $model->CLIemail
+                        $model->CLIemail,
+                        $model->CLIclave
                     ]);
         
             } else {
@@ -79,7 +82,8 @@ class   Cliente{
                     CLInombre = ?,
                     CLIapellido = ?,
                     CLIcelular = ?,
-                    CLIemail = ?
+                    CLIemail = ?,
+                    CLIclave=?
                     where CLIdni = ?
                 ';
 
@@ -89,7 +93,9 @@ class   Cliente{
                     $model->CLIapellido,
                     $model->CLIcelular,
                     $model->CLIemail,
+                    $model->CLIclave,
                     $model->VCLIdni
+                    
                 ]);
             }
 

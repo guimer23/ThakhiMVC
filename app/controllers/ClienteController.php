@@ -54,14 +54,21 @@ class   ClienteController{
         $model->CLInombre = $_POST['CLInombre'];
         $model->CLIapellido = $_POST['CLIapellido'];
         $model->CLIcelular = $_POST['CLIcelular'];
-        $model->CLIemail = $_POST['CLIemail'];        
+        $model->CLIemail = $_POST['CLIemail'];
+        $model->CLIclave = $_POST['CLIclave'];           
 
         $result = $this->cliente->guardar($model);
 
         if(!$result) {
             throw new Exception('No se pudo realizar la operación');
         } else {
-            header('location: ?c=cliente');
+         //   header('location: ?c=cliente');
+            header('location: ?c=cliente&es=yes');
+           
+          //  echo "<script> alert('gregadowe') </script>";
+
+
+
         }
     }
 
