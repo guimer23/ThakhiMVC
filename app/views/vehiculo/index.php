@@ -199,10 +199,10 @@
                                             <td>
                                                 <?php  
                                         if($m->VEHestado=="A"){
-                                            echo "Activo";
-
-                                        }  else{
-                                            echo "Inactivo";
+                                            echo "<span class='badge badge-success'>Activo</span>";
+                                        }  
+                                        else{
+                                            echo "<span class='badge badge-danger'>Inactivo</span>";
                                         }
                                             ?>
 

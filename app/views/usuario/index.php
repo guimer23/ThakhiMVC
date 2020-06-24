@@ -193,10 +193,10 @@
 
                                                 <?php  
                                         if($m->USUestado=="A"){
-                                            echo "Activo";
+                                            echo "<span class='badge badge-success'>Activo</span>";
 
                                         }  else{
-                                            echo "Inactivo";
+                                            echo "<span class='badge badge-danger'>Inactivo</span>";
                                         }
                                             ?>
                                             </td>

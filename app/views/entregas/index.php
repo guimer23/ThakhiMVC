@@ -199,13 +199,13 @@
                                             </td>
                                             <td>
                                                 <?php if($m->ENTestado=="P"){
-                                                echo "Pendiente";
+                                                echo "<span class='badge badge-primary'>Pendiente</span>";
                                             } 
                                             else if($m->ENTestado=="E"){
-                                                echo "Entregado";
+                                                echo "<span class='badge badge-success'>Entregado</span>";
                                             }
                                             else if($m->ENTestado=="N"){
-                                                echo "No Entregado";
+                                                echo "<span class='badge badge-danger'>No entregado</span>";
                                             }
                                             ?>
 

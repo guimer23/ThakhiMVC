@@ -188,10 +188,11 @@
                                                 <?php 
 
                                         if($m->VECestado=="A"){
-                                            echo "Activo";
-                                        } 
+                                            echo "<span class='badge badge-success'>Activo</span>";
+
+                                        }  
                                         else{
-                                            echo "Inactivo";
+                                            echo "<span class='badge badge-danger'>Inactivo</span>";
                                         } 
                                         ?>
 
