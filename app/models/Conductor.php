@@ -83,7 +83,8 @@ class   Conductor{
                 $model->CONemail,
                 $model->CONclave,
                 $model->CONdireccion,             
-                $model->CONestado
+                $model->CONestado,
+                $model->ruta_foto   
             ]); 
 
             } else {

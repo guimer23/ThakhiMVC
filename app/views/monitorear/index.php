@@ -284,8 +284,12 @@
             //console.log(longi);
             var mostrarMarcadores = new google.maps.InfoWindow(),
               ar, i;
-
+            var can=ar.length;
               for (i = 0; i < ar.length; i++) {
+
+                  if(can>0){
+
+                  }    
               var position = new google.maps.LatLng(ar[0], ar[1]);
               //console.log("Posicnes"+position);
               bounds.extend(position);

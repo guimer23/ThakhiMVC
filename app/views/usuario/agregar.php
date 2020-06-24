@@ -151,7 +151,7 @@
    <div class="row">
    <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                <form   method="post" action="?c=usuario&a=guardar"  id="frmregistrousuario" enctype="multipart/form-data" class="form-parsley" novalidate>
+                                <form   method="post" action="?c=usuario&a=guardar"  id="frmregistrousuario" enctype="multipart/form-data" >
                                   <div class="row">
                                       <div class="col-md-12 col-lg-9">
                                           <div class="card-body">
@@ -162,13 +162,13 @@
                                                       <div class="form-group">
                                                           <label>Nombres </label>
                                                           <input type="text" id="USUid" name="USUid"   class="form-control"  hidden=""  value="<?php echo $nuevo ? '' : $model->USUid; ?>" />
-                                                          <input type="text" id="USUnombre" name="USUnombre" value="<?php echo $nuevo ? '' : $model->USUnombre; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required />
+                                                          <input type="text" id="USUnombre" name="USUnombre"    value="<?php echo $nuevo ? '' : $model->USUnombre; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false"  onpaste="return false;" onDrop="return false;" autocomplete=off required />
                                                       </div>
                                                   </div>
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Apellidos</label>
-                                                          <input type="text" id="USUapellidos" name="USUapellidos" value="<?php echo $nuevo ? '' : $model->USUapellidos; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" required >
+                                                          <input type="text" id="USUapellidos" name="USUapellidos"   required value="<?php echo $nuevo ? '' : $model->USUapellidos; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" autocomplete=off  >
                                                       </div>
                                                   </div>
                                               </div>
@@ -176,13 +176,13 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Email <span class="text-danger"></span></label>
-                                                          <input type="email" id="USUemail" name="USUemail" value="<?php echo $nuevo ? '' : $model->USUemail; ?>" class="form-control" required >
+                                                          <input type="email" id="USUemail" name="USUemail" value="<?php echo $nuevo ? '' : $model->USUemail; ?>" class="form-control"  onpaste="return false;" onDrop="return false;" autocomplete=off required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Nombre Usuario <span class="text-danger"></span></label>
-                                                          <input type="text" id="USUusuario" name="USUusuario" value="<?php echo $nuevo ? '' : $model->USUusuario; ?>" class="form-control" required pattern = "[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}">
+                                                          <input type="text" id="USUusuario" name="USUusuario" value="<?php echo $nuevo ? '' : $model->USUusuario; ?>" class="form-control" required pattern = "[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}" onpaste="return false;" onDrop="return false;" autocomplete=off required  >
                                                       </div>
                                                   </div>
                                               </div>
@@ -190,7 +190,7 @@
                                                     <div class="col-md-8">
                                                         <div class="form-group">
                                                             <label>Password</label>
-                                                            <input type="password"  id="USUpassword" name="USUpassword"  value="<?php echo $nuevo ? '' : $model->USUpassword; ?>" class="form-control" required >
+                                                            <input type="password"  id="USUpassword" name="USUpassword"  value="<?php echo $nuevo ? '' : $model->USUpassword; ?>" class="form-control" onpaste="return false;" onDrop="return false;" autocomplete=off required  >
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -217,7 +217,7 @@
                                           <div class="card-body">
                                             <h4 class="mt-0 header-title">Subir Foto</h4>
                                             <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify" />
+                                            <input type="file" id="imagen" name="imagen" class="dropify"  />
                                           </div><!--end card-body-->
                                       </div><!--end col-->
                                       <div class="col-md-12 col-lg-12">

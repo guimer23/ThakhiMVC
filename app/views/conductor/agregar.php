@@ -183,7 +183,7 @@
                                                   <div class="col-md-4">
                                                       <div class="form-group">
                                                           <label>Licencia de conductor <span class="text-danger"></span></label>
-                                                          <input type="text"  id="CONlicencia" name="CONlicencia" class="form-control"   value="<?php echo $nuevo ? '' : $model->CONlicencia; ?>" >
+                                                          <input type="text"  id="CONlicencia" name="CONlicencia" class="form-control"   value="<?php echo $nuevo ? '' : $model->CONlicencia; ?>"  onpaste="return false;" onDrop="return false;" autocomplete=off required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
@@ -203,7 +203,7 @@
                                                   <div class="col-md-8">
                                                       <div class="form-group">
                                                           <label>Correo electrónico</label>
-                                                          <input type="email" id="CONemail" name="CONemail" class="form-control" value="<?php echo $nuevo ? '' : $model->CONemail; ?>"  >
+                                                          <input type="email" id="CONemail" name="CONemail" class="form-control" value="<?php echo $nuevo ? '' : $model->CONemail; ?>" onpaste="return false;" onDrop="return false;" autocomplete=off required >
                                                       </div>
                                                   </div>
                                                   <div class="col-md-4">
