@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -150,56 +149,60 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title mt-0">Clientes</h4>
-                            <h2 class="page-header">
-                            <a href="?c=cliente&a=agregar" class="pull-right btn btn-primary">                           
-                                    Nuevo Cliente
-                                </a>                        
-                            </h2>
-                            <table class="table table-striped" id="tableId">
-                                <thead>
-                                    <tr>
-                                        <th>Dni</th>
-                                        <th >Nombres</th>
-                                        <th >Celular</th>
-                                        <th >Correo</th>                                      
-                                        <th >Editar</th>  
-                                    </tr>
-                                </thead>
+                            <a href="?c=cliente&a=agregar" id="ir3"
+                                class="btn btn-primary px-4 float-right mt-0 mb-3"><i
+                                    class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Cliente</a>
+                            <h4 class="header-title mt-0">Detalles de Clientes</h4>
 
-                                <tbody>
-                                <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
 
-                                    <tr>
-                                        <td>                                           
-                                           <?php echo $m->CLIdni; ?> 
-                                           
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CLInombre; ?><?php echo $m->CLIapellido; ?>
-                                        </td>   
-                                        <td>
-                                        <?php echo $m->CLIcelular; ?>
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CLIemail; ?>
-                                        </td>
-                                                                           
-                                        <td>
-                                            <a href="?c=cliente&a=agregar&id=<?php echo $m->CLIdni; ?>" 
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Editar
-                                            </a>
-                                            <a href="#"  onclick="addRowHandlers(<?php  echo $m->CLIfoto ?>)"  >  <i class="fas fa-eye text-dark font-16" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg"></i>  ver </a>
-                                        </td>
-                                    </tr>
+                            <div class="table-responsive dash-social">
+                                <table id="TablaUsuario" class="table">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>Dni</th>
+                                            <th>Nombres</th>
+                                            <th>Celular</th>
+                                            <th>Correo</th>
+                                            <th>Editar</th>
+                                        </tr>
+                                    </thead>
 
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        <?php if(count($model) > 0): ?>
+                                        <?php foreach($model as $m): ?>
 
+                                        <tr>
+                                            <td>
+                                                <?php echo $m->CLIdni; ?>
+
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CLInombre; ?><?php echo $m->CLIapellido; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CLIcelular; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CLIemail; ?>
+                                            </td>
+
+                                            <td>
+                                                <a href="?c=cliente&a=agregar&id=<?php echo $m->CLIdni; ?>">
+                                                    <i class="fas fa-edit text-info font-16"></i>
+                                                </a>
+                                                <a href="#" onclick="addRowHandlers(<?php  echo $m->CLIfoto ?>)"> <i
+                                                        class="fas fa-eye text-dark font-16" data-toggle="modal"
+                                                        data-animation="bounce" data-target=".bs-example-modal-lg"></i>
+                                                    ver
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <!--end card-body-->
                     </div>
@@ -214,57 +217,59 @@
 
             <!-- modal -->
 
-            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-												<div class="modal-dialog modal-lg">
-														<div class="modal-content">
-																<div class="modal-header">
-																		<h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
-																		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-																</div>
-																<div class="modal-body">
-																	<div class="row">
-																			<div class="col-md-3">
-																					<img  alt="" id="idfotosv2" class="img-fluid">
-																			</div>
-																			<div class="col-lg-9 align-self-center">
-																						<div class="single-pro-detail">
-																								<p class="mb-1">Cliente</p>
-																								<div class="custom-border mb-3"></div>
-																								<table class="table">
-		                                                <thead class="thead-light">
-		                                                </thead>
-		                                                <tbody>
-		                                                  <tr>
-		                                                      <th  width=30%>DNI</th>
-		                                                      <td  width=70% id="dnicv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>NOMBRE</th>
-                                                           
-		                                                      <td id="nombrecv"> </td>
-		                                                  </tr>
-		                                                  <tr>
-		                                                      <th>APELLIDOS</th>
-		                                                      <td id="apellidocv"> </td>
-		                                                  </tr>
-																											<tr>
-		                                                      <th>CELULAR</th>
-		                                                      <td id="celularcv"> </td>
-		                                                  </tr>
-																											<tr>
-		                                                      <th>CORREO</th>
-		                                                      <td id="correocv"> </td>
-		                                                  </tr>
-		                                                </tbody>
-		                                            </table>																								
-																						</div>
-																				</div><!--end col-->
-																	</div>
-																</div>
-														</div><!-- /.modal-content -->
-												</div><!-- /.modal-dialog -->
-							</div>
-                            <!-- /.modal -->    
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img alt="" id="idfotosv2" class="img-fluid">
+                                </div>
+                                <div class="col-lg-9 align-self-center">
+                                    <div class="single-pro-detail">
+                                        <p class="mb-1">Cliente</p>
+                                        <div class="custom-border mb-3"></div>
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th width=30%>DNI</th>
+                                                    <td width=70% id="dnicv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>NOMBRE</th>
+
+                                                    <td id="nombrecv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>APELLIDOS</th>
+                                                    <td id="apellidocv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CELULAR</th>
+                                                    <td id="celularcv"> </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>CORREO</th>
+                                                    <td id="correocv"> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--end col-->
+                            </div>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
 
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
@@ -281,44 +286,39 @@
 <!-- end page-wrapper -->
 
 <script>
-    function addRowHandlers( rutaFoto) {
-        var table = document.getElementById("tableId");
-        var rows = table.getElementsByTagName("tr");
-        for (i = 0; i < rows.length; i++) {
-            var currentRow = table.rows[i];
-            var createClickHandler = 
-                function(row) 
-                {
-                return function() { 
-                                        var cel1 = row.getElementsByTagName("td")[0];
-                                        var cel2 = row.getElementsByTagName("td")[1];
-                                        var cel3 = row.getElementsByTagName("td")[2];
-                                        var cel4 = row.getElementsByTagName("td")[3];
-                                     
-                                        var dni     = cel1.innerHTML;
-                                        var nombres = cel2.innerHTML;
-                                        var celular = cel3.innerHTML;
-                                        var correo  = cel4.innerHTML;
-                                        $('#dnicv').text(dni);
-                                        $('#nombrecv').text(nombres);                                        
-                                        $('#celularcv').text(celular);
-                                        $('#correocv').text(correo);
+function addRowHandlers(rutaFoto) {
+    var table = document.getElementById("TablaUsuario");
+    var rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        var currentRow = table.rows[i];
+        var createClickHandler =
+            function(row) {
+                return function() {
+                    var cel1 = row.getElementsByTagName("td")[0];
+                    var cel2 = row.getElementsByTagName("td")[1];
+                    var cel3 = row.getElementsByTagName("td")[2];
+                    var cel4 = row.getElementsByTagName("td")[3];
 
-                                        if(rutaFoto==null){
-                                            $('#idfotosv2').attr("src","public/images/user.png");
-                                        }
-                                        else{
-                                            $('#idfotosv2').attr("src",drutaFoto);
-                                        }
-                                    
-                                 };
+                    var dni = cel1.innerHTML;
+                    var nombres = cel2.innerHTML;
+                    var celular = cel3.innerHTML;
+                    var correo = cel4.innerHTML;
+                    $('#dnicv').text(dni);
+                    $('#nombrecv').text(nombres);
+                    $('#celularcv').text(celular);
+                    $('#correocv').text(correo);
+
+                    if (rutaFoto == null) {
+                        $('#idfotosv2').attr("src", "public/images/user.png");
+                    } else {
+                        $('#idfotosv2').attr("src", drutaFoto);
+                    }
+
+                };
             };
 
         currentRow.onclick = createClickHandler(currentRow);
     }
-    }
-    window.onload = addRowHandlers();
-
-
+}
+window.onload = addRowHandlers();
 </script>
-

@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -144,49 +143,120 @@
             <!-- ========================================================================================== -->
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <form method="post" action="?c=cliente&a=guardar">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-9">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Datos del Cliente</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>DNI </label>
+                                                    <input type="text" name="VCLIdni" id="VCLIdni" hidden=""
+                                                        value="<?php echo $nuevo ? '' : $model->CLIdni; ?>">
+                                                    <input type="text" name="CLIdni"
+                                                        value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"
+                                                        class="form-control" maxlength="8"
+                                                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        min="1" pattern="^[0-9]+" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required /><i>(Máximo 8
+                                                        dígitos)</i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Nombres</label>
+                                                    <input type="text" name="CLInombre" class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CLInombre; ?>" required
+                                                        onkeypress="return soloLetras(event)" onpaste="return false">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Apellidos <span class="text-danger"></span></label>
+                                                    <input type="text" name="CLIapellido"
+                                                        value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>"
+                                                        class="form-control" onkeypress="return soloLetras(event)"
+                                                        onpaste="return false" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Celular <span class="text-danger"></span></label>
+                                                    <input type="text" name="CLIcelular"
+                                                        value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>"
+                                                        class="form-control" maxlength="9"
+                                                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        min="1" pattern="^[0-9]+" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Correo electrónico</label>
+                                                    <input type="email" name="CLIemail" class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CLIemail; ?>" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Clave </label>
+                                                    <input type="password" name="CLIclave" class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CLIclave; ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-3">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Subir Foto</h4>
+                                        <p class="text-muted mb-3">Arrastra una imagen</p>
+                                        <input type="file" id="imagen" name="imagen" class="dropify" />
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="card-body">
+                                        <div class="row clearfix text-right  ">
+                                            <div class="form-group mb-0">
+                                                <td class="border-0">
+                                                <button type="submit" 
+                                                        class="btn btn-primary waves-effect waves-light">
+                                                        Guardar
+                                                    </button>
+                                                    </td>
+
+                                                <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                            <!--end form-group-->
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </form>
+                        <!--end form-->
+                    </div>
+                    <!--end row-->
+                </div><!-- container -->
+            </div><!-- container -->
 
 
-           
-<h2 class="page-header">Clientes</h2>
-
-<form method="post" action="?c=cliente&a=guardar"> 
-
-<div class="form-group">
-    <label>Dni</label>
-    <input type="text" name="VCLIdni" id="VCLIdni"  hidden=""  value="<?php echo $nuevo ? '' : $model->CLIdni; ?>"  >
-    <input type="text" class="form-control" name="CLIdni" require="" value="<?php echo $nuevo ? '' : $model->CLIdni; ?>" />
-</div>
-
-<div class="form-group">
-    
-    <label>Nombre</label>
-    <input type="text" name="CLInombre" class="form-control" require=""  value="<?php echo $nuevo ? '' : $model->CLInombre; ?>" />
-</div>
-
-<div class="form-group">
-    <label>Apellido</label>
-    <input type="text" name="CLIapellido" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIapellido; ?>" />
-</div>
-
-<div class="form-group">
-    <label>Celular</label>
-    <input type="text" name="CLIcelular" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIcelular; ?>" />
-</div>
-
-<div class="form-group">
-    <label>Email</label>
-    <input type="text" name="CLIemail" class="form-control" value="<?php echo $nuevo ? '' : $model->CLIemail; ?>" />
-</div>
-
-<div class="form-group">
-    <label>Profesion</label>
-   
-</div>
-
-<button type="submit" class="btn btn-primary">
-    Guardar
-</button>
-</form>
 
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
@@ -201,7 +271,3 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
-
-
-
-
