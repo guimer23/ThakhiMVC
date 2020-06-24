@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -146,113 +145,162 @@
             <!-- ========================================================================================== -->
 
 
-           
-   <!-- end page title end breadcrumb -->
-   <div class="row">
-   <div class="col-md-12 col-lg-12">
-                            <div class="card">
-                                <form   method="post" action="?c=usuario&a=guardar"  id="frmregistrousuario" enctype="multipart/form-data" >
-                                  <div class="row">
-                                      <div class="col-md-12 col-lg-9">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Datos del Usuarios</h4>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-4">
-                                                   
-                                                      <div class="form-group">
-                                                          <label>Nombres </label>
-                                                          <input type="text" id="USUid" name="USUid"   class="form-control"  hidden=""  value="<?php echo $nuevo ? '' : $model->USUid; ?>" />
-                                                          <input type="text" id="USUnombre" name="USUnombre"    value="<?php echo $nuevo ? '' : $model->USUnombre; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false"  onpaste="return false;" onDrop="return false;" autocomplete=off required />
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Apellidos</label>
-                                                          <input type="text" id="USUapellidos" name="USUapellidos"   required value="<?php echo $nuevo ? '' : $model->USUapellidos; ?>" class="form-control" onkeypress="return soloLetras(event)" onpaste="return false" autocomplete=off  >
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Email <span class="text-danger"></span></label>
-                                                          <input type="email" id="USUemail" name="USUemail" value="<?php echo $nuevo ? '' : $model->USUemail; ?>" class="form-control"  onpaste="return false;" onDrop="return false;" autocomplete=off required >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Nombre Usuario <span class="text-danger"></span></label>
-                                                          <input type="text" id="USUusuario" name="USUusuario" value="<?php echo $nuevo ? '' : $model->USUusuario; ?>" class="form-control" required pattern = "[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}" onpaste="return false;" onDrop="return false;" autocomplete=off required  >
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <label>Password</label>
-                                                            <input type="password"  id="USUpassword" name="USUpassword"  value="<?php echo $nuevo ? '' : $model->USUpassword; ?>" class="form-control" onpaste="return false;" onDrop="return false;" autocomplete=off required  >
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Estado</label>
-                                                        <div class="form-group">
-                                                            <select   id="USUestado" name="USUestado"  class="form-control" Required>
-                                                            <?php foreach($estados as $e): ?>                                            
-                                                                <?php  $Estado=null;
+
+            <!-- end page title end breadcrumb -->
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <form method="post" action="?c=usuario&a=guardar" id="frm-usuario"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-9">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Datos del Usuarios</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-md-4">
+
+                                                <div class="form-group">
+                                                    <label>Nombres </label>
+                                                    <input type="text" id="USUid" name="USUid" class="form-control"
+                                                        hidden="" value="<?php echo $nuevo ? '' : $model->USUid; ?>" />
+                                                    <input type="text" id="USUnombre" name="USUnombre"
+                                                        value="<?php echo $nuevo ? '' : $model->USUnombre; ?>"
+                                                        class="form-control" onkeypress="return soloLetras(event)"
+                                                        onpaste="return false" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Apellidos</label>
+                                                    <input type="text" id="USUapellidos" name="USUapellidos" required
+                                                        value="<?php echo $nuevo ? '' : $model->USUapellidos; ?>"
+                                                        class="form-control" onkeypress="return soloLetras(event)"
+                                                        onpaste="return false" autocomplete=off>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Email <span class="text-danger"></span></label>
+                                                    <input type="email" id="USUemail" name="USUemail"
+                                                        value="<?php echo $nuevo ? '' : $model->USUemail; ?>"
+                                                        class="form-control" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nombre Usuario <span class="text-danger"></span></label>
+                                                    <input type="text" id="USUusuario" name="USUusuario"
+                                                        value="<?php echo $nuevo ? '' : $model->USUusuario; ?>"
+                                                        class="form-control" required
+                                                        pattern="[A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,250}" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input type="password" id="USUpassword" name="USUpassword"
+                                                        value="<?php echo $nuevo ? '' : $model->USUpassword; ?>"
+                                                        class="form-control" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Estado</label>
+                                                <div class="form-group">
+                                                    <select id="USUestado" name="USUestado" class="form-control"
+                                                        Required>
+                                                        <?php foreach($estados as $e): ?>
+                                                        <?php  $Estado=null;
                                                                 if(!$nuevo){
                                                                     $Estado=$model->USUestado;
                                                                     }  
                                                                     ?>
-                                                                    <option <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?> value="<?php echo $e->id_estado; ?> "><?php echo $e->nombre_estado; ?></option>
-                                                                
-                                                                    <?php endforeach; ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                        <option
+                                                            <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?>
+                                                            value="<?php echo $e->id_estado; ?> ">
+                                                            <?php echo $e->nombre_estado; ?></option>
+
+                                                        <?php endforeach; ?>
+                                                    </select>
                                                 </div>
-
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-3">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Subir Foto</h4>
-                                            <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify"  />
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-12">
-                                          <div class="card-body">
-                                            <div class="row clearfix text-right  ">
-                                              <div class="form-group mb-0">
-                                                  <button type="submit" id="registrousuario" name="registrousuario" class="btn btn-primary waves-effect waves-light">
-                                                      Guardar
-                                                  </button>
-                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                      Cancelar
-                                                  </button>
-                                              </div><!--end form-group-->
                                             </div>
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                  </div><!--end row-->
-                                </form><!--end form-->
-                            </div><!--end row-->
-                        </div><!-- container -->
+                                        </div>
 
-            <!-- ========================================================================================== -->
-            <!-- TERMINA SECCION CONTENIDO -->
-            <!-- ========================================================================================== -->
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-3">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Subir Foto</h4>
+                                        <p class="text-muted mb-3">Arrastra una imagen</p>
+                                        <input type="file" id="imagen" name="imagen" class="dropify" />
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="card-body">
+                                        <div class="row clearfix text-right  ">
+                                            <div class="form-group mb-0">
+                                                <button class="btn btn-primary waves-effect waves-light">
+                                                    Guardar
+                                                </button>
+                                                <button type="reset" class="btn btn-danger waves-effect m-l-5">
+                                                    Cancelar
+                                                </button>
+                                            </div>
+                                            <!--end form-group-->
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </form>
+                        <!--end form-->
+                    </div>
+                    <!--end row-->
+                </div><!-- container -->
 
-        </div><!-- container -->
-        <footer class="footer text-center text-sm-left">
-            &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción de
-                Softwre II</span>
-        </footer>
+                <!-- ========================================================================================== -->
+                <!-- TERMINA SECCION CONTENIDO -->
+                <!-- ========================================================================================== -->
+
+            </div><!-- container -->
+            <footer class="footer text-center text-sm-left">
+                &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción
+                    de
+                    Softwre II</span>
+            </footer>
+        </div>
+        <!-- end page content -->
     </div>
-    <!-- end page content -->
-</div>
-<!-- end page-wrapper -->
+    <!-- end page-wrapper -->
 
 
+    <script>
+    $(document).ready(function() {
+        $("#frm-usuario").submit(function() {
+            //alert('Se guardo con exito!');
+            Swal.fire({
+                type: 'success',
+                title: 'Muy Bien!',
+                text: 'Se guardo con éxito!'
+            }).then(function() {
+                //  console.log("Despues de dar click en el boton, aqui llamarias al submit");
+                //window.location = "admFrmListar.php";
+            })
 
-
+            return $(this).validate();
+        });
+    })
+    </script>

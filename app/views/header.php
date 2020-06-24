@@ -28,6 +28,7 @@
     <script src="public/sweetalert2/dist/sweetalert2.min.js"></script>
     <link href="public/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 </head>
 <body>
