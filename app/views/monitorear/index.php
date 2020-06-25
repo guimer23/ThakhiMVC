@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-<div class="left-sidenav">
+    <div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
@@ -143,184 +143,204 @@
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
 
+            <div class='row'>
+                <div class='col-12'>
+                    <div class='card'>
+                        <div class='card-body'>
+                            <div id="mapa" class="gmaps"></div><br>
+                            <h4 class='header-title mt-0'>Detalles de Monitoreo de Entregas</h4>
+                            <div class='table-responsive dash-social'>
+                                <table class='table' id='TablaUsuario'>
+                                    <thead class='thead-light'>
+                                        <tr>
+                                            <th scope='col'>DNI</th>
+                                            <th scope='col'>Nombres y Apellidos</th>
+                                            <th scope='col'>Celular</th>
+                                            <th scope='col'>Placa Vehículo</th>
+                                            <th scope='col'>Cliente</th>
+                                            <th class='text-center' scope='col'>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($movimientos as $movi): ?>
+                                        <?php endforeach; ?>
+                                        <?php if(count($model) > 0): ?>
+                                        <?php foreach($model as $m): ?>
 
-            <div id="mapa" class="gmaps" ></div>
-            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                    <th scope='col'>DNI</th>
-                                <th scope='col'>Nombres y Apellidos</th>
-                                <th scope='col'>Celular</th>
-                                <th scope='col'>Placa Vehículo</th>
-                                <th scope='col'>Cliente</th>
-                                <th class='text-center' scope='col'>Estado</th> 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($movimientos as $movi): ?>
-                                    <?php endforeach; ?>
-                                <?php if(count($model) > 0): ?>
-                                    <?php foreach($model as $m): ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $m->CONdni; ?>
 
-                                    <tr>
-                                        <td>                                           
-                                           <?php echo $m->CONdni; ?> 
-                                           
-                                        </td>
-                                        <td>
-                                        <?php echo $m->CONnombre; ?><?php echo $m->CONapellido; ?>
-                                        </td>   
-                                        <td>
-                                        <?php echo $m->CONcelular; ?>
-                                        </td>
-                                        <td>
-                                        <?php echo $m->VEHplaca; ?>
-                                        </td>
-                                                                           
-                                        <td>
-                                            <a href="#"
-                                                class="btn btn-xs btn-danger btn-block">
-                                                Editar
-                                            </a>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONnombre." "; ?><?php echo $m->CONapellido; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->CONcelular; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $m->VEHplaca; ?>
+                                            </td>
 
-                                    <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </tbody>
-                            </table>
+                                            <td>
+                                                <?php echo $m->CLInombre; ?>
+                                            </td>
+                                            <td>
+                                                <?php if($m->ENTestado=="P"){
+                                                echo "<span class='badge badge-primary'>Pendiente</span>";
+                                            } 
+                                            else if($m->ENTestado=="E"){
+                                                echo "<span class='badge badge-success'>Entregado</span>";
+                                            }
+                                            else if($m->ENTestado=="N"){
+                                                echo "<span class='badge badge-danger'>No entregado</span>";
+                                            }
+                                            ?>
+                                            </td>
+                                        </tr>
+
+                                        <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-            <!--end row-->
-            <!-- ========================================================================================== -->
-            <!-- TERMINA SECCION CONTENIDO -->
-            <!-- ========================================================================================== -->
+                <!--end row-->
+                <!-- ========================================================================================== -->
+                <!-- TERMINA SECCION CONTENIDO -->
+                <!-- ========================================================================================== -->
 
-        </div><!-- container -->
-        <footer class="footer text-center text-sm-left">
-            &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción de
-                Softwre II</span>
-        </footer>
+            </div><!-- container -->
+            <footer class="footer text-center text-sm-left">
+                &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción
+                    de
+                    Softwre II</span>
+            </footer>
+        </div>
+        <!-- end page content -->
     </div>
-    <!-- end page content -->
-</div>
-<!-- end page-wrapper -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap" ></script>
-
-    
-<!-- Gmaps file -->
-<script src="../public/plugins/gmaps/gmaps.min.js"></script>
-<!-- demo codes -->
-<script src="../public/pages/jquery.gmaps.init.js"></script>
+    <!-- end page-wrapper -->
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap">
+    </script>
 
 
-<script type="text/javascript">
-        function initMap() {
+    <!-- Gmaps file -->
+    <script src="../public/plugins/gmaps/gmaps.min.js"></script>
+    <!-- demo codes -->
+    <script src="../public/pages/jquery.gmaps.init.js"></script>
 
-          /*
-          var map;
-          var bounds = new google.maps.LatLngBounds();
-          var mapOptions = {
-              mapTypeId: 'roadmap'
-          };
-        var latitud 
-          map = new google.maps.Map(document.getElementById('mapa'), {
-              mapOptions
-          });
 
-          map.setTilt(50);
-     
-          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-              this.setZoom(14);
-              google.maps.event.removeListener(boundsListener);
-          });
-              $.ajax({
-                
-                url: '?c=Monitorear&a=monitorea',            
-                type: "post",
-                cache: false,
-                success: function (retorno) {
-    
-    
-                var markers = new Array();
-    
-                $.each(retorno.DireccionesRelacionadasConLaSede, function (index, itm) {
-                            var _markers = [itm.VEClatitud, itm.VEClongitud];
-                            markers.push(_markers);
-                            console.log(_markers);
-                });
-                });
-                  $.ajax({
+    <script type="text/javascript">
+    function initMap() {
 
-                        url: '?c=Monitorear&a=monitorea',            
-                        type: "get",
-                        cache: false,
-                        success:function(retorno){
-                            var markers = new Array();
-                            console.log(retorno);
-
-                        }
-            })
-
-          */
-         
-          var map;
-          var bounds = new google.maps.LatLngBounds();
-          var mapOptions = {
-              mapTypeId: 'roadmap'
-          };
-      
-          map = new google.maps.Map(document.getElementById('mapa'), {
-              mapOptions
-          });
-         
-  
-          var posiciones =' <?php echo $movi->VEClatitud .','.$movi->VEClongitud; ?>';
-  
-         var ar=posiciones.split(",");
-      //  var array[]=
-            console.log(ar);
-            //console.log(longi);
-            var mostrarMarcadores = new google.maps.InfoWindow(),
-              ar, i;
-            var can=ar.length;
-              for (i = 0; i < ar.length; i++) {
-
-                  if(can>0){
-
-                  }    
-              var position = new google.maps.LatLng(ar[0], ar[1]);
-              //console.log("Posicnes"+position);
-              bounds.extend(position);
-              marker = new google.maps.Marker({
-                  position: position,
-                  map: map,
-                  title: ar[i][0]
+        /*
+              var map;
+              var bounds = new google.maps.LatLngBounds();
+              var mapOptions = {
+                  mapTypeId: 'roadmap'
+              };
+            var latitud 
+              map = new google.maps.Map(document.getElementById('mapa'), {
+                  mapOptions
               });
-              google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                  return function() {
+
+              map.setTilt(50);
+         
+              var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+                  this.setZoom(14);
+                  google.maps.event.removeListener(boundsListener);
+              });
+                  $.ajax({
+                    
+                    url: '?c=Monitorear&a=monitorea',            
+                    type: "post",
+                    cache: false,
+                    success: function (retorno) {
         
-           
-                  }
-              })
-              (marker, i));
-              // Centramos el Mapa de Google para que todos los marcadores se puedan ver
+        
+                    var markers = new Array();
+        
+                    $.each(retorno.DireccionesRelacionadasConLaSede, function (index, itm) {
+                                var _markers = [itm.VEClatitud, itm.VEClongitud];
+                                markers.push(_markers);
+                                console.log(_markers);
+                    });
+                    });
+                      $.ajax({
+
+                            url: '?c=Monitorear&a=monitorea',            
+                            type: "get",
+                            cache: false,
+                            success:function(retorno){
+                                var markers = new Array();
+                                console.log(retorno);
+
+                            }
+                })
+
+              */
+
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+            mapTypeId: 'roadmap'
+        };
+
+        map = new google.maps.Map(document.getElementById('mapa'), {
+            mapOptions
+        });
+
+
+        var posiciones = ' <?php echo $movi->VEClatitud .',
+            '.$movi->VEClongitud; ?>';
+
+        var ar = posiciones.split(",");
+        //  var array[]=
+        console.log(ar);
+        //console.log(longi);
+        var mostrarMarcadores = new google.maps.InfoWindow(),
+            ar, i;
+        var can = ar.length;
+        for (i = 0; i < ar.length; i++) {
+
+            if (can > 0) {
+
+            }
+            var position = new google.maps.LatLng(ar[0], ar[1]);
+            //console.log("Posicnes"+position);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: ar[i][0]
+            });
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+
+
+                    }
+                })
+                (marker, i));
+            // Centramos el Mapa de Google para que todos los marcadores se puedan ver
             map.fitBounds(bounds);
-             }
+        }
 
 
         // var posicion = {lat: parseFloat(lati)  , lng:parseFloat(longi) };  
-         //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
-         // var marker = new google.maps.Marker({position: posicion, map: map});
-          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-              this.setZoom(14);
-              google.maps.event.removeListener(boundsListener);
-          });
+        //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
+        // var marker = new google.maps.Marker({position: posicion, map: map});
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(14);
+            google.maps.event.removeListener(boundsListener);
+        });
 
-      }
-      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
-      google.maps.event.addDomListener(window, 'load', initMap);
+    }
+    // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
+    google.maps.event.addDomListener(window, 'load', initMap);
     //  setTimeout(initMap,10000);
-
     </script>
-
