@@ -283,7 +283,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td id="estadov"> </td>
+                                                    <td> <span class='badge badge-danger' id="estadov">No entregado</span> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -331,7 +331,24 @@ function addRowHandlers(rutaFoto) {
                     var tipo = cel2.innerHTML;
                     var conductor = cel3.innerHTML;
                     var cliente = cel4.innerHTML;
-                    var estado = cel5.innerHTML;
+                    var estadoval = cel5.innerHTML.trim();
+                    console.log(estadoval);
+                    var estado;
+                    if(estadoval=='<span class="badge badge-primary">Pendiente</span>')
+                    {
+                        estado="Pendiente";
+                        document.getElementById("estadov").className = "badge badge-primary";
+                    }
+                    else if(estadoval=='<span class="badge badge-success">Entregado</span>')
+                    {
+                        estado="Entregado";
+                        document.getElementById("estadov").className = "badge badge-success";
+                    }
+                    else
+                    {
+                        estado="No entregado";
+                        document.getElementById("estadov").className = "badge badge-danger";
+                    }
 
                     $('#descripcionv').text(descripcion);
                     $('#tipov').text(tipo);

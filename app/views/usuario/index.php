@@ -167,12 +167,12 @@
                                         <!--end tr-->
                                     </thead>
                                     <tbody>
-                                    <?php $i=1; ?>
                                         <?php if(count($model) > 0): ?>
                                         <?php foreach($model as $m): ?>
                                         <tr>
                                             <td>
-                                            <?php echo $i; ?>
+                                                <?php echo $m->USUid; ?>
+
                                             </td>
                                             <td>
                                                 <?php echo $m->USUnombre; ?>
@@ -213,8 +213,7 @@
 
                                             </td>
                                         </tr>
-                                        
-                                        <?php $i++; ?>
+
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
@@ -275,7 +274,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td id="estadov"> </td>
+                                                    <td > <span id="estadov" class='badge badge-danger'>Inactivo</span> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -322,7 +321,19 @@ function addRowHandlers(rutaFoto) {
                     var apellidos = cel2.innerHTML;
                     var correo = cel3.innerHTML;
                     var usuario = cel4.innerHTML;
-                    var estado = cel5.innerHTML;
+                    var estadoval = cel5.innerHTML.trim();
+                    //console.log(estado1);
+                    var estado;
+                    if(estadoval=='<span class="badge badge-success">Activo</span>')
+                    {
+                        estado="Activo";
+                        document.getElementById("estadov").className = "badge badge-success";
+                    }
+                    else
+                    {
+                        estado="Inactivo";
+                        document.getElementById("estadov").className = "badge badge-danger";
+                    }
 
                     $('#nombrecv').text(nombres);
                     $('#apellidocv').text(apellidos);

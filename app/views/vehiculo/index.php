@@ -285,7 +285,7 @@
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td id="estadov"> </td>
+                                                    <td ><span id="estadov" class='badge badge-danger'>Inactivo</span> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -335,8 +335,19 @@ function addRowHandlers(rutaFoto) {
                     var modelo = cel3.innerHTML;
                     var color = cel4.innerHTML;
                     var anio = cel5.innerHTML;
-                    var estado = cel6.innerHTML;
-
+                    var estadoval = cel6.innerHTML.trim();
+                    //console.log(estado1);
+                    var estado;
+                    if(estadoval=='<span class="badge badge-success">Activo</span>')
+                    {
+                        estado="Activo";
+                        document.getElementById("estadov").className = "badge badge-success";
+                    }
+                    else
+                    {
+                        estado="Inactivo";
+                         document.getElementById("estadov").className = "badge badge-danger";
+                    }
                     $('#placav').text(placa);
                     $('#marcav').text(marca);
                     $('#modelov').text(modelo);
