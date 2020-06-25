@@ -155,19 +155,20 @@
                                 <div class="row clearfix">
                                     <div class="col-md-6">
 
-                                        <input type="text" name="VECid" id="VECid"
+                                        <input hidden type="text" name="VECid" id="VECid"
                                             value="<?php echo $nuevo ? '' : $model->VECid; ?>">
                                         <label>Conductor</label>
                                         <div class="form-group">
                                             <select class="form-control" id="CONdni" name="CONdni" Required>
-                                                <?php foreach($conductores as $p): ?>
-                                                <?php  $CONdni=null;
+                                                <option value="">- Seleccionar -</option>
+                                                    <?php foreach($conductores as $p): ?>
+                                                    <?php  $CONdni=null;
                                             if(!$nuevo){
                                                 $CONdni=$model->CONdni;
                                                 }  
                                                 ?>
                                                 <option <?php echo $CONdni == $p->CONdni ? 'selected' : ''; ?>
-                                                    value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre; ?>
+                                                    value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre."-".$p->CONapellido; ?>
                                                 </option>
 
                                                 <?php endforeach; ?>
@@ -178,14 +179,15 @@
                                         <label>Vehículo</label>
                                         <div class="form-group">
                                             <select class="form-control" id="VEHid" name="VEHid" Required>
-                                                <?php foreach($vehiculos as $p): ?>
-                                                <?php  $VEHid=null;
+                                                <option value="">- Seleccionar -</option>
+                                                    <?php foreach($vehiculos as $p): ?>
+                                                    <?php  $VEHid=null;
                                             if(!$nuevo){
                                                 $VEHid=$model->VEHid;
                                                 }  
                                                 ?>
                                                 <option <?php echo $VEHid == $p->VEHid ? 'selected' : ''; ?>
-                                                    value="<?php echo $p->VEHid; ?> "><?php echo $p->VEHplaca; ?>
+                                                    value="<?php echo $p->VEHid; ?> "><?php echo $p->VEHmarca."-".$p->VEHplaca; ?>
                                                 </option>
 
 

@@ -178,10 +178,9 @@
 
                                             </td>
                                             <td>
-                                                <?php echo $m->CONnombre; ?> <?php echo $m->CONapellido; ?>
+                                                <?php echo $m->CONnombre." "; ?> <?php echo $m->CONapellido; ?>
 
                                             </td>
-
                                             <td>
                                                 <?php echo $m->VEHplaca; ?>
                                             </td>
