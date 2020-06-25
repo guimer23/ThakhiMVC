@@ -130,11 +130,11 @@
                         <div class="float-right">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
+                                <li class="breadcrumb-item active">Entregas</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">Entregas</h4>
                     </div>
                     <!--end page-title-box-->
                 </div>
