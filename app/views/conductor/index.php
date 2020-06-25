@@ -331,7 +331,7 @@ function addRowHandlers(rutaFoto) {
                     $('#dnicv').text(dni);
                     $('#nombrecv').text(nombres);
                     $('#licenciav').text(licencia);
-                    $('#corresoatvocv').text(vigencia);
+                    $('#soatv').text(vigencia);
                     $('#celularv').text(celular);
                     $('#correocv').text(correo);
 
