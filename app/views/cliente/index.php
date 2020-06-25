@@ -183,7 +183,13 @@
 
                                             </td>
                                             <td>
-                                                <?php echo $m->CLInombre; ?><?php echo $m->CLIapellido; ?>
+                                                <?php echo $m->CLInombre." "; ?><?php echo $m->CLIapellido; ?>
+                                            </td>                                           
+                                            <td hidden>
+                                                <?php echo $m->CLInombre; ?>
+                                            </td>
+                                            <td hidden>
+                                                <?php echo $m->CLIapellido; ?>
                                             </td>
                                             <td>
                                                 <?php echo $m->CLIcelular; ?>
@@ -301,16 +307,19 @@ function addRowHandlers(rutaFoto) {
             function(row) {
                 return function() {
                     var cel1 = row.getElementsByTagName("td")[0];
-                    var cel2 = row.getElementsByTagName("td")[1];
-                    var cel3 = row.getElementsByTagName("td")[2];
-                    var cel4 = row.getElementsByTagName("td")[3];
+                    var cel2 = row.getElementsByTagName("td")[2];
+                    var cel3 = row.getElementsByTagName("td")[3];
+                    var cel4 = row.getElementsByTagName("td")[4];
+                    var cel5 = row.getElementsByTagName("td")[5];
 
                     var dni = cel1.innerHTML;
                     var nombres = cel2.innerHTML;
-                    var celular = cel3.innerHTML;
-                    var correo = cel4.innerHTML;
+                    var apellidos = cel3.innerHTML;
+                    var celular = cel4.innerHTML;
+                    var correo = cel5.innerHTML;
                     $('#dnicv').text(dni);
                     $('#nombrecv').text(nombres);
+                    $('#apellidocv').text(apellidos);
                     $('#celularcv').text(celular);
                     $('#correocv').text(correo);
 
