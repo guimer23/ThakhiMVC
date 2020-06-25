@@ -209,7 +209,7 @@
                                                 <a href="#" onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"> <i
                                                         class="fas fa-eye text-dark font-16" data-toggle="modal"
                                                         data-animation="bounce" data-target=".bs-example-modal-lg"></i>
-                                                    ver </a>
+                                                    </a>
 
 
                                             </td>
