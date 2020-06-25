@@ -167,12 +167,12 @@
                                         <!--end tr-->
                                     </thead>
                                     <tbody>
+                                    <?php $i=1; ?>
                                         <?php if(count($model) > 0): ?>
                                         <?php foreach($model as $m): ?>
                                         <tr>
                                             <td>
-                                                <?php echo $m->USUid; ?>
-
+                                            <?php echo $i; ?>
                                             </td>
                                             <td>
                                                 <?php echo $m->USUnombre; ?>
@@ -213,7 +213,8 @@
 
                                             </td>
                                         </tr>
-
+                                        
+                                        <?php $i++; ?>
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
