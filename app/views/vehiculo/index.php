@@ -171,12 +171,13 @@
                                     </thead>
 
                                     <tbody>
+                                        <?php $i=1; ?>
                                         <?php if(count($model) > 0): ?>
                                         <?php foreach($model as $m): ?>
 
                                         <tr>
                                             <td>
-                                                <?php echo $m->VEHid ; ?>
+                                                <?php echo $i; ?>
 
                                             </td>
                                             <td>
@@ -220,7 +221,7 @@
 
                                             </td>
                                         </tr>
-
+                                        <?php $i++; ?>
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
@@ -285,7 +286,8 @@
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td ><span id="estadov" class='badge badge-danger'>Inactivo</span> </td>
+                                                    <td><span id="estadov" class='badge badge-danger'>Inactivo</span>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -338,15 +340,12 @@ function addRowHandlers(rutaFoto) {
                     var estadoval = cel6.innerHTML.trim();
                     //console.log(estado1);
                     var estado;
-                    if(estadoval=='<span class="badge badge-success">Activo</span>')
-                    {
-                        estado="Activo";
+                    if (estadoval == '<span class="badge badge-success">Activo</span>') {
+                        estado = "Activo";
                         document.getElementById("estadov").className = "badge badge-success";
-                    }
-                    else
-                    {
-                        estado="Inactivo";
-                         document.getElementById("estadov").className = "badge badge-danger";
+                    } else {
+                        estado = "Inactivo";
+                        document.getElementById("estadov").className = "badge badge-danger";
                     }
                     $('#placav').text(placa);
                     $('#marcav').text(marca);

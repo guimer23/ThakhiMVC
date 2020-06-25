@@ -168,12 +168,13 @@
                                     </thead>
 
                                     <tbody>
+                                        <?php $i=1; ?>
                                         <?php if(count($model) > 0): ?>
                                         <?php foreach($model as $m): ?>
 
                                         <tr>
                                             <td>
-                                                <?php echo $m->VECid ; ?>
+                                                <?php echo $i; ?>
 
                                             </td>
                                             <td>
@@ -204,7 +205,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-
+                                        <?php $i++; ?>
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>

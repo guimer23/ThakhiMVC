@@ -172,12 +172,13 @@
                                     </thead>
 
                                     <tbody>
+                                        <?php $i=1; ?>
                                         <?php if(count($model) > 0): ?>
                                         <?php foreach($model as $m): ?>
 
                                         <tr>
                                             <td>
-                                                <?php echo $m->ENTid; ?>
+                                                <?php echo $i; ?>
                                             </td>
                                             <td>
                                                 <?php echo $m->ENTdescripcion; ?>
@@ -222,7 +223,7 @@
 
                                             </td>
                                         </tr>
-
+                                        <?php $i++; ?>
                                         <?php endforeach; ?>
                                         <?php endif; ?>
                                     </tbody>
@@ -283,7 +284,8 @@
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td> <span class='badge badge-danger' id="estadov">No entregado</span> </td>
+                                                    <td> <span class='badge badge-danger' id="estadov">No
+                                                            entregado</span> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -334,19 +336,14 @@ function addRowHandlers(rutaFoto) {
                     var estadoval = cel5.innerHTML.trim();
                     console.log(estadoval);
                     var estado;
-                    if(estadoval=='<span class="badge badge-primary">Pendiente</span>')
-                    {
-                        estado="Pendiente";
+                    if (estadoval == '<span class="badge badge-primary">Pendiente</span>') {
+                        estado = "Pendiente";
                         document.getElementById("estadov").className = "badge badge-primary";
-                    }
-                    else if(estadoval=='<span class="badge badge-success">Entregado</span>')
-                    {
-                        estado="Entregado";
+                    } else if (estadoval == '<span class="badge badge-success">Entregado</span>') {
+                        estado = "Entregado";
                         document.getElementById("estadov").className = "badge badge-success";
-                    }
-                    else
-                    {
-                        estado="No entregado";
+                    } else {
+                        estado = "No entregado";
                         document.getElementById("estadov").className = "badge badge-danger";
                     }
 
