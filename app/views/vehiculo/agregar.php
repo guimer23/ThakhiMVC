@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -146,105 +145,132 @@
             <!-- ==========================================================================================  VEHplaca -->
 
             <div class="row">
-                        <div class="col-md-12 col-lg-12">
-                            <div class="card">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
 
-                                <form  method="post" action="?c=vehiculo&a=guardar"  class="form-parsley" enctype="multipart/form-data" >
-                                  <div class="row">
-                                      <div class="col-md-12 col-lg-9">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Datos del Vehículo</h4>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-3">
-                                                      <div class="form-group">
-                                                          <label>Placa </label>
-                                                          <input type="text" name="VEHid" id="VEHid" hidden=""   value="<?php echo $nuevo ? '' : $model->VEHid; ?>"  >
-                                                          <input type="text" id="VEHplaca" name="VEHplaca" class="form-control" value="<?php echo $nuevo ? '' : $model->VEHplaca; ?>"required  >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Marca</label>
-                                                          <input type="text" id="VEHmarca" name="VEHmarca" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHmarca; ?>" >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-5">
-                                                      <div class="form-group">
-                                                          <label>Modelo</label>
-                                                          <input type="text" id="VEHmodelo" name="VEHmodelo" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHmodelo; ?>">
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-5">
-                                                      <div class="form-group">
-                                                          <label>Color </label>
-                                                          <input type="text" id="VEHcolor" name="VEHcolor" class="form-control" required value="<?php echo $nuevo ? '' : $model->VEHcolor; ?>">
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-7">
-                                                      <div class="form-group">
-                                                          <label>Año Fabricación</label>
-                                                          <input type="date" id="VEHanio_fabricacion" name="VEHanio_fabricacion" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHanio_fabricacion; ?>">
-                                                      </div>
-                                                  </div>
-
-                                              </div>
-                                              <div class="row clearfix">
-                                                <div class="col-md-7">
-                                                    <div class="form-group">
-                                                        <label>Vigencia SOAT</label>
-                                                          <input type="date" id="VEHsoat" name="VEHsoat" class="form-control" required  value="<?php echo $nuevo ? '' : $model->VEHsoat; ?>" >
-                                                    </div>
+                        <form method="post" action="?c=vehiculo&a=guardar" class="form-parsley"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-9">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Datos del Vehículo</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Placa </label>
+                                                    <input type="text" name="VEHid" id="VEHid" hidden=""
+                                                        value="<?php echo $nuevo ? '' : $model->VEHid; ?>">
+                                                    <input type="text" id="VEHplaca" name="VEHplaca"
+                                                        class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->VEHplaca; ?>" required>
                                                 </div>
-                                                <div class="col-md-5">
-                                                    <label>Estado</label>
-                                                    <div class="form-group">
-                                                        <select id="VEHestado" name="VEHestado" class="form-control" Required  > 
-                                                        <?php foreach($estados as $e): ?>                                            
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Marca</label>
+                                                    <input type="text" id="VEHmarca" name="VEHmarca"
+                                                        class="form-control" required
+                                                        value="<?php echo $nuevo ? '' : $model->VEHmarca; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Modelo</label>
+                                                    <input type="text" id="VEHmodelo" name="VEHmodelo"
+                                                        class="form-control" required
+                                                        value="<?php echo $nuevo ? '' : $model->VEHmodelo; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Color </label>
+                                                    <input type="text" id="VEHcolor" name="VEHcolor"
+                                                        class="form-control" required
+                                                        value="<?php echo $nuevo ? '' : $model->VEHcolor; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    <label>Año Fabricación</label>
+                                                    <input type="date" id="VEHanio_fabricacion"
+                                                        name="VEHanio_fabricacion" class="form-control" required
+                                                        value="<?php echo $nuevo ? '' : $model->VEHanio_fabricacion; ?>">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    <label>Vigencia SOAT</label>
+                                                    <input type="date" id="VEHsoat" name="VEHsoat" class="form-control"
+                                                        required value="<?php echo $nuevo ? '' : $model->VEHsoat; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label>Estado</label>
+                                                <div class="form-group">
+                                                    <select id="VEHestado" name="VEHestado" class="form-control"
+                                                        Required>
+                                                        <?php foreach($estados as $e): ?>
                                                         <?php  $Estado=null;
                                                         if(!$nuevo){
                                                             $Estado=$model->VEHestado;
                                                             }  
                                                             ?>
-                                                            <option <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?> value="<?php echo $e->id_estado; ?> "><?php echo $e->nombre_estado; ?></option>
-                                                        
-                                                            <?php endforeach; ?>
-                                                          
-                                                            
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                </div>
+                                                        <option
+                                                            <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?>
+                                                            value="<?php echo $e->id_estado; ?> ">
+                                                            <?php echo $e->nombre_estado; ?></option>
 
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-3">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Subir Foto</h4>
-                                            <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify" />
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-12">
-                                          <div class="card-body">
-                                            <div class="row clearfix text-right  ">
-                                              <div class="form-group mb-0">
-                                                  <button type="submit" id="btnvehiculo" class="btn btn-primary waves-effect waves-light">
-                                                      Guardar
-                                                  </button>
-                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                      Cancelar
-                                                  </button>
-                                              </div><!--end form-group-->
+                                                        <?php endforeach; ?>
+
+
+                                                    </select>
+                                                </div>
                                             </div>
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                  </div><!--end row-->
-                                </form><!--end form-->
-                            </div><!--end row-->
-                        </div><!-- container -->
-                    </div><!-- container -->
+                                        </div>
+
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-3">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Subir Foto</h4>
+                                        <p class="text-muted mb-3">Arrastra una imagen</p>
+                                        <input type="file" id="imagen" name="imagen" class="dropify" />
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="card-body">
+                                        <div class="row clearfix text-right  ">
+                                            <div class="form-group mb-0">
+                                                <button type="submit" id="btnvehiculo"
+                                                    class="btn btn-primary waves-effect waves-light">
+                                                    Guardar
+                                                </button>
+                                                <a href="?c=vehiculo"
+                                                    class="btn btn-danger waves-effect m-l-5">Cancelar</a>
+                                            </div>
+                                            <!--end form-group-->
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </form>
+                        <!--end form-->
+                    </div>
+                    <!--end row-->
+                </div><!-- container -->
+            </div><!-- container -->
 
 
             <!-- ========================================================================================== -->

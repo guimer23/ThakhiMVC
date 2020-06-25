@@ -231,15 +231,14 @@
                                         <div class="row clearfix text-right  ">
                                             <div class="form-group mb-0">
                                                 <td class="border-0">
-                                                <button type="submit" 
+                                                    <button type="submit"
                                                         class="btn btn-primary waves-effect waves-light">
                                                         Guardar
                                                     </button>
-                                                    </td>
+                                                </td>
 
-                                                <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                    Cancelar
-                                                </button>
+                                                <a href="?c=cliente"
+                                                    class="btn btn-danger waves-effect m-l-5">Cancelar</a>
                                             </div>
                                             <!--end form-group-->
                                         </div>

@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="#"><i
-                                    class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-train-car"></i>Vehículo -
+                                Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -146,127 +145,175 @@
             <!-- ========================================================================================== -->
 
 
-           
-   <!-- end page title end breadcrumb -->
-   <div class="row">
-                        <div class="col-md-12 col-lg-12">
-                            <div class="card">
-                                <form  method="post" action="?c=conductor&a=guardar"  id="frmconductor"  enctype="multipart/form-data">
-                                  <div class="row">
-                                      <div class="col-md-12 col-lg-9">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Datos del Conductor</h4>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-3">
-                                                      <div class="form-group">
-                                                       
-                                                          <label>DNI </label>
-                                                          <input type="text" id="VCONdni"  name="VCONdni" hidden="" value="<?php echo $nuevo ? '' : $model->CONdni; ?>" />
-                                                          <input type="text" id="CONdni"  name="CONdni" value="<?php echo $nuevo ? '' : $model->CONdni; ?>" class="form-control" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/><i>(Máximo 8 dígitos)</i>
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Nombres</label>
-                                                          <input type="text" class="form-control input-sm" name="CONnombre" id="CONnombre"  value="<?php echo $nuevo ? '' : $model->CONnombre; ?>" onkeypress="return soloLetras(event)" onpaste="return false" required >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-5">
-                                                      <div class="form-group">
-                                                          <label>Apellidos <span class="text-danger"></span></label>
-                                                          <input type="text" id="CONapellido" name="CONapellido" value="<?php echo $nuevo ? '' : $model->CONapellido; ?>" class="form-control input-sm" onkeypress="return soloLetras(event)" onpaste="return false" required >
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
 
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Licencia de conductor <span class="text-danger"></span></label>
-                                                          <input type="text"  id="CONlicencia" name="CONlicencia" class="form-control"   value="<?php echo $nuevo ? '' : $model->CONlicencia; ?>"  onpaste="return false;" onDrop="return false;" autocomplete=off required >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Vigencia de Licencia</label>
-                                                          <input type="date" id="CONvigencialicencia" name="CONvigencialicencia" class="form-control"  value="<?php echo $nuevo ? '' : $model->CONvigencialicencia; ?>" >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Celular </label>
-                                                          <input type="text" id="CONcelular" name="CONcelular" class="form-control"   value="<?php echo $nuevo ? '' : $model->CONcelular; ?>"  maxlength="9" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" min="1" pattern="^[0-9]+" onpaste="return false;" onDrop="return false;" autocomplete=off required/>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row clearfix">
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Correo electrónico</label>
-                                                          <input type="email" id="CONemail" name="CONemail" class="form-control" value="<?php echo $nuevo ? '' : $model->CONemail; ?>" onpaste="return false;" onDrop="return false;" autocomplete=off required >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <div class="form-group">
-                                                          <label>Clave </label>
-                                                          <input type="password" id="CONclave" name="CONclave" class="form-control input-sm"   >
-                                                      </div>
-                                                  </div>
-                                                </div>                                                
-                                                <div class="row clearfix">
-                                                  <div class="col-md-8">
-                                                      <div class="form-group">
-                                                          <label>Dirección</label>
-                                                          <input type="text" id="CONdireccion" name="CONdireccion"  class="form-control" value="<?php echo $nuevo ? '' : $model->CONdireccion; ?>"  >
-                                                      </div>
-                                                  </div>
-                                                  <div class="col-md-4">
-                                                      <label>Estado</label>
-                                                      <div class="form-group">
-                                                          <select  class="form-control" id="CONestado" name="CONestado" >
-                                                          <?php foreach($estados as $e): ?>                                            
+            <!-- end page title end breadcrumb -->
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <form method="post" action="?c=conductor&a=guardar" id="frmconductor"
+                            enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-9">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Datos del Conductor</h4>
+                                        <div class="row clearfix">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+
+                                                    <label>DNI </label>
+                                                    <input type="text" id="VCONdni" name="VCONdni" hidden=""
+                                                        value="<?php echo $nuevo ? '' : $model->CONdni; ?>" />
+                                                    <input type="text" id="CONdni" name="CONdni"
+                                                        value="<?php echo $nuevo ? '' : $model->CONdni; ?>"
+                                                        class="form-control" maxlength="8"
+                                                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        min="1" pattern="^[0-9]+" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required /><i>(Máximo 8
+                                                        dígitos)</i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Nombres</label>
+                                                    <input type="text" class="form-control input-sm" name="CONnombre"
+                                                        id="CONnombre"
+                                                        value="<?php echo $nuevo ? '' : $model->CONnombre; ?>"
+                                                        onkeypress="return soloLetras(event)" onpaste="return false"
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Apellidos <span class="text-danger"></span></label>
+                                                    <input type="text" id="CONapellido" name="CONapellido"
+                                                        value="<?php echo $nuevo ? '' : $model->CONapellido; ?>"
+                                                        class="form-control input-sm"
+                                                        onkeypress="return soloLetras(event)" onpaste="return false"
+                                                        required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Licencia de conductor <span
+                                                            class="text-danger"></span></label>
+                                                    <input type="text" id="CONlicencia" name="CONlicencia"
+                                                        class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CONlicencia; ?>"
+                                                        onpaste="return false;" onDrop="return false;" autocomplete=off
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Vigencia de Licencia</label>
+                                                    <input type="date" id="CONvigencialicencia"
+                                                        name="CONvigencialicencia" class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CONvigencialicencia; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Celular </label>
+                                                    <input type="text" id="CONcelular" name="CONcelular"
+                                                        class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CONcelular; ?>"
+                                                        maxlength="9"
+                                                        oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                        min="1" pattern="^[0-9]+" onpaste="return false;"
+                                                        onDrop="return false;" autocomplete=off required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Correo electrónico</label>
+                                                    <input type="email" id="CONemail" name="CONemail"
+                                                        class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CONemail; ?>"
+                                                        onpaste="return false;" onDrop="return false;" autocomplete=off
+                                                        required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Clave </label>
+                                                    <input type="password" id="CONclave" name="CONclave"
+                                                        class="form-control input-sm">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix">
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <label>Dirección</label>
+                                                    <input type="text" id="CONdireccion" name="CONdireccion"
+                                                        class="form-control"
+                                                        value="<?php echo $nuevo ? '' : $model->CONdireccion; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Estado</label>
+                                                <div class="form-group">
+                                                    <select class="form-control" id="CONestado" name="CONestado">
+                                                        <?php foreach($estados as $e): ?>
                                                         <?php  $Estado=null;
                                                            if(!$nuevo){
                                                             $Estado=$model->CONestado;
                                                             }  
                                                             ?>
-                                                            <option <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?> value="<?php echo $e->id_estado; ?> "><?php echo $e->nombre_estado; ?></option>
-                                                        
-                                                            <?php endforeach; ?>
-                                                          
-                                                       
-                                                          </select>
-                                                      </div>
-                                                  </div>
+                                                        <option
+                                                            <?php echo $Estado == $e->id_estado ? 'selected' : ''; ?>
+                                                            value="<?php echo $e->id_estado; ?> ">
+                                                            <?php echo $e->nombre_estado; ?></option>
+
+                                                        <?php endforeach; ?>
+
+
+                                                    </select>
                                                 </div>
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-3">
-                                          <div class="card-body">
-                                            <h4 class="mt-0 header-title">Subir Foto</h4>
-                                            <p class="text-muted mb-3">Arrastra una imagen</p>
-                                            <input type="file" id="imagen" name="imagen" class="dropify" />
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                      <div class="col-md-12 col-lg-12">
-                                          <div class="card-body">
-                                            <div class="row clearfix text-right  ">
-                                              <div class="form-group mb-0">
-                                                  <button type="submit"  class="btn btn-primary waves-effect waves-light">
-                                                      Guardar
-                                                  </button>
-                                                  <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                      Cancelar
-                                                  </button>
-                                              </div><!--end form-group-->
                                             </div>
-                                          </div><!--end card-body-->
-                                      </div><!--end col-->
-                                  </div><!--end row-->
-                                </form><!--end form-->
-                            </div><!--end row-->
-                        </div><!-- container -->
-                    </div><!-- container -->
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-3">
+                                    <div class="card-body">
+                                        <h4 class="mt-0 header-title">Subir Foto</h4>
+                                        <p class="text-muted mb-3">Arrastra una imagen</p>
+                                        <input type="file" id="imagen" name="imagen" class="dropify" />
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                                <div class="col-md-12 col-lg-12">
+                                    <div class="card-body">
+                                        <div class="row clearfix text-right  ">
+                                            <div class="form-group mb-0">
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                    Guardar
+                                                </button>
+                                                <a href="?c=conductor"
+                                                    class="btn btn-danger waves-effect m-l-5">Cancelar</a>
+                                            </div>
+                                            <!--end form-group-->
+                                        </div>
+                                    </div>
+                                    <!--end card-body-->
+                                </div>
+                                <!--end col-->
+                            </div>
+                            <!--end row-->
+                        </form>
+                        <!--end form-->
+                    </div>
+                    <!--end row-->
+                </div><!-- container -->
+            </div><!-- container -->
 
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
@@ -281,7 +328,3 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
-
-
-
-

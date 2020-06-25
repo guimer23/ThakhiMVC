@@ -88,8 +88,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i
-                                    class="mdi mdi-star-half"></i>Calificar Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                                Conductor</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Entregas -->
@@ -103,12 +103,11 @@
                                     class="mdi mdi-car-multiple"></i>Vehículos</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=conductor"><i
                                     class="mdi mdi-google-street-view"></i>Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                        href="?c=vehiculoconductor"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=vehiculoconductor"><i
                                     class="mdi mdi-train-car"></i>Vehículo - Conductor</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=cliente"><i
                                     class="mdi mdi-account-multiple"></i>Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link"  href="?c=usuario"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=usuario"><i
                                     class="dripicons-user-group"></i>Usuarios</a></li>
                     </ul>
                 </div>
@@ -147,79 +146,90 @@
 
 
             <div class="row">
-                          <div class="col-md-12 col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                <h4 class="mt-0 header-title">Datos del Vehículo - Conductor</h4>
-                                <form   method="post" action="?c=vehiculoconductor&a=guardar"  id="frmvehiculoconductor" class="form-parsley" >
-                                  <div class="row clearfix">
+                <div class="col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title">Datos del Vehículo - Conductor</h4>
+                            <form method="post" action="?c=vehiculoconductor&a=guardar" id="frmvehiculoconductor"
+                                class="form-parsley">
+                                <div class="row clearfix">
                                     <div class="col-md-6">
-																	
-										<input type="text" name="VECid"  id="VECid"  value="<?php echo $nuevo ? '' : $model->VECid; ?>"  >
+
+                                        <input type="text" name="VECid" id="VECid"
+                                            value="<?php echo $nuevo ? '' : $model->VECid; ?>">
                                         <label>Conductor</label>
                                         <div class="form-group">
-                                         <select  class="form-control" id="CONdni" name="CONdni" Required>
-                                            <?php foreach($conductores as $p): ?>                                            
-                                            <?php  $CONdni=null;
+                                            <select class="form-control" id="CONdni" name="CONdni" Required>
+                                                <?php foreach($conductores as $p): ?>
+                                                <?php  $CONdni=null;
                                             if(!$nuevo){
                                                 $CONdni=$model->CONdni;
                                                 }  
                                                 ?>
-                                                <option <?php echo $CONdni == $p->CONdni ? 'selected' : ''; ?> value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre; ?></option>
-                                               
+                                                <option <?php echo $CONdni == $p->CONdni ? 'selected' : ''; ?>
+                                                    value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre; ?>
+                                                </option>
+
                                                 <?php endforeach; ?>
-                                         </select>                                       
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Vehículo</label>
                                         <div class="form-group">
                                             <select class="form-control" id="VEHid" name="VEHid" Required>
-                                            <?php foreach($vehiculos as $p): ?>
+                                                <?php foreach($vehiculos as $p): ?>
                                                 <?php  $VEHid=null;
                                             if(!$nuevo){
                                                 $VEHid=$model->VEHid;
                                                 }  
                                                 ?>
-                                                  <option <?php echo $VEHid == $p->VEHid ? 'selected' : ''; ?> value="<?php echo $p->VEHid; ?> "><?php echo $p->VEHplaca; ?></option>
-                                                                                    
-                                  
-                                          <?php endforeach; ?>
+                                                <option <?php echo $VEHid == $p->VEHid ? 'selected' : ''; ?>
+                                                    value="<?php echo $p->VEHid; ?> "><?php echo $p->VEHplaca; ?>
+                                                </option>
+
+
+                                                <?php endforeach; ?>
                                             </select>
 
                                         </div>
                                     </div>
-                                  </div>
+                                </div>
 
-                                  <div class="row clearfix">
+                                <div class="row clearfix">
                                     <div class="col-md-6">
                                         <label>Estado</label>
                                         <div class="form-group">
-	                                            <select name="VECestado" id="VECestado" class="form-control" Required>
+                                            <select name="VECestado" id="VECestado" class="form-control" Required>
                                                 <option value="">- Seleccionar -</option>
                                                 <option value="Activo">Activo</option>
                                                 <option value="Inactivo">Inactivo</option>
                                             </select>
                                         </div>
                                     </div>
-                                    </div>
-                                    <div class="row clearfix text-right  ">
-                                      <div class="form-group mb-0">
-                                          <button type="submit" id="btnregistrovc" name="btnregistrovc" class="btn btn-primary waves-effect waves-light">
-                                              Guardar
-                                          </button>
-                                          <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                              Cancelar
-                                          </button>
-                                      </div><!--end form-group-->
-                                    </div>
-                                  </form><!--end form-->
                                 </div>
-                              </div><!--end card-body-->
-                          </div><!--end col-->
-                      </div><!--end row-->
+                                <div class="row clearfix text-right  ">
+                                    <div class="form-group mb-0">
+                                        <button type="submit" id="btnregistrovc" name="btnregistrovc"
+                                            class="btn btn-primary waves-effect waves-light">
+                                            Guardar
+                                        </button>
+                                        <a href="?c=vehiculoconductor"
+                                            class="btn btn-danger waves-effect m-l-5">Cancelar</a>
+                                    </div>
+                                    <!--end form-group-->
+                                </div>
+                            </form>
+                            <!--end form-->
+                        </div>
+                    </div>
+                    <!--end card-body-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
 
-  
+
             <!-- ========================================================================================== -->
             <!-- TERMINA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
@@ -233,7 +243,3 @@
     <!-- end page content -->
 </div>
 <!-- end page-wrapper -->
-
-
-
-
