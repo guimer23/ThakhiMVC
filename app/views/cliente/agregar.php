@@ -1,10 +1,9 @@
 <div class="page-wrapper">
-    <!-- Left Sidenav -->
-    <div class="left-sidenav">
+<div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
-                <a href="#Dashboard" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Dashboard" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Dashboard">
                     <svg class="nav-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
@@ -45,7 +44,7 @@
                 </a>
                 <!--Termina Menu Ordenes -->
                 <!--Inicia Menu Mantenimiento -->
-                <a href="#Mantenimiento" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Mantenimiento" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Mantenimiento">
                     <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path class="svg-primary"
@@ -66,14 +65,14 @@
 
             <div class="menu-body slimscroll">
                 <!--Inicia SubMenu Dashboard -->
-                <div id="Dashboard" class="main-icon-menu-pane active">
+                <div id="Dashboard" class="main-icon-menu-pane">
                     <div class="title-box">
                         <h6 class="menu-title">Dashboard</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="index.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=home"><i
                                     class="dripicons-meter"></i>Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.php"><i
+                        <li class="nav-item"><a class="nav-link" href="?c=home"><i
                                     class="dripicons-document"></i>Reportes</a></li>
                     </ul>
                 </div>
@@ -94,7 +93,7 @@
                 </div>
                 <!--Termina SubMenu Entregas -->
                 <!--Inicia SubMenu Mantenimiento -->
-                <div id="Mantenimiento" class="main-icon-menu-pane">
+                <div id="Mantenimiento" class="main-icon-menu-pane active">
                     <div class="title-box">
                         <h6 class="menu-title">Mantenimiento</h6>
                     </div>

@@ -1,10 +1,9 @@
 <div class="page-wrapper">
-    <!-- Left Sidenav -->
-    <div class="left-sidenav">
+<div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
-                <a href="#Dashboard" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Dashboard" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Dashboard">
                     <svg class="nav-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
@@ -22,7 +21,7 @@
                     </svg>
                 </a>
                 <!--Termina Menu Dashboard -->
-                <a href="#Ordenes" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Ordenes" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Entregas">
                     <svg class="nav-svg" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
@@ -66,22 +65,20 @@
 
             <div class="menu-body slimscroll">
                 <!--Inicia SubMenu Dashboard -->
-                <div id="Dashboard" class="main-icon-menu-pane active">
+                <div id="Dashboard" class="main-icon-menu-pane">
                     <div class="title-box">
                         <h6 class="menu-title">Dashboard</h6>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
-                                    class="mdi mdi-google-maps"></i>Monitorear</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
-                                    class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
-                                Conductor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?c=home"><i
+                                    class="dripicons-meter"></i>Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="?c=home"><i
+                                    class="dripicons-document"></i>Reportes</a></li>
                     </ul>
                 </div>
                 <!--Termina SubMenu Dashboard -->
                 <!--Inicia SubMenu Entregas -->
-                <div id="Ordenes" class="main-icon-menu-pane">
+                <div id="Ordenes" class="main-icon-menu-pane active">
                     <div class="title-box">
                         <h6 class="menu-title">Entregas</h6>
                     </div>
