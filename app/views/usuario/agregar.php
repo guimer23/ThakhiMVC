@@ -253,9 +253,7 @@
                                                 <button class="btn btn-primary waves-effect waves-light">
                                                     Guardar
                                                 </button>
-                                                <button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                    Cancelar
-                                                </button>
+                                                <a href="?c=usuario" class="btn btn-danger waves-effect m-l-5">Cancelar</a>                                                
                                             </div>
                                             <!--end form-group-->
                                         </div>
