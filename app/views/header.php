@@ -7,6 +7,9 @@
     <meta content="A premium admin dashboard template by Mannatthemes" name="description" />
     <meta content="Mannatthemes" name="author" />
 
+    <!-- starability calificacion de estrellas -->
+    <link rel="stylesheet" type="text/css" href="public/starability/starability-minified/starability-all.min.css"/>
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="public/images/favicon-thakhi.png">
     <link href="public/plugins/dropify/css/dropify.min.css" rel="stylesheet">

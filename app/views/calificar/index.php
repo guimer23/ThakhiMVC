@@ -1,6 +1,5 @@
 <div class="page-wrapper">
-    <!-- Left Sidenav -->
-    <div class="left-sidenav">
+<div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
@@ -22,7 +21,7 @@
                     </svg>
                 </a>
                 <!--Termina Menu Dashboard -->
-                <a href="#Ordenes" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Ordenes" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Entregas">
                     <svg class="nav-svg" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
@@ -45,7 +44,7 @@
                 </a>
                 <!--Termina Menu Ordenes -->
                 <!--Inicia Menu Mantenimiento -->
-                <a href="#Mantenimiento" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
+                <a href="#Mantenimiento" class="nav-link" data-toggle="tooltip-custom" data-placement="top" title=""
                     data-original-title="Mantenimiento">
                     <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path class="svg-primary"
@@ -79,9 +78,9 @@
                 </div>
                 <!--Termina SubMenu Dashboard -->
                 <!--Inicia SubMenu Entregas -->
-                <div id="Ordenes" class="main-icon-menu-pane">
+                <div id="Ordenes" class="main-icon-menu-pane active">
                     <div class="title-box">
-                        <h6 class="menu-title">Entregas</h6>
+                        <h6 class="menu-title">Calificar Conductor</h6>
                     </div>
                     <ul class="nav">
                         <li class="nav-item"><a class="nav-link" href="?c=monitorear"><i
@@ -94,7 +93,7 @@
                 </div>
                 <!--Termina SubMenu Entregas -->
                 <!--Inicia SubMenu Mantenimiento -->
-                <div id="Mantenimiento" class="main-icon-menu-pane active">
+                <div id="Mantenimiento" class="main-icon-menu-pane">
                     <div class="title-box">
                         <h6 class="menu-title">Mantenimiento</h6>
                     </div>
@@ -128,11 +127,11 @@
                         <div class="float-right">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0);">Thakhi</a></li>
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Mantenimiento</a></li>
-                                <li class="breadcrumb-item active">Usuario</li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Entregas</a></li>
+                                <li class="breadcrumb-item active">Calificar Conductor</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Usuario</h4>
+                        <h4 class="page-title">Calificación de Conductores</h4>
                     </div>
                     <!--end page-title-box-->
                 </div>
@@ -144,81 +143,48 @@
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
 
-
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
-                            <a href="?c=usuario&a=agregar" class="btn btn-primary px-4 float-right mt-0 mb-3"><i
-                                    class="mdi mdi-plus-circle-outline mr-2"></i>Agregar Nuevo Usuario</a>
-                            <h4 class="header-title mt-0">Detalles de Usuario</h4>
+                    <div class="card-body">
+                            
+                            <h4 class="header-title mt-0">Detalles De Clasificacion De Conductores</h4>
                             <div class="table-responsive dash-social">
-                                <table id="TablaUsuario" class="table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombres</th>
-                                            <th>Apellidos</th>
-                                            <th>Email</th>
-                                            <th>Usuario</th>
-                                            <th>Estado</th>
-                                            <th>Acción</th>
-                                        </tr>
-                                        <!--end tr-->
-                                    </thead>
-                                    <tbody>
-                                        <?php $i=1; ?>
-                                        <?php if(count($model) > 0): ?>
-                                        <?php foreach($model as $m): ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $i; ?>
+                            <table id="TablaUsuario" class="table">
+                                            <thead class="thead-light">
+                                            <tr>
+                                              <th>#</th>
+                                              <th>DNI</th>
+                                              <th>Nombres y Apellidos</th>
+                                              <th>Calificación</th>
+                                              <th>Estado</th>
+                                            </tr><!--end tr-->
+                                            </thead>
 
-                                            </td>
-                                            <td>
-                                                <?php echo $m->USUnombre; ?>
-                                            </td>
-
-                                            <td>
-                                                <?php echo $m->USUapellidos; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $m->USUemail; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $m->USUusuario; ?>
-                                            </td>
-
-                                            <td>
-
-
-                                                <?php  
-                                        if($m->USUestado=="A"){
-                                            echo "<span class='badge badge-success'>Activo</span>";
-
-                                        }  else{
-                                            echo "<span class='badge badge-danger'>Inactivo</span>";
-                                        }
-                                            ?>
-                                            </td>
-                                            <td>
-                                                <a href="?c=usuario&a=agregar&id=<?php echo $m->USUid; ?>">
-                                                    <i class="fas fa-edit text-info font-16"></i>
-                                                </a>
-
-                                                <a href="#" onclick="addRowHandlers('<?php  echo $m->ruta_foto ?>')"> <i
-                                                        class="fas fa-eye text-dark font-16" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".bs-example-modal-lg"></i>
-                                                    ver </a>
-
-
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                        <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </tbody>
-                                </table>
+                                            <tbody>
+                                              <tr>
+                                                <td>1</td>
+                                                <td>84758478</td>
+                                                <td>Jhosmell Gyno Alfaro Musaja</td>
+                                                <td><p class="starability-result" data-rating="5"></p></td>
+                                                <td><span class='badge badge-success'>Activo</span></td>
+                                              </tr><!--end tr-->
+                                              <tr>
+                                                <td>2</td>
+                                                <td>73929771</td>
+                                                <td>Jhon Peter Aguilar Atencio</td>
+                                                <td><p class="starability-result" data-rating="2"></p></td>
+                                                <td><span class='badge badge-danger'>Inactivo</span></td>
+                                              </tr><!--end tr-->
+                                              <tr>
+                                                <td>3</td>
+                                                <td>12345678</td>
+                                                <td>Guimer Coaquira Coaquira</td>
+                                                <td><p class="starability-result" data-rating="3"></p></td>
+                                                <td><span class='badge badge-success'>Activo</span></td>
+                                              </tr><!--end tr-->
+                                            </tbody>
+                                        </table>
                             </div>
                         </div>
                         <!--end card-body-->
@@ -256,27 +222,27 @@
                                             <tbody>
 
                                                 <tr>
-                                                    <th>NOMBRE</th>
+                                                    <th>DESCRIPCION</th>
 
-                                                    <td id="nombrecv"> </td>
+                                                    <td id="descripcionv"> </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>APELLIDOS</th>
-                                                    <td id="apellidocv"> </td>
+                                                    <th>TIPO</th>
+                                                    <td id="tipov"> </td>
                                                 </tr>
 
                                                 <tr>
-                                                    <th>CORREO</th>
-                                                    <td id="correov"> </td>
+                                                    <th>CONDUCTOR</th>
+                                                    <td id="conductorv"> </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>USUARIO</th>
-                                                    <td id="usuariov"> </td>
+                                                    <th>CLIENTE</th>
+                                                    <td id="clientev"> </td>
                                                 </tr>
                                                 <tr>
                                                     <th>ESTADO</th>
-                                                    <td> <span id="estadov" class='badge badge-danger'>Inactivo</span>
-                                                    </td>
+                                                    <td> <span class='badge badge-danger' id="estadov">No
+                                                            entregado</span> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -305,53 +271,4 @@
 </div>
 <!-- end page-wrapper -->
 
-<script>
-function addRowHandlers(rutaFoto) {
-    var table = document.getElementById("TablaUsuario");
-    var rows = table.getElementsByTagName("tr");
-    for (i = 0; i < rows.length; i++) {
-        var currentRow = table.rows[i];
-        var createClickHandler =
-            function(row) {
-                return function() {
-                    var cel1 = row.getElementsByTagName("td")[1];
-                    var cel2 = row.getElementsByTagName("td")[2];
-                    var cel3 = row.getElementsByTagName("td")[3];
-                    var cel4 = row.getElementsByTagName("td")[4];
-                    var cel5 = row.getElementsByTagName("td")[5];
-                    var nombres = cel1.innerHTML;
-                    var apellidos = cel2.innerHTML;
-                    var correo = cel3.innerHTML;
-                    var usuario = cel4.innerHTML;
-                    var estadoval = cel5.innerHTML.trim();
-                    //console.log(estado1);
-                    var estado;
-                    if (estadoval == '<span class="badge badge-success">Activo</span>') {
-                        estado = "Activo";
-                        document.getElementById("estadov").className = "badge badge-success";
-                    } else {
-                        estado = "Inactivo";
-                        document.getElementById("estadov").className = "badge badge-danger";
-                    }
 
-                    $('#nombrecv').text(nombres);
-                    $('#apellidocv').text(apellidos);
-                    $('#correov').text(correo);
-                    $('#usuariov').text(usuario);
-                    $('#estadov').text(estado);
-                    if (rutaFoto == null) {
-                        $('#idfotosv2').attr("src", "public/images/user.png");
-                    } else if (rutaFoto == "") {
-                        $('#idfotosv2').attr("src", "public/images/user.png");
-                    } else {
-                        $('#idfotosv2').attr("src", rutaFoto);
-                    }
-
-                };
-            };
-
-        currentRow.onclick = createClickHandler(currentRow);
-    }
-}
-window.onload = addRowHandlers();
-</script>

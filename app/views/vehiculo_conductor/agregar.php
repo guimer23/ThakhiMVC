@@ -87,7 +87,7 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"><i class="mdi mdi-star-half"></i>Calificar
+                        <li class="nav-item"><a class="nav-link" href="?c=calificar"><i class="mdi mdi-star-half"></i>Calificar
                                 Conductor</a></li>
                     </ul>
                 </div>
@@ -167,7 +167,7 @@
                                                 }  
                                                 ?>
                                                 <option <?php echo $CONdni == $p->CONdni ? 'selected' : ''; ?>
-                                                    value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre."-".$p->CONapellido; ?>
+                                                    value="<?php echo $p->CONdni; ?> "><?php echo $p->CONnombre." ".$p->CONapellido; ?>
                                                 </option>
 
                                                 <?php endforeach; ?>
