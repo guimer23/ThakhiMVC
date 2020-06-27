@@ -149,8 +149,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mt-0 header-title">Datos del Vehículo - Conductor</h4>
-                            <form method="post" action="?c=vehiculoconductor&a=guardar" id="frmvehiculoconductor"
-                                class="form-parsley">
+                            <form method="post" action="?c=vehiculoconductor&a=guardar" 
+                                class="form-parsley" id="needs-validation" novalidate>
                                 <div class="row clearfix">
                                     <div class="col-md-6">
 
@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="row clearfix text-right  ">
                                     <div class="form-group mb-0">
-                                        <button type="submit" id="btnregistrovc" name="btnregistrovc"
+                                        <button type="submit" id="btn-submit" 
                                             class="btn btn-primary waves-effect waves-light">
                                             Guardar
                                         </button>

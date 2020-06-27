@@ -149,8 +149,8 @@
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="card">
-                        <form method="post" action="?c=conductor&a=guardar" id="frmconductor"
-                            enctype="multipart/form-data">
+                        <form method="post" action="?c=conductor&a=guardar" 
+                            enctype="multipart/form-data" id="needs-validation" novalidate>
                             <div class="row">
                                 <div class="col-md-12 col-lg-9">
                                     <div class="card-body">
@@ -293,7 +293,7 @@
                                     <div class="card-body">
                                         <div class="row clearfix text-right  ">
                                             <div class="form-group mb-0">
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                <button type="submit" id="btn-submit" class="btn btn-primary waves-effect waves-light">
                                                     Guardar
                                                 </button>
                                                 <a href="?c=conductor"

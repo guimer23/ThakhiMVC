@@ -27,8 +27,43 @@
     <script src="public/js/app.js"></script>
 
    <script src="public/js/jquery.anexsoft-validator.js"></script>
-    
+   <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
 
+<!-- Script para Validacion de Formularios -->
+<script type="text/javascript">
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var form = document.getElementById('needs-validation');
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+                form.classList.add('was-validated');
+                Swal.fire({
+                    type: 'error',
+                    title: 'Error!',
+                    text: 'Tiene que llenar todo los campos!'
+                });
+                event.preventDefault();
+                event.stopPropagation();
+            } else if (form.checkValidity() === true) {
+                event.preventDefault();
+                form.classList.add('was-validated');                
+                $(document).on('click', '#btn-submit', function(e) {                    
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Muy Bien!',
+                        text: 'Se guardo con éxito!'
+                    }).then(function(result) {
+                        var dato = form[0];
+                        form.submit();
+                    });                    
+                });
+            }
+        }, false);
+    }, false);
+})();
+</script>
+<!-- Script para paginacion de tablas en español -->
 <script>
 $(function(e) {
     $('#TablaUsuario').DataTable({

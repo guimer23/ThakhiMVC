@@ -58,7 +58,7 @@ class   UsuarioController{
 
         if(!$result) {
             throw new Exception('No se pudo realizar la operación');
-        } else {
+        } else {            
             header('location: ?c=usuario');
         }
     }

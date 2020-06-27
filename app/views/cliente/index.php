@@ -334,14 +334,4 @@ function addRowHandlers(rutaFoto) {
         currentRow.onclick = createClickHandler(currentRow);
     }
 }
-window.onload = addRowHandlers();
-
-        var code="<?php echo $txtdnic; ?>"
-        if(code=="YES"){
-
-            alert("agregado");
-        }
-
-
-
 </script>

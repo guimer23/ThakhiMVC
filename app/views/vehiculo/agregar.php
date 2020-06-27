@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-<div class="left-sidenav">
+    <div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
@@ -44,8 +44,8 @@
                 </a>
                 <!--Termina Menu Ordenes -->
                 <!--Inicia Menu Mantenimiento -->
-                <a href="#Mantenimiento" class="nav-link active" data-toggle="tooltip-custom" data-placement="top" title=""
-                    data-original-title="Mantenimiento">
+                <a href="#Mantenimiento" class="nav-link active" data-toggle="tooltip-custom" data-placement="top"
+                    title="" data-original-title="Mantenimiento">
                     <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path class="svg-primary"
                             d="M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm135.765 359.765C355.5 428.028 307.285 448 256 448s-99.5-19.972-135.765-56.235C83.972 355.5 64 307.285 64 256s19.972-99.5 56.235-135.765C156.5 83.972 204.715 64 256 64s99.5 19.972 135.765 56.235C428.028 156.5 448 204.715 448 256s-19.972 99.5-56.235 135.765z" />
@@ -87,7 +87,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?c=calificar"><i class="mdi mdi-star-half"></i>Calificar
+                        <li class="nav-item"><a class="nav-link" href="?c=calificar"><i
+                                    class="mdi mdi-star-half"></i>Calificar
                                 Conductor</a></li>
                     </ul>
                 </div>
@@ -148,7 +149,7 @@
                     <div class="card">
 
                         <form method="post" action="?c=vehiculo&a=guardar" class="form-parsley"
-                            enctype="multipart/form-data">
+                            enctype="multipart/form-data" id="needs-validation" novalidate>
                             <div class="row">
                                 <div class="col-md-12 col-lg-9">
                                     <div class="card-body">
@@ -249,7 +250,7 @@
                                     <div class="card-body">
                                         <div class="row clearfix text-right  ">
                                             <div class="form-group mb-0">
-                                                <button type="submit" id="btnvehiculo"
+                                                <button type="submit" id="btn-submit"
                                                     class="btn btn-primary waves-effect waves-light">
                                                     Guardar
                                                 </button>

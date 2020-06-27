@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
     <title>Sistema - Thakhi Pedidos</title>
@@ -8,7 +9,7 @@
     <meta content="Mannatthemes" name="author" />
 
     <!-- starability calificacion de estrellas -->
-    <link rel="stylesheet" type="text/css" href="public/starability/starability-minified/starability-all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="public/starability/starability-minified/starability-all.min.css" />
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="public/images/favicon-thakhi.png">
@@ -27,6 +28,11 @@
     <link href="public/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!--Sweetalert2 para alertas-->
+    <link rel="stylesheet" href="public/alertifyjs/css/alertify.min.css" />
+    <link rel="stylesheet" href="public/alertifyjs/css/themes/default.min.css" />
+    <script src="public/alertifyjs/alertify.min.js"></script>
+
+    <!--Sweetalert2 para alertas-->
     <script src="public/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script src="public/sweetalert2/dist/sweetalert2.min.js"></script>
     <link href="public/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
@@ -34,9 +40,10 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 </head>
+
 <body>
 
-<div class="topbar">
+    <div class="topbar">
         <!-- LOGO -->
         <div class="topbar-left">
             <a href="index.php" class="logo">
@@ -116,9 +123,3 @@
         </nav>
         <!-- end navbar-->
     </div>
-
-
-
-
-
-
