@@ -159,8 +159,8 @@
                                             <th>Nombres y Apellidos</th>
                                             <th>Licencia</th>
                                             <th>Vigencia de Lic.</th>
-                                            <th>Correo</th>
                                             <th>Celular</th>
+                                            <th>Correo</th>
                                             <th>Estado</th>
                                             <th>Acción</th>
                                         </tr>
