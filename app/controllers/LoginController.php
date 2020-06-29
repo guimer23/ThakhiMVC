@@ -2,14 +2,10 @@
 namespace App\Controllers;
 
 class LoginController {
-    private $usuario;
-    private $profesion;
-    private $empleado;
+    private $usuario;    
 
     public function __construct(){
-        $this->usuario = new \App\Models\Usuario;
-        //$this->profesion = new \App\Models\Profesion;
-        $this->empleado = new \App\Models\Empleado;
+        $this->usuario = new \App\Models\Usuario;       
     }
 
     public function index() {    
@@ -20,8 +16,7 @@ class LoginController {
      
 
         if(!empty($_POST['USUemail'])) {
-            $model = $this->usuario->logear($_POST['USUemail']);
-            $model = $this->empleado->listar();
+            $model = $this->usuario->logear($_POST['USUemail']);            
    
             require_once _VIEW_PATH_ . 'header.php';
             require_once _VIEW_PATH_ .'home/index.php';
@@ -30,14 +25,6 @@ class LoginController {
             require_once _VIEW_PATH_ .'login/index.php';
         }
 
-       // 
-      
     }
-
-
-  
-
-    
-
    
 }
