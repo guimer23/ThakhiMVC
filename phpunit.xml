@@ -2,7 +2,7 @@
 <phpunit colors="true">
 	<testsuites>
 		<testsuite name="Suite de pruevas unitarias">			
-			<directory>./Test/FirstTest.php</directory>
+			<directory>./Test/ConexionTest.php</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
