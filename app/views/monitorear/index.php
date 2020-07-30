@@ -121,7 +121,7 @@
     <div class="page-content">
         <div class="container-fluid">
             <!-- Page-Title -->
-            <div class="row">
+               <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
                         <div class="float-right">
@@ -208,139 +208,78 @@
                     </div>
                 </div>
 
-
-                <!--end row-->
-                <!-- ========================================================================================== -->
-                <!-- TERMINA SECCION CONTENIDO -->
-                <!-- ========================================================================================== -->
-
-            </div><!-- container -->
-            <footer class="footer text-center text-sm-left">
-                &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción
-                    de
-                    Softwre II</span>
-            </footer>
-        </div>
-        <!-- end page content -->
+        <footer class="footer text-center text-sm-left">
+            &copy; 2020 Thakhi Delivery <span class="text-muted d-none d-sm-inline-block float-right">Construcción de
+                Softwre II</span>
+        </footer>
     </div>
-    <!-- end page-wrapper -->
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARu7kkxeBLPH6O5E8PwEAcWrw2okeUXmA&callback=initMap">
-    </script>
+    <!-- end page content -->
+</div>
+<!-- end page-wrapper -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeB28AE1Xw3Ert5DOBYsO_EO_oQz1PFSw&callback=initMap" ></script>
+
+    
+<!-- Gmaps file -->
+<script src="../public/plugins/gmaps/gmaps.min.js"></script>
+<!-- demo codes -->
+<script src="../public/pages/jquery.gmaps.init.js"></script>
 
 
-    <!-- Gmaps file -->
-    <script src="../public/plugins/gmaps/gmaps.min.js"></script>
-    <!-- demo codes -->
-    <script src="../public/pages/jquery.gmaps.init.js"></script>
-
-
-    <script type="text/javascript">
-    function initMap() {
-
-        /*
-              var map;
-              var bounds = new google.maps.LatLngBounds();
-              var mapOptions = {
-                  mapTypeId: 'roadmap'
-              };
-            var latitud 
-              map = new google.maps.Map(document.getElementById('mapa'), {
-                  mapOptions
-              });
-
-              map.setTilt(50);
+<script type="text/javascript">
+        function initMap() {
+          var map;
+          var bounds = new google.maps.LatLngBounds();
+          var mapOptions = {
+              mapTypeId: 'roadmap'
+          };
+      
+          map = new google.maps.Map(document.getElementById('mapa'), {
+              mapOptions
+          });
+       
          
-              var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-                  this.setZoom(14);
-                  google.maps.event.removeListener(boundsListener);
+  
+          var posiciones =' <?php echo $movi->VEClatitud .','.$movi->VEClongitud; ?>';
+  
+         var ar=posiciones.split(",");
+      //  var array[]=
+            console.log(ar);
+            //console.log(longi);
+            var mostrarMarcadores = new google.maps.InfoWindow(),
+              ar, i;
+
+              for (i = 0; i < ar.length; i++) {
+              var position = new google.maps.LatLng(ar[0], ar[1]);
+              //console.log("Posicnes"+position);
+              bounds.extend(position);
+              marker = new google.maps.Marker({
+                  position: position,
+                  map: map,
+                  title: ar[i][0]
               });
-                  $.ajax({
-                    
-                    url: '?c=Monitorear&a=monitorea',            
-                    type: "post",
-                    cache: false,
-                    success: function (retorno) {
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
         
-        
-                    var markers = new Array();
-        
-                    $.each(retorno.DireccionesRelacionadasConLaSede, function (index, itm) {
-                                var _markers = [itm.VEClatitud, itm.VEClongitud];
-                                markers.push(_markers);
-                                console.log(_markers);
-                    });
-                    });
-                      $.ajax({
-
-                            url: '?c=Monitorear&a=monitorea',            
-                            type: "get",
-                            cache: false,
-                            success:function(retorno){
-                                var markers = new Array();
-                                console.log(retorno);
-
-                            }
-                })
-
-              */
-
-        var map;
-        var bounds = new google.maps.LatLngBounds();
-        var mapOptions = {
-            mapTypeId: 'roadmap'
-        };
-
-        map = new google.maps.Map(document.getElementById('mapa'), {
-            mapOptions
-        });
-
-
-        var posiciones = ' <?php echo $movi->VEClatitud .',
-            '.$movi->VEClongitud; ?>';
-
-        var ar = posiciones.split(",");
-        //  var array[]=
-        console.log(ar);
-        //console.log(longi);
-        var mostrarMarcadores = new google.maps.InfoWindow(),
-            ar, i;
-        var can = ar.length;
-        for (i = 0; i < ar.length; i++) {
-
-            if (can > 0) {
-
-            }
-            var position = new google.maps.LatLng(ar[0], ar[1]);
-            //console.log("Posicnes"+position);
-            bounds.extend(position);
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: ar[i][0]
-            });
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                    return function() {
-
-
-                    }
-                })
-                (marker, i));
-            // Centramos el Mapa de Google para que todos los marcadores se puedan ver
+           
+                  }
+              })
+              (marker, i));
+              // Centramos el Mapa de Google para que todos los marcadores se puedan ver
             map.fitBounds(bounds);
-        }
+             }
 
 
         // var posicion = {lat: parseFloat(lati)  , lng:parseFloat(longi) };  
-        //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
-        // var marker = new google.maps.Marker({position: posicion, map: map});
-        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-            this.setZoom(14);
-            google.maps.event.removeListener(boundsListener);
-        });
+         //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
+         // var marker = new google.maps.Marker({position: posicion, map: map});
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              this.setZoom(14);
+              google.maps.event.removeListener(boundsListener);
+          });
 
-    }
-    // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
-    google.maps.event.addDomListener(window, 'load', initMap);
+      }
+      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
+      google.maps.event.addDomListener(window, 'load', initMap);
     //  setTimeout(initMap,10000);
+
     </script>
