@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
-	<testsuites>
-		<testsuite name="Suite de pruevas unitarias">			
-			<directory>./Test/ConexionTest.php</directory>
-		</testsuite>
-	</testsuites>
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Initial tests">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

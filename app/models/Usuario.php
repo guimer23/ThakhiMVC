@@ -148,18 +148,25 @@ class   Usuario{
         return $result;
     }
 
-    public function logear(string $correo) : Usuario{
+    public function logear(string $usuario, string $password) : Usuario{
         $result = new Usuario;
-
         try {
-            $stm = $this->pdo->prepare('select * from admusutusuario where USUemail = ?');
-            $stm->execute([$correo]);
+            $stm = $this->pdo->prepare('select * from admusutusuario where USUusuario = ? AND USUpassword = ?');
+            $stm->execute([$usuario, $password]);
 
             $fetch = $stm->fetch();
+
+            $result->USUid = $fetch->USUid;
             $result->USUnombre = $fetch->USUnombre;
+            $result->USUapellidos = $fetch->USUapellidos;
+            $result->USUemail = $fetch->USUemail;            
+            $result->USUusuario = $fetch->USUusuario;
+            $result->USUpassword = $fetch->USUpassword;
+            $result->USUestado = $fetch->USUestado;
+            $result->ruta_foto = $fetch->ruta_foto;
        
         } catch(Exception $e) {
-
+            throw new Exception($e->getMessage());
         }
 
         return $result;

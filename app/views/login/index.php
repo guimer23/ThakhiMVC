@@ -41,13 +41,19 @@
                             <!--end auth-logo-text-->
                             <form action="?c=login&a=logear" method="post" id="formulariologin"
                                 class="form-horizontal auth-form my-4">
+                            <?php if(isset($_SESSION['error'])):?>
+                                <div class="alert alert-danger" role="alert">
+                                <?php echo $_SESSION['error'];?>
+                                </div>
+                                <?php unset($_SESSION['auth']);?>
+                            <?php endif;?>
                                 <div class="form-group">
                                     <label for="username">Usuario</label>
                                     <div class="input-group mb-3">
                                         <span class="auth-form-icon">
                                             <i class="dripicons-user"></i>
                                         </span>
-                                        <input type="text" id="USUemail" name="USUemail" class="form-control input-sm">
+                                        <input type="text" id="USUusuario" name="USUusuario" class="form-control input-sm">
                                     </div>
                                 </div>
                                 <!--end form-group-->
@@ -58,7 +64,7 @@
                                         <span class="auth-form-icon">
                                             <i class="dripicons-lock"></i>
                                         </span>
-                                        <input type="password" name="userpassword" id="userpassword"
+                                        <input type="password" name="USUpassword" id="USUpassword"
                                             class="form-control input-sm">
                                     </div>
                                 </div>

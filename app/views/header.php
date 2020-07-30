@@ -28,9 +28,11 @@
     <link href="public/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!--Sweetalert2 para alertas-->
+    <!--
     <link rel="stylesheet" href="public/alertifyjs/css/alertify.min.css" />
     <link rel="stylesheet" href="public/alertifyjs/css/themes/default.min.css" />
     <script src="public/alertifyjs/alertify.min.js"></script>
+-->
 
     <!--Sweetalert2 para alertas-->
     <script src="public/sweetalert2/dist/sweetalert2.all.min.js"></script>
@@ -96,7 +98,7 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
                         href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="public/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" />
-                        <span class="ml-1 nav-user-name hidden-sm">Usuario <i class="mdi mdi-chevron-down"></i> </span>
+                        <span class="ml-1 nav-user-name hidden-sm"><?php echo isset($_SESSION['auth'])? $_SESSION['auth']->USUusuario:'Invitado';?> <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Perfil</a>
@@ -105,7 +107,7 @@
                         <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Bloquear
                             pantalla</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../../Models/admUSUtUsuario/CerrarSesion.php"><i
+                        <a class="dropdown-item" href="#"><i
                                 class="dripicons-exit text-muted mr-2"></i> Cerrar sesión</a>
                     </div>
                 </li>

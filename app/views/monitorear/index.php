@@ -215,71 +215,29 @@
     </div>
     <!-- end page content -->
 </div>
-<!-- end page-wrapper -->
+<script type="text/javascript">
+var initMap = function(){
+    var myLatLng = {lat: -18.0315509, lng: -70.2659201};
+
+  var map = new google.maps.Map(document.getElementById('mapa'), {
+    zoom: 13,
+    center: myLatLng,
+    mapTypeId: 'roadmap'
+  });
+
+  <?php foreach($model as $m): ?>
+  var marker = new google.maps.Marker({
+    position: {lat: <?php echo $m->VEClatitud; ?>, lng: <?php echo $m->VEClongitud; ?>},
+    map: map,
+    title: 'Entrega x'
+  });
+
+  marker.setMap(map);
+
+  <?php endforeach; ?>
+}
+</script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeB28AE1Xw3Ert5DOBYsO_EO_oQz1PFSw&callback=initMap" ></script>
 
-    
-<!-- Gmaps file -->
-<script src="../public/plugins/gmaps/gmaps.min.js"></script>
-<!-- demo codes -->
-<script src="../public/pages/jquery.gmaps.init.js"></script>
 
 
-<script type="text/javascript">
-        function initMap() {
-          var map;
-          var bounds = new google.maps.LatLngBounds();
-          var mapOptions = {
-              mapTypeId: 'roadmap'
-          };
-      
-          map = new google.maps.Map(document.getElementById('mapa'), {
-              mapOptions
-          });
-       
-         
-  
-          var posiciones =' <?php echo $movi->VEClatitud .','.$movi->VEClongitud; ?>';
-  
-         var ar=posiciones.split(",");
-      //  var array[]=
-            console.log(ar);
-            //console.log(longi);
-            var mostrarMarcadores = new google.maps.InfoWindow(),
-              ar, i;
-
-              for (i = 0; i < ar.length; i++) {
-              var position = new google.maps.LatLng(ar[0], ar[1]);
-              //console.log("Posicnes"+position);
-              bounds.extend(position);
-              marker = new google.maps.Marker({
-                  position: position,
-                  map: map,
-                  title: ar[i][0]
-              });
-              google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                  return function() {
-        
-           
-                  }
-              })
-              (marker, i));
-              // Centramos el Mapa de Google para que todos los marcadores se puedan ver
-            map.fitBounds(bounds);
-             }
-
-
-        // var posicion = {lat: parseFloat(lati)  , lng:parseFloat(longi) };  
-         //var map = new google.maps.Map( document.getElementById('mapa'), {zoom: 4, center: posicion});       
-         // var marker = new google.maps.Marker({position: posicion, map: map});
-          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-              this.setZoom(14);
-              google.maps.event.removeListener(boundsListener);
-          });
-
-      }
-      // Lanzamos la función 'initMap' para que muestre el Mapa con Los Marcadores y toda la configuración realizada
-      google.maps.event.addDomListener(window, 'load', initMap);
-    //  setTimeout(initMap,10000);
-
-    </script>

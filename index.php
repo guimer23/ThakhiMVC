@@ -8,6 +8,7 @@ function exception_error_handler($severidad, $mensaje, $fichero, $línea) {
     throw new ErrorException($mensaje, 0, $severidad, $fichero, $línea);
 }
 
+session_start();
 set_error_handler("exception_error_handler");
 
 // Composer
