@@ -209,7 +209,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="#">
+                                                <a href="?c=entregas&a=agregar&id=<?php echo $m->ENTid; ?>">
                                                     <i class="fas fa-edit text-info font-16"></i>
                                                 </a>
                                                 <a href="#" onclick="addRowHandlers('<?php  echo $m->ENTfoto ?>')"> <i

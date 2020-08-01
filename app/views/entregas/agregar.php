@@ -151,6 +151,7 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="card">
                         <form method="post" action="?c=entregas&a=guardar" id="needs-validation" novalidate>
+                            <input type="hidden" name="ENTid" value="<?php echo $nuevo ? '' : $model->ENTid; ?>" />
                             <div class="row">
                                 <div class="col-md-12 col-lg-12">
                                     <div class="card-body">
@@ -166,7 +167,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Descripción</label>
-                                                    <input type="text" class="form-control" id="ENTdescripcion"
+                                                    <input type="text" value="<?php echo $nuevo ? '' : $model->ENTdescripcion; ?>" class="form-control" id="ENTdescripcion"
                                                         name="ENTdescripcion" required>
                                                 </div>
                                             </div>
@@ -178,12 +179,12 @@
                                                     <div class="form-group">
                                                         <select class="form-control" id="ENTtipo" name="ENTtipo"
                                                             Required>
-                                                            <option value="">- Seleccionar -</option>
-                                                            <option value="Documentos">Documentos</option>
-                                                            <option value="Comida">Comida</option>
-                                                            <option value="Artefactos">Artefactos electrónicos</option>
-                                                            <option value="Utiles">Útiles de oficina</option>
-                                                            <option value="Otro">Otro</option>
+                                                            <option value=""<?php echo $nuevo ? '' : ($model->ENTtipo == '' ? ' selected=""':'');?>>- Seleccionar -</option>
+                                                            <option value="Documentos"<?php echo $nuevo ? '' : ($model->ENTtipo == 'Documentos' ? ' selected=""':'');?>>Documentos</option>
+                                                            <option value="Comida"<?php echo $nuevo ? '' : ($model->ENTtipo == 'Comida' ? ' selected=""':'');?>>Comida</option>
+                                                            <option value="Artefactos"<?php echo $nuevo ? '' : ($model->ENTtipo == 'Artefactos' ? ' selected=""':'');?>>Artefactos electrónicos</option>
+                                                            <option value="Utiles"<?php echo $nuevo ? '' : ($model->ENTtipo == 'Utiles' ? ' selected=""':'');?>>Útiles de oficina</option>
+                                                            <option value="Otro"<?php echo $nuevo ? '' : ($model->ENTtipo == 'Otro' ? ' selected=""':'');?>>Otro</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -197,7 +198,7 @@
 
                                                             <?php foreach($vehiculoconductor as $p): ?>
 
-                                                            <option value="<?php echo $p->VECid; ?> ">
+                                                            <option value="<?php echo $p->VECid; ?> "<?php echo $nuevo ? '' : ($model->VECid == $p->VECid ? ' selected=""':'');?>>
                                                                 <?php echo $p->CONnombre; ?></option>
 
                                                             <?php endforeach; ?>
@@ -211,7 +212,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Fecha de entrega</label>
-                                                    <input type="date" id="ENTfechahora" name="ENTfechahora"
+                                                    <input type="date" value="<?php echo $nuevo ? '' : $model->ENTfechahora; ?>" id="ENTfechahora" name="ENTfechahora"
                                                         class="form-control" required>
                                                 </div>
                                             </div>
@@ -223,7 +224,7 @@
                                                             <option value="">- Seleccionar -</option>
                                                             <?php foreach($clientes as $p): ?>
 
-                                                            <option value="<?php echo $p->CLIdni; ?> ">
+                                                            <option value="<?php echo $p->CLIdni; ?>"<?php echo $nuevo ? '' : ($model->CLIdni == $p->CLIdni ? ' selected=""':'');?>>
                                                                 <?php echo $p->CLInombre; ?></option>
 
                                                             <?php endforeach; ?>
@@ -236,7 +237,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Precio</label>
-                                                    <input type="text" id="ENTprecio" name="ENTprecio"
+                                                    <input type="text" value="<?php echo $nuevo ? '' : $model->ENTprecio; ?>" id="ENTprecio" name="ENTprecio"
                                                         class="form-control"
                                                         onkeypress="return filterFloat(event,this);" required>
                                                 </div>
@@ -245,9 +246,9 @@
                                                 <label>Estado</label>
                                                 <div class="form-group">
                                                     <select class="form-control" id="estado" name="estado">
-                                                        <option value="Pendiente">Pendiente</option>
-                                                        <option value="Entregado" disabled>Entregado</option>
-                                                        <option value="No Entregado" disabled>No Entregado</option>
+                                                        <option value="Pendiente"<?php echo $nuevo ? '' : ($model->ENTestado == 'Pendiente' ? ' selected=""':'');?>>Pendiente</option>
+                                                        <option value="Entregado"<?php echo $nuevo ? '' : ($model->ENTestado == 'Entregado' ? ' selected=""':'');?> disabled>Entregado</option>
+                                                        <option value="No Entregado"<?php echo $nuevo ? '' : ($model->ENTestado == 'No Entregado' ? ' selected=""':'');?> disabled>No Entregado</option>
                                                     </select>
                                                 </div>
                                             </div>

@@ -25,11 +25,17 @@ class   EntregasController{
 
     
     public function agregar() {       
-      //$conductores=$this->conductor->listar();
+        //$conductores=$this->conductor->listar();
         $clientes = $this->cliente->listar();  
         $vehiculoconductor=$this->vehiculo_conductor->listar(); 
 
-       require_once _VIEW_PATH_ . 'header.php';
+        if(!empty($_GET['id'])) {
+            $model = $this->entregas->obtener($_GET['id']);
+        }
+
+        $nuevo = empty($model->ENTid);
+
+        require_once _VIEW_PATH_ . 'header.php';
         require_once _VIEW_PATH_ .'entregas/agregar.php';
         require_once _VIEW_PATH_ . 'footer.php';
     }
@@ -48,6 +54,7 @@ class   EntregasController{
         }  
   
         $model = new \App\Models\Entregas;
+        $model->ENTid  = $_POST['ENTid'];
         $model->ENTdescripcion  = $_POST['ENTdescripcion'];
         $model->ENTtipo  = $_POST['ENTtipo'];
         $model->VECid = $_POST['VECid'];    

@@ -98,7 +98,7 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
                         href="#" role="button" aria-haspopup="false" aria-expanded="false">
                         <img src="public/images/users/user-1.jpg" alt="profile-user" class="rounded-circle" />
-                        <span class="ml-1 nav-user-name hidden-sm"><?php echo isset($_SESSION['auth'])? $_SESSION['auth']->USUusuario:'Invitado';?> <i class="mdi mdi-chevron-down"></i> </span>
+                        <span class="ml-1 nav-user-name hidden-sm"><?php echo isset($_SESSION['auth'])? $_SESSION['auth']:'Invitado';?> <i class="mdi mdi-chevron-down"></i> </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i> Perfil</a>
@@ -107,7 +107,7 @@
                         <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Bloquear
                             pantalla</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i
+                        <a class="dropdown-item" href="?c=usuario&a=salir"><i
                                 class="dripicons-exit text-muted mr-2"></i> Cerrar sesión</a>
                     </div>
                 </li>

@@ -156,15 +156,16 @@ class   Usuario{
 
             $fetch = $stm->fetch();
 
-            $result->USUid = $fetch->USUid;
-            $result->USUnombre = $fetch->USUnombre;
-            $result->USUapellidos = $fetch->USUapellidos;
-            $result->USUemail = $fetch->USUemail;            
-            $result->USUusuario = $fetch->USUusuario;
-            $result->USUpassword = $fetch->USUpassword;
-            $result->USUestado = $fetch->USUestado;
-            $result->ruta_foto = $fetch->ruta_foto;
-       
+            if($fetch){
+                $result->USUid = $fetch->USUid;
+                $result->USUnombre = $fetch->USUnombre;
+                $result->USUapellidos = $fetch->USUapellidos;
+                $result->USUemail = $fetch->USUemail;            
+                $result->USUusuario = $fetch->USUusuario;
+                $result->USUpassword = $fetch->USUpassword;
+                $result->USUestado = $fetch->USUestado;
+                $result->ruta_foto = $fetch->ruta_foto;
+            }
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
         }

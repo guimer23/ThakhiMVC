@@ -8,7 +8,7 @@ use App\Models\Usuario;
 
 final class UsuarioTest extends TestCase
 {
-    public function testSiPodemosObtenerElPrimerNombre()
+    public function testSiPodemosGuardarUsuario()
     {
         $usuario = new Usuario;
 
@@ -36,7 +36,7 @@ final class UsuarioTest extends TestCase
     public function testLogin()
     {
         $USUusuario = 'gordiss';
-        $USUpassword = '22222';
+        $USUpassword = '123';
 
         $usuario = new Usuario;
         $result = $usuario->logear($USUusuario, $USUpassword);

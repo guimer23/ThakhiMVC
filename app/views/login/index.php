@@ -45,7 +45,7 @@
                                 <div class="alert alert-danger" role="alert">
                                 <?php echo $_SESSION['error'];?>
                                 </div>
-                                <?php unset($_SESSION['auth']);?>
+                                <?php unset($_SESSION['error']);?>
                             <?php endif;?>
                                 <div class="form-group">
                                     <label for="username">Usuario</label>

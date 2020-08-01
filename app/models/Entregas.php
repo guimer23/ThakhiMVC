@@ -34,14 +34,14 @@ class   Entregas{
 
         return $result;
     }
-
      
     public function guardar(Entregas $model) : bool{
         $result = false;
 
         try {
 
-            $sql = '
+            if(empty($model->ENTid)){
+                $sql = '
             insert into admenttentrega(
                 ENTdescripcion,
                 ENTtipo,
@@ -61,11 +61,52 @@ class   Entregas{
             $model->CLIdni,
             $model->ENTprecio,
             $model->ENTestado
-        ]);        
+        ]); 
+            } else {
+                $sql = '
+                    update admenttentrega
+                    set 
+                    ENTdescripcion = ?,
+                    ENTtipo = ?,
+                    VECid = ?,
+                    ENTfechahora = ?,
+                    CLIdni = ?,
+                    ENTprecio = ?,
+                    ENTestado = ?
+                    where ENTid = ?
+                ';
+
+                $stm = $this->pdo->prepare($sql);
+                $stm->execute([
+                    $model->ENTdescripcion,
+                    $model->ENTtipo,
+                    $model->VECid,
+                    $model->ENTfechahora,
+                    $model->CLIdni,
+                    $model->ENTprecio,
+                    $model->ENTestado,
+                    $model->ENTid
+                ]);
+            }    
 
             $result = true;
         } catch(Exception $e) {
             throw new Exception($e->getMessage());
+        }
+
+        return $result;
+    }
+
+    public function obtener(int $id) : Entregas{
+        $result = new Entregas;
+
+        try {
+            $stm = $this->pdo->prepare('select * from admenttentrega where ENTid = ?');
+            $stm->execute([$id]);
+            $result = $stm->fetchObject('\App\Models\Entregas');
+
+        } catch(Exception $e) {
+
         }
 
         return $result;
