@@ -260,7 +260,7 @@ var initMap = function(){
 }
 
 function obtenerEntregas(){
-    $.get( "/?c=monitorear&a=ajax", function(data){
+    $.get( "?c=monitorear&a=ajax", function(data){
         eliminarMarcadores();
 
         data.forEach(function(item, index){

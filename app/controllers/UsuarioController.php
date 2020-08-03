@@ -67,8 +67,6 @@ class   UsuarioController{
         unset($_SESSION['auth']);
         header('Location: ?c=login&a=logear');
     }
-
-
 }
 
 ?>
