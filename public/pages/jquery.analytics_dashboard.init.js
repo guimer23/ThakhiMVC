@@ -30,16 +30,22 @@ var options = {
         width: 2,
         colors: ['transparent']
     },
-    colors: ["#1a2035", "#e0e7fd"],
+    colors: ["#343a40", "#20c997", "#dc3545"],
     series: [{
-        name: 'New Visitors',
-        data: [68, 44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Unique Visitors',
-        data: [51, 76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }, ],
+            name: 'Pendiente',
+            data: [6, 4, 5, 5, 5, 6, 5, 3]
+        },
+        {
+            name: 'Entregado',
+            data: [51, 76, 85, 101, 98, 87, 105, 91]
+        },
+        {
+            name: 'No Entregado',
+            data: [1, 6, 5, 10, 8, 7, 5, 1]
+        },
+    ],
     xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        categories: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago'],
         axisBorder: {
             show: true,
             color: '#bec7e0',
@@ -54,7 +60,7 @@ var options = {
     },
     yaxis: {
         title: {
-            text: 'Visitors'
+            text: 'Estado de Entregas'
         }
     },
     fill: {
@@ -74,7 +80,7 @@ var options = {
     tooltip: {
         y: {
             formatter: function(val) {
-                return "" + val + "k"
+                return "" + val
             }
         }
     }
@@ -231,7 +237,7 @@ var options = {
         enabled: false,
     },
 
-    series: [10, 65, 25, ],
+    series: [1, 6, 2, ],
     legend: {
         show: true,
         position: 'bottom',
@@ -242,8 +248,8 @@ var options = {
         offsetX: 0,
         offsetY: -13
     },
-    labels: ["Tablet", "Desktop", "Mobile"],
-    colors: ["#e0e7fd", "#1a2035", "#4ac7ec"],
+    labels: ["Pendiente", "Entregado", "No Entregado"],
+    colors: ["#1a2035", "#20c997", "#dc3545"],
 
     responsive: [{
         breakpoint: 600,
@@ -265,7 +271,7 @@ var options = {
     tooltip: {
         y: {
             formatter: function(val) {
-                return val + " %"
+                return val
             }
         }
     }
