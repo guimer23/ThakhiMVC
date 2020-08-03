@@ -65,7 +65,7 @@ class   UsuarioController{
 
     public function salir() {
         unset($_SESSION['auth']);
-        header('Location: /');
+        header('Location: ?c=login&a=logear');
     }
 
 
