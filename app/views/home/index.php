@@ -1,5 +1,5 @@
 <div class="page-wrapper">
-<div class="left-sidenav">
+    <div class="left-sidenav">
         <div class="main-icon-menu">
             <nav class="nav">
                 <!--Inicia Menu Dashboard -->
@@ -87,7 +87,8 @@
                                     class="mdi mdi-google-maps"></i>Monitorear</a></li>
                         <li class="nav-item"><a class="nav-link" href="?c=entregas"><i
                                     class="mdi mdi-package-variant"></i>Entregas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="?c=calificar"><i class="mdi mdi-star-half"></i>Calificar
+                        <li class="nav-item"><a class="nav-link" href="?c=calificar"><i
+                                    class="mdi mdi-star-half"></i>Calificar
                                 Conductor</a></li>
                     </ul>
                 </div>
@@ -143,7 +144,98 @@
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
 
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class="card report-card">
+                        <div class="card-body">
+                            <div class="float-right">
+                                <i class="dripicons-user-group report-main-icon"></i>
+                            </div>
+                            <span class="badge badge-blue">Usuarios</span>
+                            <h3 class="my-3"> 15</h3>
+                            
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-md-3">
+                    <div class="card report-card">
+                        <div class="card-body">
+                            <div class="float-right">
+                                <i class="dripicons-inbox report-main-icon"></i>
+                            </div>
+                            <span class="badge badge-secondary">Entregas Hoy</span>
+                            <h3 class="my-3">9</h3>
+                           
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-md-3">
+                    <div class="card report-card">
+                        <div class="card-body">
+                            <div class="float-right">
+                                <i class="dripicons-user report-main-icon"></i>
+                            </div>
+                            <span class="badge badge-warning">Conductores</span>
+                            <h3 class="my-3">15</h3>
+                            
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-md-3">
+                    <div class="card report-card">
+                        <div class="card-body">
+                            <div class="float-right">
+                                <i class="dripicons-rocket report-main-icon"></i>
+                            </div>
+                            <span class="badge badge-success">Vehículos</span>
+                            <h3 class="my-3">14</h3>
+                           
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
 
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mt-0">Reporte de Entregas por meses</h4>
+                            <div class="">
+                                <div id="ana_dash_1" class="apex-charts"></div>
+                            </div>
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                    
+                </div>
+                <!--end col-->
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mt-0">Entregas de hoy</h4>
+                            <div id="ana_device" class="apex-charts"></div>                            
+                        </div>
+                        <!--end card-body-->
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
 
 
             <!-- ========================================================================================== -->
