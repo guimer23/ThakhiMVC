@@ -216,25 +216,93 @@
     <!-- end page content -->
 </div>
 <script type="text/javascript">
+var map = null;
+var markersArray = [];
+
+$(function(){
+    setInterval(function(){ obtenerEntregas(); }, 5000);
+});
+
 var initMap = function(){
     var myLatLng = {lat: -18.0315509, lng: -70.2659201};
 
-  var map = new google.maps.Map(document.getElementById('mapa'), {
-    zoom: 13,
-    center: myLatLng,
-    mapTypeId: 'roadmap'
-  });
+    map = new google.maps.Map(document.getElementById('mapa'), {
+        zoom: 13,
+        center: myLatLng,
+        mapTypeId: 'roadmap'
+    });
 
-  <?php foreach($model as $m): ?>
-  var marker = new google.maps.Marker({
-    position: {lat: <?php echo $m->VEClatitud; ?>, lng: <?php echo $m->VEClongitud; ?>},
-    map: map,
-    title: 'Entrega x'
-  });
+    <?php foreach($model as $m): ?>
+    var marker<?php echo $m->ENTid; ?> = new google.maps.Marker({
+        position: {lat: <?php echo $m->VEClatitud; ?>, lng: <?php echo $m->VEClongitud; ?>},
+        map: map,
+        title: 'Entrega #<?php echo $m->ENTid; ?>'
+    });
 
-  marker.setMap(map);
+    var infowindow<?php echo $m->ENTid; ?> = new google.maps.InfoWindow({
+        content: '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Entrega #<?php echo $m->ENTid; ?></h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Cliente:</b> <?php echo $m->CLInombre; ?></p><hr>'+
+      '<p><b>Conductor:</b> <?php echo $m->CONnombre; ?> <?php echo $m->CONapellido; ?></p>'+
+      '<p><b>DNI:</b> <?php echo $m->CONdni; ?></p> <b>Celular:</b> <?php echo $m->CONcelular; ?></p><hr>'+
+      '<p><b>Placa del Vehiculo:</b> <?php echo $m->VEHplaca; ?></p>'+
+      '</div>'+
+      '</div>'
+    });
 
-  <?php endforeach; ?>
+    marker<?php echo $m->ENTid; ?>.addListener('click', function() {
+        infowindow<?php echo $m->ENTid; ?>.open(map, marker<?php echo $m->ENTid; ?>);
+    });
+
+    markersArray.push(marker<?php echo $m->ENTid; ?>);
+    <?php endforeach; ?>
+}
+
+function obtenerEntregas(){
+    $.get( "/?c=monitorear&a=ajax", function(data){
+        eliminarMarcadores();
+
+        data.forEach(function(item, index){
+            fijarMarcador(item);
+        });
+    }, "json");
+}
+
+function fijarMarcador(data){
+    var contentString = '<div id="content">'+
+      '<h1 id="firstHeading" class="firstHeading">Entrega #' + data.ENTid + '</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Cliente:</b> ' + data.CLInombre + '</p><hr>'+
+      '<p><b>Conductor:</b> ' + data.CONnombre + ' ' + data.CONapellido + '</p>'+
+      '<p><b>DNI:</b> ' + data.CONdni + '</p> <b>Celular:</b> ' + data.CONcelular + '</p><hr>'+
+      '<p><b>Placa del Vehiculo:</b> ' + data.VEHplaca + '</p>'+
+      '</div>'+
+      '</div>';
+
+    var marker = new google.maps.Marker({
+        position: {lat: parseFloat(data.VEClatitud), lng: parseFloat(data.VEClongitud)},
+        map: map,
+        title: 'Entrega #' + data.ENTid
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+
+    markersArray.push(marker);
+}
+
+function eliminarMarcadores(){
+    for (var i = 0; i < markersArray.length; i++ ) {
+        markersArray[i].setMap(null);
+    }
+
+    markersArray.length = 0;
 }
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeB28AE1Xw3Ert5DOBYsO_EO_oQz1PFSw&callback=initMap" ></script>

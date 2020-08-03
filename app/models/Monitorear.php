@@ -13,7 +13,7 @@ class Monitorear{
     public function listar() : array{
         $result = [];     
         try {
-            $stm = $this->pdo->prepare('SELECT  vhi.VEHid, vhi.CONdni,co.CONnombre,co.CONapellido,co.CONcelular,vehi.VEHplaca,  vhi.VEClatitud,vhi.VEClongitud,cli.CLInombre,ent.ENTestado FROM admvectvehiculo_conductor as vhi
+            $stm = $this->pdo->prepare('SELECT ent.ENTid, vhi.VEHid, vhi.CONdni,co.CONnombre,co.CONapellido,co.CONcelular,vehi.VEHplaca,  vhi.VEClatitud,vhi.VEClongitud,cli.CLInombre,ent.ENTestado FROM admvectvehiculo_conductor as vhi
             inner join admcontconductor as co
             on vhi.condni= co.CONdni
             inner join admvehtvehiculo as vehi

@@ -12,7 +12,7 @@
     <script src="public/plugins/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="public/plugins/peity-chart/jquery.peity.min.js"></script>
 
-    <script src="public/pages/jquery.ana_customers.inity.js"></script>
+    
 
     <!-- Required dropify js -->
     <script src="public/plugins/dropify/js/dropify.min.js"></script>

@@ -29,9 +29,11 @@ class   MonitorearController{
        // require_once _VIEW_PATH_ . 'mapa/marcadores.php';
     }
 
-   
-    
-
+    public function ajax() {
+        $model = $this->monitorear->listar();
+        
+        echo json_encode($model);
+    }
 
 }
 
