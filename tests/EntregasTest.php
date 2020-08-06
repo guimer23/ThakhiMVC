@@ -12,13 +12,13 @@ final class EntregasTest extends TestCase
     {
         $entrega = new Entregas;
 
-        $entrega->ENTdescripcion  = 'Compra Z';
+        $entrega->ENTdescripcion  = 'Compra de una fuente de chicharrones';
         $entrega->ENTtipo  = 'Comida';
         $entrega->VECid = '5';    
-        $entrega->ENTfechahora  = '2020-07-31';
+        $entrega->ENTfechahora  = '2020-08-05';
         $entrega->CLIdni  = '2323';
-        $entrega->ENTprecio = '25'; 
-        $entrega->ENTestado = 'I'; 
+        $entrega->ENTprecio = '30'; 
+        $entrega->ENTestado = 'P'; 
 
         $result = $entrega->guardar($entrega);
 
