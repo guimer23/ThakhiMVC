@@ -171,8 +171,7 @@ class   Usuario{
         }
 
         return $result;
-    }
-
+    }    
 }
 
 

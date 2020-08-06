@@ -144,6 +144,37 @@
             <!-- INICIA SECCION CONTENIDO -->
             <!-- ========================================================================================== -->
 
+            <?php 
+
+            $totalUsuarios=0; 
+            $totalConductor=0; 
+            $totalVehiculo=0; 
+            $totalEntregas=0;
+            
+            $fecha=date("Y") . "-" . date("m") . "-" . date("d");
+
+            foreach($modelUsuario as $m){
+                $totalUsuarios++;
+            }
+            foreach($modelConductor as $m){
+                $totalConductor++;
+            }
+            foreach($modelVehiculo as $m){
+                $totalVehiculo++;
+            }
+            foreach($modelEntregas as $m){
+
+                if($m->ENTfechahora==$fecha){
+                    $totalEntregas++;
+                }
+                
+                
+            }
+                
+            ?>     
+
+
+
             <div class="row justify-content-center">
                 <div class="col-md-3">
                     <div class="card report-card">
@@ -152,13 +183,15 @@
                                 <i class="dripicons-user-group report-main-icon"></i>
                             </div>
                             <span class="badge badge-blue">Usuarios</span>
-                            <h3 class="my-3"> 15</h3>
                             
+                            <h3 class="my-3"><?php echo $totalUsuarios; ?></h3>
+
                         </div>
                         <!--end card-body-->
                     </div>
                     <!--end card-->
                 </div>
+
                 <!--end col-->
                 <div class="col-md-3">
                     <div class="card report-card">
@@ -167,8 +200,8 @@
                                 <i class="dripicons-inbox report-main-icon"></i>
                             </div>
                             <span class="badge badge-secondary">Entregas Hoy</span>
-                            <h3 class="my-3">9</h3>
-                           
+                            <h3 class="my-3"><?php echo $totalEntregas; ?></h3>
+
                         </div>
                         <!--end card-body-->
                     </div>
@@ -182,8 +215,8 @@
                                 <i class="dripicons-user report-main-icon"></i>
                             </div>
                             <span class="badge badge-warning">Conductores</span>
-                            <h3 class="my-3">15</h3>
-                            
+                            <h3 class="my-3"><?php echo $totalConductor; ?></h3>
+
                         </div>
                         <!--end card-body-->
                     </div>
@@ -197,8 +230,8 @@
                                 <i class="dripicons-rocket report-main-icon"></i>
                             </div>
                             <span class="badge badge-success">Vehículos</span>
-                            <h3 class="my-3">14</h3>
-                           
+                            <h3 class="my-3"><?php echo $totalVehiculo; ?></h3>                          
+
                         </div>
                         <!--end card-body-->
                     </div>
@@ -220,14 +253,14 @@
                         <!--end card-body-->
                     </div>
                     <!--end card-->
-                    
+
                 </div>
                 <!--end col-->
                 <div class="col-lg-5">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title mt-0">Entregas de hoy</h4>
-                            <div id="ana_device" class="apex-charts"></div>                            
+                            <div id="ana_device" class="apex-charts"></div>
                         </div>
                         <!--end card-body-->
                     </div>
