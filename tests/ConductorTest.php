@@ -12,7 +12,7 @@ final class ConductorTest extends TestCase
     {
         $conductor = new Conductor;
 
-        $conductor->CONdni='47199491';
+        $conductor->CONdni='47199490';
         $conductor->CONnombre='Guimer';
         $conductor->CONapellido='Coaquira';
         $conductor->CONlicencia='K1-47199491';

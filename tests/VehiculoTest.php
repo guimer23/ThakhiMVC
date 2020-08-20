@@ -12,7 +12,7 @@ final class VehiculoTest extends TestCase
     {
         $Vehiculo = new Vehiculo;
 
-        $Vehiculo->VEHplaca = '00236';
+        $Vehiculo->VEHplaca = '002366';
         $Vehiculo->VEHmarca = 'Huawari';
         $Vehiculo->VEHmodelo = 'model Z Ulmate';
         $Vehiculo->VEHcolor = 'Negro Oscuro';

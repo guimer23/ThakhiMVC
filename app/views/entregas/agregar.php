@@ -199,7 +199,7 @@
                                                             <?php foreach($vehiculoconductor as $p): ?>
 
                                                             <option value="<?php echo $p->VECid; ?> "<?php echo $nuevo ? '' : ($model->VECid == $p->VECid ? ' selected=""':'');?>>
-                                                                <?php echo $p->CONnombre; ?></option>
+                                                                <?php echo $p->CONnombre.' '.$p->CONapellido; ?></option>
 
                                                             <?php endforeach; ?>
 
@@ -225,7 +225,7 @@
                                                             <?php foreach($clientes as $p): ?>
 
                                                             <option value="<?php echo $p->CLIdni; ?>"<?php echo $nuevo ? '' : ($model->CLIdni == $p->CLIdni ? ' selected=""':'');?>>
-                                                                <?php echo $p->CLInombre; ?></option>
+                                                                <?php echo $p->CLInombre.' '.$p->CLIapellido; ?></option>
 
                                                             <?php endforeach; ?>
                                                         </select>

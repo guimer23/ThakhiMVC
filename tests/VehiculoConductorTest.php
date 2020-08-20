@@ -12,7 +12,7 @@ final class VehiculoConductorTest extends TestCase
     {
         $VehiculoConductor = new VehiculoConductor;
 
-        $VehiculoConductor->CONdni = '73929771';
+        $VehiculoConductor->CONdni = '47199491';
         $VehiculoConductor->VEHid = '6';
         $VehiculoConductor->VECestado = 'A';
 

@@ -12,7 +12,7 @@ final class ClienteTest extends TestCase
     {
         $cliente = new Cliente;
 
-        $cliente->CLIdni='77127218';
+        $cliente->CLIdni='77127220';
         $cliente->CLInombre='Jhosmell';
         $cliente->CLIapellido='Alfaro';
         $cliente->CLIcelular='952614602';

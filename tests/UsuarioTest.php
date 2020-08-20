@@ -35,8 +35,8 @@ final class UsuarioTest extends TestCase
 
     public function testLogin()
     {
-        $USUusuario = 'gordiss';
-        $USUpassword = '123';
+        $USUusuario = 'Sandra';
+        $USUpassword = '2323';
 
         $usuario = new Usuario;
         $result = $usuario->logear($USUusuario, $USUpassword);
