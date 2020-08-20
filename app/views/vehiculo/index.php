@@ -244,7 +244,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Vehiculo</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
@@ -254,7 +254,7 @@
                                 </div>
                                 <div class="col-lg-9 align-self-center">
                                     <div class="single-pro-detail">
-                                        <p class="mb-1">Cliente</p>
+                                        <p class="mb-1">Vehículo</p>
                                         <div class="custom-border mb-3"></div>
                                         <table class="table">
                                             <thead class="thead-light">

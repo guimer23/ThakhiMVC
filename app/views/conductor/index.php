@@ -236,7 +236,7 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Cliente</h5>
+                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Detalle de Conductor</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
@@ -266,11 +266,11 @@
                                                     <td id="licenciav"> </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>VIGENCIA SOAT</th>
+                                                    <th>VIGENCIA LICENCIA</th>
                                                     <td id="soatv"> </td>
                                                 </tr>
                                                 <tr>
-                                                    <th>CELULARA</th>
+                                                    <th>CELULAR</th>
                                                     <td id="celularv"> </td>
                                                 </tr>
                                                 <tr>
